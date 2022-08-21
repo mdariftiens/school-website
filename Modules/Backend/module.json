@@ -6,6 +6,7 @@
     "priority": 0,
     "providers": [
         "Modules\\Backend\\Providers\\BackendServiceProvider",
+        "Modules\\Frontend\\Providers\\FrontendServiceProvider",
         "Modules\\API\\Providers\\APIServiceProvider"
     ],
     "aliases": {},
