@@ -4,6 +4,7 @@ namespace Modules\Backend\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Backend\Entities\WidgetBar;
 use Modules\Backend\Entities\WidgetFields;
 use Modules\Backend\Entities\Widgets;
 
@@ -29,6 +30,12 @@ class WidgetsTableSeeder extends Seeder
             'field_value' => '3',
         ]);
 
+        WidgetBar::create([
+            'widget_id' => $widget->id,
+            'bar_name' => 'right-sidebar',
+            'display_serial_number' => 2,
+        ]);
+
         $widget = Widgets::create([
             'type' => 'notice',
             'name' => 'notice-2',
@@ -50,6 +57,12 @@ class WidgetsTableSeeder extends Seeder
             'widget_id' => $widget->id,
             'field_name' => 'number_of_event_show',
             'field_value' => '3',
+        ]);
+
+        WidgetBar::create([
+            'widget_id' => $widget->id,
+            'bar_name' => 'right-sidebar',
+            'display_serial_number' => 1,
         ]);
 
         $widget = Widgets::create([
