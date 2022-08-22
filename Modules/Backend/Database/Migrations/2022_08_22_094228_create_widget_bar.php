@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('widget_bar', function (Blueprint $table) {
             $table->id();
             $table->integer('widget_id');
-            $table->string('bar_name',200);
-            $table->text('display_serial_number');
+            $table->string('sidebar_name',200);
+            $table->integer('display_serial_number')->default(0);
             $table->timestamps();
         });
     }

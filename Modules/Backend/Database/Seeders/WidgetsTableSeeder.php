@@ -32,7 +32,7 @@ class WidgetsTableSeeder extends Seeder
 
         WidgetBar::create([
             'widget_id' => $widget->id,
-            'bar_name' => 'right-sidebar',
+            'sidebar_name' => 'right-sidebar',
             'display_serial_number' => 2,
         ]);
 
@@ -61,7 +61,7 @@ class WidgetsTableSeeder extends Seeder
 
         WidgetBar::create([
             'widget_id' => $widget->id,
-            'bar_name' => 'right-sidebar',
+            'sidebar_name' => 'right-sidebar',
             'display_serial_number' => 1,
         ]);
 
