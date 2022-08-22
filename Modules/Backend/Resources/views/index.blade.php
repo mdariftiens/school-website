@@ -1,6 +1,6 @@
-@extends('backend::layouts.master')
+@extends('backend::layouts.commonMaster')
 
-@section('content')
+@section('layoutContent')
     <h1>Hello World</h1>
 
     <p>
