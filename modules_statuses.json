@@ -1,5 +1,6 @@
 {
     "Backend": true,
     "API": true,
-    "Frontend": true
+    "Frontend": true,
+    "Widgets": true
 }
