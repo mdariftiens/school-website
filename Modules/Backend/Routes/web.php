@@ -13,4 +13,5 @@
 
 Route::prefix('backend')->group(function() {
     Route::get('/', 'BackendController@index');
+    Route::get('/widgets', [\Modules\Backend\Http\Controllers\Widgets\WidgetsController::class,'index']);
 });
