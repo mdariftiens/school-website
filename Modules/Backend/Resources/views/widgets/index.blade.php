@@ -46,7 +46,7 @@
                         <tr>
                             <th>#</th>
                             <th>type</th>
-                            <th>Title</th>
+                            <th>English Title</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -56,7 +56,7 @@
                             <tr class="row-{{ $item->id }}">
                                 <td>{{ $item->id }}</td>
                                 <td>{{ $item->type }}</td>
-                                <td>{{ $item->title }}</td>
+                                <td>{{ $item->english_title }}</td>
                                 <td>
                                     <div class="dropdown">
                                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-dots-vertical-rounded"></i></button>

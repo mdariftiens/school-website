@@ -13,6 +13,7 @@ class WidgetsRepository
         return[
             'message' => 'Message',
             'notice' => 'Notice',
+            'event' => 'Event',
             'news' => 'News',
             'visitor_counter' => 'Visitor Counter',
             'custom' => 'Custom',

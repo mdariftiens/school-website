@@ -12,7 +12,8 @@ class Widgets extends BackendModel
 
     protected $fillable = [
         'type',
-        'title',
+        'bangla_title',
+        'english_title',
         'header_template',
         'header_background_color',
         'header_text_color',

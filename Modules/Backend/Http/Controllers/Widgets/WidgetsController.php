@@ -34,7 +34,8 @@ class WidgetsController extends Controller
     {
 
         $request->validate([
-            'title' => 'required',
+            'bangla_title' => 'required',
+            'english_title' => 'required',
             'type' => 'required'
         ]);
 
@@ -60,7 +61,8 @@ class WidgetsController extends Controller
     public function update(Request $request, $widgetId)
     {
         $request->validate([
-            'title' => 'required',
+            'bangla_title' => 'required',
+            'english_title' => 'required',
             'type' => 'required'
         ]);
 

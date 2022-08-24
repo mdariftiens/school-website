@@ -1,6 +1,6 @@
 @extends('backend::layouts/contentNavbarLayout')
 
-@section('title', 'Widgets - create')
+@section('bangla_title', 'Widgets - create')
 
 @section('content')
     <div class="row">
@@ -9,7 +9,7 @@
 
                 <div class="card-header flex-column flex-md-row">
                     <div class="head-label text-center">
-                        <h5 class="card-title mb-0">Create Widget</h5>
+                        <h5 class="card-bangla_title mb-0">Create Widget</h5>
                     </div>
                     <div class="dt-action-buttons text-end pt-3 pt-md-0">
                         <div class="dt-buttons">
@@ -40,9 +40,16 @@
 
 
                             <div class="mb-3">
-                                <label for="title" class="form-label">Title</label>
-                                <input id="title" type="text" class="form-control" name="title" placeholder="Title here..." required>
-                                @error('title')<span>{{ $error['title'] }}</span>@enderror
+                                <label for="bangla_title" class="form-label">Bangla Title</label>
+                                <input id="bangla_title" type="text" class="form-control" name="bangla_title" placeholder="bangla_title here..." required>
+                                @error('bangla_title')<span>{{ $error['bangla_title'] }}</span>@enderror
+
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="english_title" class="form-label">English Title</label>
+                                <input id="english_title" type="text" class="form-control" name="english_title" placeholder="english_title here..." required>
+                                @error('english_title')<span>{{ $error['english_title'] }}</span>@enderror
 
                             </div>
 

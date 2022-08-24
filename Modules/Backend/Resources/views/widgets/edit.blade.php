@@ -42,9 +42,16 @@
 
 
                             <div class="mb-3">
-                                <label for="title" class="form-label">Title</label>
-                                <input id="title" type="text" class="form-control" name="title" placeholder="Title here..." required  value="{{ old('title',$widgetDetail->title) }}">
-                                @error('title')<span class="text-danger">{{ $message }}</span>@enderror
+                                <label for="bangla_title" class="form-label">Bangla Title</label>
+                                <input id="bangla_title" type="text" class="form-control" name="bangla_title" placeholder="bangla_title here..." required  value="{{ old('bangla_title',$widgetDetail->bangla_title) }}">
+                                @error('bangla_title')<span class="text-danger">{{ $message }}</span>@enderror
+
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="english_title" class="form-label">Englis title</label>
+                                <input id="english_title" type="text" class="form-control" name="english_title" placeholder="english_title here..." required  value="{{ old('english_title',$widgetDetail->english_title) }}">
+                                @error('english_title')<span class="text-danger">{{ $message }}</span>@enderror
 
                             </div>
 
