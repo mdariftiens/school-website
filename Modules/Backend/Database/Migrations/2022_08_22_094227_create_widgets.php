@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('widgets', function (Blueprint $table) {
             $table->id();
             $table->string('type',200);
-            $table->string('title',200);
+            $table->string('bangla_title',200);
+            $table->string('english_title',200);
 
             $table->string('header_template',200)->nullable();
             $table->string('header_background_color')->nullable();

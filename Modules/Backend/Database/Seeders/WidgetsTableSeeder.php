@@ -21,7 +21,8 @@ class WidgetsTableSeeder extends Seeder
 
         $widget = Widgets::create([
             'type' => 'notice',
-            'title' => 'notice 1',
+            'bangla_title' => 'notice 1',
+            'english_title' => 'notice 1',
             //'name' => 'notice-1',
             'header_template' =>'',
             'header_background_color' => null,
@@ -47,7 +48,8 @@ class WidgetsTableSeeder extends Seeder
         $widget = Widgets::create([
             'type' => 'message',
             //'name' => 'message-2',
-            'title' => 'message-2',
+            'bangla_title' => 'message-2',
+            'english_title' => 'message 2',
         ]);
 
         WidgetFields::create([
@@ -66,7 +68,9 @@ class WidgetsTableSeeder extends Seeder
         $widget = Widgets::create([
             'type' => 'event',
             //'name' => 'event-1',
-            'title' => 'event-1',
+            'bangla_title' => 'event-1',
+            'english_title' => 'event 1',
+
         ]);
 
         WidgetFields::create([
@@ -82,14 +86,20 @@ class WidgetsTableSeeder extends Seeder
         ]);
 
         $widget = Widgets::create([
-            'type' => 'custom-widget',
-            //'name' => 'custom-widget-1',
-            'title' => 'custom-widget-1',
+            'type' => 'custom',
+            'bangla_title' => 'custom-1',
+            'english_title' => 'custom 1',
         ]);
 
         WidgetFields::create([
             'widget_id' => $widget->id,
-            'field_name' => 'display-text-html',
+            'field_name' => 'bangla_text_or_html',
+            'field_value' => 'Lorem ipsum dolor sit amet, suas tation eu has, te elit legere vidisse eos, nisl adipisci vel in. Eu ius alia antiopam periculis. Id his populo urbanitas, eam ullum patrioque torquatos at. Pro singulis consulatu ea, in ius falli paulo consequat. Et ius ocurreret evertitur scribentur. Mea cu alii oratio legimus, ut vitae causae discere mel. Mei ne nonumy referrentur conclusionemque.',
+        ]);
+
+        WidgetFields::create([
+            'widget_id' => $widget->id,
+            'field_name' => 'english_text_or_html',
             'field_value' => 'Lorem ipsum dolor sit amet, suas tation eu has, te elit legere vidisse eos, nisl adipisci vel in. Eu ius alia antiopam periculis. Id his populo urbanitas, eam ullum patrioque torquatos at. Pro singulis consulatu ea, in ius falli paulo consequat. Et ius ocurreret evertitur scribentur. Mea cu alii oratio legimus, ut vitae causae discere mel. Mei ne nonumy referrentur conclusionemque.',
         ]);
 
