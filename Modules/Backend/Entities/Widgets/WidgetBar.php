@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Backend\Entities;
+namespace Modules\Backend\Entities\Widgets;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Modules\Backend\Abstracts\BackendModel;
