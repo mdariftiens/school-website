@@ -51,6 +51,11 @@ class WidgetsRepository
         $widgetFields = $request->{$request->type};
 
 
+        if (!count($widgetFields))
+        {
+            return;
+        }
+
         foreach ($widgetFields as $fieldName => $fieldValue)
         {
             WidgetFields::create([
