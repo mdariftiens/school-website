@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('widget_fields', function (Blueprint $table) {
             $table->id();
             $table->integer('widget_id');
-            $table->string('field_name',200);
-            $table->text('field_value');
+            $table->string('field_name',500);
+            $table->text('field_value')->nullable();
             $table->timestamps();
             $table->softDeletes();
 
