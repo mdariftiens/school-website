@@ -47,7 +47,7 @@
                                 </li>
                             @endforeach
                         @else
-                            <h2 class="alert-danger">No widgets found!</h2>
+                            <span class="alert-warning">No widgets found!</span>
                         @endif
 
                     </ul>
@@ -70,12 +70,12 @@
                 <div class="card-body">
                     @include("backend::messages.message")
 
-                    @if(isset($sidebarWidgets) && count($sidebarWidgets))
 
-                    <form action="{{ route('sidebar.update',['sidebarName' => request()->sidebarId]) }}" method="POST">
+
+                    <form action="{{ route('sidebar.update',['sidebarName' => request()->sidebarId??'.']) }}" method="POST">
                         @csrf
                         <ul class="list-group p-0 m-0 sortable">
-                            {{--                        widgets.id','widgets.type','widgets.name','display_serial_number--}}
+                            @if(isset($sidebarWidgets) && count($sidebarWidgets))
                                 @foreach($sidebarWidgets as $sidebarWidget)
                                     <li class="list-group-item">
                                         <input type="hidden" name="widget_id[]" value="{{ $sidebarWidget->id }}">
@@ -89,12 +89,13 @@
                                         </div>
                                     </li>
                                 @endforeach
+                            @endif
                         </ul>
                         <br>
+                        @if(request()->sidebarId)
                         <input class="btn btn-primary" type="submit" value="Save Changes">
+                        @endif
                     </form>
-                    @endif
-
                 </div>
             </div>
         </div>

@@ -29,13 +29,16 @@ class SidebarRepository
         WidgetBar::where('sidebar_name', $sidebarName)->forceDelete();
 
         $i = 1;
-        foreach ($request->widget_id as $widgetId){
+        if($request->widget_id && is_array($request->widget_id) ){
 
-            WidgetBar::create([
-                'widget_id' => $widgetId,
-                'sidebar_name' => $sidebarName,
-                'display_serial_number' => $i++,
-            ]);
+            foreach ($request->widget_id as $widgetId){
+
+                WidgetBar::create([
+                    'widget_id' => $widgetId,
+                    'sidebar_name' => $sidebarName,
+                    'display_serial_number' => $i++,
+                ]);
+            }
         }
     }
 }
