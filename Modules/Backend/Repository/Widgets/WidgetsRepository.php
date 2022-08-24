@@ -52,7 +52,7 @@ class WidgetsRepository
         $widgetFields = $request->{$request->type};
 
 
-        if (!count($widgetFields))
+        if (!is_array($widgetFields) || count($widgetFields)==0)
         {
             return;
         }
@@ -71,6 +71,13 @@ class WidgetsRepository
     public function getWidgetDetailData($widgetId)
     {
         return Widgets::with('widgetFields')->find($widgetId);
+    }
+
+    public function delete($widgetId)
+    {
+        Widgets::where('id', $widgetId)->forceDelete();
+        WidgetFields::where('widget_id', $widgetId)->forceDelete();
+        WidgetBar::where('widget_id', $widgetId)->forceDelete();
     }
 
 

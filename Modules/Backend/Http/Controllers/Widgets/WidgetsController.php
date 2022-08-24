@@ -72,8 +72,9 @@ class WidgetsController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy($widgetId)
     {
-
+        $this->widgetsRepository->delete($widgetId);
+        return response()->json(['message' => 'deleted']);
     }
 }

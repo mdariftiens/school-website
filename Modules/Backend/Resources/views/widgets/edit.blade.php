@@ -83,7 +83,7 @@
 
                             <div class="mb-3">
                                 <label for="content_hover_color" class="form-label">Content Hover Color</label>
-                                <input type="color" class="form-control" name="content_hover_color" id="content_hover_color">
+                                <input type="color" class="form-control" name="content_hover_color" id="content_hover_color" value="{{ old('content_hover_color',$widgetDetail->content_hover_color) }}">
                             </div>
 
                             @php
