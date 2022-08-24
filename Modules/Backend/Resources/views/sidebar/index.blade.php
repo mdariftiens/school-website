@@ -6,16 +6,17 @@
     <div class="row">
         <div class="">
             <form action="">
-                <div class="form">
-                    <label for="sidebarId">select sidebar</label>
+                <div class="mb-3">
+                    <label for="sidebarId" class="form-label">select sidebar</label>
 
-                    <select name="sidebarId" id="sidebarId">
+                    <select name="sidebarId" id="sidebarId" class="form-select">
                         <option value="">select sidebar</option>
                         @foreach($sidebarIdArray as $sidebarId)
                             <option @if(request()->sidebarId==$sidebarId) selected @endif value="{{ $sidebarId }}">{{ $sidebarId }}</option>
                         @endforeach
                     </select>
                 </div>
+
             </form>
 
         </div>
@@ -23,29 +24,26 @@
             <div class="card h-100">
                 <div class="card-header d-flex align-items-center justify-content-between pb-0">
                     <div class="card-title mb-0">
-                        <h5 class="m-0 me-2">Widgets List</h5>
+                        <h5 class="m-2 me-2">Widgets List</h5>
                     </div>
-                    <div class="dropdown">
-                        <button class="btn p-0" type="button" id="orederStatistics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="bx bx-dots-vertical-rounded"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="orederStatistics">
-                            <a class="dropdown-item" href="javascript:void(0);">Select All</a>
-                            <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
-                            <a class="dropdown-item" href="javascript:void(0);">Share</a>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="card-body">
-                    <ul class="p-0 m-0">
+                    <ul class="list-group p-0 m-0">
                         @if(isset($widgetsList) && count($widgetsList))
                             @foreach($widgetsList as $widget)
-                                <li class="d-flex mb-4 pb-1">
-                                    <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                        <div>
-                                            <h6>{{ $widget->name }} - {{ $widget->type }}</h6>
+                                <li class="list-group-item mb-0">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            {{ $widget->type }} | {{ $widget->english_title }}
+                                        </div>
+                                        <div class="card-body">
+                                            <button class="btn btn-primary btn-sm add_item" type="button" data-id="{{ $widget->id }}" data-type="{{ $widget->type }}" data-english_title="{{ $widget->english_title }}">
+                                               Add To Sidebar
+                                            </button>
                                         </div>
                                     </div>
+
                                 </li>
                             @endforeach
                         @else
@@ -62,7 +60,7 @@
 
                 <div class="card-header d-flex align-items-center justify-content-between pb-0">
                     <div class="card-title mb-0">
-                        <h5 class="m-0 me-2">Widgets List
+                        <h5 class=" m-2  me-2">Widgets List
                             @if(isset($sidebarWidgets) && count($sidebarWidgets))
                                  - {{ count($sidebarWidgets) }} widgets
                             @endif
@@ -70,30 +68,30 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    @if( session()->has('message'))
-                        <div class="alert">
-                            <div class="alert-info">
-                                {{ session()->get('message') }}
-                            </div>
-                        </div>
-                    @endif
+                    @include("backend::messages.message")
+
                     @if(isset($sidebarWidgets) && count($sidebarWidgets))
 
                     <form action="{{ route('sidebar.update',['sidebarName' => request()->sidebarId]) }}" method="POST">
                         @csrf
-                        <ul class="p-0 m-0 sortable">
+                        <ul class="list-group p-0 m-0 sortable">
                             {{--                        widgets.id','widgets.type','widgets.name','display_serial_number--}}
                                 @foreach($sidebarWidgets as $sidebarWidget)
-                                    <li>
+                                    <li class="list-group-item">
                                         <input type="hidden" name="widget_id[]" value="{{ $sidebarWidget->id }}">
-                                        {{ $sidebarWidget->type }}
-                                        {{ $sidebarWidget->name }}
-                                        {{ $sidebarWidget->display_serial_number }}
+                                        <div class="card">
+                                            <div class="card-header">
+                                                {{ $sidebarWidget->type }} ||
+                                                {{ $sidebarWidget->english_title }}
 
+                                                <button class="btn btn-sm btn-outline-info remove_item"  type="button">x</button>
+                                            </div>
+                                        </div>
                                     </li>
                                 @endforeach
                         </ul>
-                        <input type="submit" name="Save">
+                        <br>
+                        <input class="btn btn-primary" type="submit" value="Save Changes">
                     </form>
                     @endif
 
@@ -115,6 +113,31 @@
                 }
             });
 
+            $('body').on('click','form .remove_item', function(){
+                console.log('clicked on .remove_item')
+                if(confirm("sure to delete?")){
+                    $(this).parents('li').remove()
+                }
+            })
+
+            $('body').on('click','.add_item', function(){
+                console.log('clicked on .add_item')
+                widgetId = $(this).data('id')
+                widgetType = $(this).data('type')
+                widgetEnglishTitle = $(this).data('english_title')
+                item = `<li class="list-group-item">
+                                <input type="hidden" name="widget_id[]" value="${widgetId}">
+                                <div class="card">
+                                <div class="card-header">
+                                ${widgetEnglishTitle} ||
+                                ${widgetEnglishTitle}
+
+                                <button class="btn btn-sm btn-outline-info remove_item"  type="button">x</button>
+                            </div>
+                            </div>
+                        </li>`
+                $('form ul').append(item)
+            })
 
         });
         $(".sortable").sortable();

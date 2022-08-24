@@ -27,7 +27,7 @@ class WidgetsRepository
 
     public function getSidebarWidget(mixed $sidebarId)
     {
-        return WidgetBar::select('widgets.id','widgets.type','widgets.name','display_serial_number')
+        return WidgetBar::select('widgets.id','widgets.type','widgets.bangla_title','widgets.english_title','display_serial_number')
             ->join('widgets','widgets.id','widget_bar.widget_id')
             ->where('sidebar_name', $sidebarId)
             ->where('widgets.deleted_at', null)
