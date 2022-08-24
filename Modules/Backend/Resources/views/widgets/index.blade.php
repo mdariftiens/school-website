@@ -4,42 +4,112 @@
 
 @section('content')
     <div class="row">
-        <div class="col-md-6 col-lg-4 col-xl-4 order-0 mb-4">
-            <div class="card h-100">
-                <div class="card-header d-flex align-items-center justify-content-between pb-0">
-                    <div class="card-title mb-0">
-                        <h5 class="m-0 me-2">Widgets List</h5>
+        <div class="col-md-12 col-lg-12 mb-4">
+            @include("backend::messages.message")
+            <div class="card">
+
+                <div class="card-header flex-column flex-md-row">
+                    <div class="head-label text-center">
+                        <h5 class="card-title mb-0">Widget List</h5>
                     </div>
-                    <div class="dropdown">
-                        <button class="btn p-0" type="button" id="orederStatistics" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="bx bx-dots-vertical-rounded"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="orederStatistics">
-                            <a class="dropdown-item" href="javascript:void(0);">Select All</a>
-                            <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
-                            <a class="dropdown-item" href="javascript:void(0);">Share</a>
+                    <div class="dt-action-buttons text-end pt-3 pt-md-0">
+                        <div class="dt-buttons">
+
+                            <a class="dt-button create-new btn btn-info"
+                               href="{{ route('widgets.index') }}">
+                                <span><i class="bx bx-list-ol me-sm-2"></i>
+                                    <span class="d-none d-sm-inline-block">List</span>
+                                </span>
+                            </a>
+
+
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span><i class="bx bx-plus me-sm-2"></i>
+                                    <span class="d-none d-sm-inline-block">Add New</span>
+                                </span>                                </button>
+                                <ul class="dropdown-menu" style="">
+                                    @foreach($widgetTypeList as $key=>$widgetType)
+                                    <li><a class="dropdown-item" href="{{ route('widgets.create') }}?widgetType={{$key}}">{{$widgetType}}</a></li>
+                                    @endforeach
+
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <ul class="p-0 m-0">
-                        <li class="d-flex mb-4 pb-1">
-                            <div class="avatar flex-shrink-0 me-3">
-                                <span class="avatar-initial rounded bg-label-success"><i class='bx bx-closet'></i></span>
-                            </div>
-                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
-                                <div class="me-2">
-                                    <h6 class="mb-0">Fashion</h6>
-                                    <small class="text-muted">T-shirt, Jeans, Shoes</small>
-                                </div>
-                                <div class="user-progress">
-                                    <small class="fw-semibold">23.8k</small>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+
+                <div class="">
+
+                    <table class="table text-nowrap">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>type</th>
+                            <th>Title</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody class="table-border-bottom-0">
+
+                        @forelse($list as $item)
+                            <tr class="row-{{ $item->id }}">
+                                <td>{{ $item->id }}</td>
+                                <td>{{ $item->type }}</td>
+                                <td>{{ $item->title }}</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false"><i class="bx bx-dots-vertical-rounded"></i></button>
+                                        <div class="dropdown-menu" style="">
+                                            <a class="dropdown-item" href="{{ route('widgets.edit',$item->id) }}"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                                            <a class="dropdown-item delete" href="javascript:void(0);" data-id="{{ $item->id }}"><i class="bx bx-trash me-1"></i> Delete</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="5">
+                                    <div class="text-center text-info">No widgets found!</div>
+                                </td>
+                            </tr>
+                        @endforelse
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function(){
+            $('.delete').on('click',function () {
+                if(confirm("are you sure to delete?")){
+
+                    id = $(this).data('id');
+                    url = "{{ route('widgets.destroy','@@@') }}"
+                    url = url.replace("@@@",id)
+
+                    $.ajax(
+                        {
+                            url: url,
+                            type: 'DELETE',
+                            data: {
+                                "id": id,
+                                "_token": "{{ csrf_token() }}",
+                            },
+                            success: function (){
+                                console.log('.row-'+id);
+                                $('.row-'+id).fadeOut(1000,function(){
+                                    $('.row-'+id).empty()
+                                })
+                            }
+                        });
+
+                }
+            })
+        })
+    </script>
+
 @endsection

@@ -5,75 +5,73 @@ namespace Modules\Backend\Http\Controllers\Widgets;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Backend\Repository\Sidebar\SidebarRepository;
+use Modules\Backend\Repository\Widgets\WidgetsRepository;
 
 class WidgetsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     * @return Renderable
-     */
+    private $widgetsRepository;
+
+    public function __construct(WidgetsRepository $widgetsRepository)
+    {
+        $this->widgetsRepository = $widgetsRepository;
+    }
+
     public function index()
     {
-        return view('backend::widgets.index');
+        $data = [];
+        $data['list'] = $this->widgetsRepository->getActiveWidgets();
+        $data['widgetTypeList'] = $this->widgetsRepository->getWidgetType();
+        return view('backend::widgets.index',$data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Renderable
-     */
     public function create()
     {
-        return view('backend::create');
+        return view('backend::widgets.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
-     */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'title' => 'required',
+            'type' => 'required'
+        ]);
+
+        $this->widgetsRepository->createOrUpdate($request);
+
+        return redirect()
+            ->route('widgets.index')
+            ->with(['message' => 'Widgets created!']);
     }
 
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
     public function show($id)
     {
-        return view('backend::show');
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function edit($id)
+    public function edit($widgetId)
     {
-        return view('backend::edit');
+        $data['widgetDetail'] = $this->widgetsRepository->getWidgetDetailData($widgetId);
+        return view('backend::widgets.edit',$data);
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Renderable
-     */
-    public function update(Request $request, $id)
+    public function update(Request $request, $widgetId)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'type' => 'required'
+        ]);
+
+        $this->widgetsRepository->createOrUpdate($request);
+        return redirect()->route('widgets.index')
+            ->with(['message'=>'Widget updated!']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
-     */
+
     public function destroy($id)
     {
-        //
+
     }
 }
