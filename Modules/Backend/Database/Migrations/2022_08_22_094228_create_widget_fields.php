@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('field_name',200);
             $table->text('field_value');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->unique(['widget_id','field_name']);
         });

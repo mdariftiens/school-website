@@ -16,8 +16,18 @@ return new class extends Migration
         Schema::create('widgets', function (Blueprint $table) {
             $table->id();
             $table->string('type',200);
-            $table->string('name',200)->unique();
+            $table->string('title',200);
+
+            $table->string('header_template',200)->nullable();
+            $table->string('header_background_color')->nullable();
+            $table->string('header_text_color')->nullable();
+            $table->string('header_hover_color')->nullable();
+            $table->string('content_background_color')->nullable();
+            $table->string('content_text_color')->nullable();
+            $table->string('content_hover_color')->nullable();
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

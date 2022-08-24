@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('sidebar_name',200);
             $table->integer('display_serial_number')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
