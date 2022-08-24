@@ -49,12 +49,23 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="english_title" class="form-label">Englis title</label>
+                                <label for="english_title" class="form-label">English title</label>
                                 <input id="english_title" type="text" class="form-control" name="english_title" placeholder="english_title here..." required  value="{{ old('english_title',$widgetDetail->english_title) }}">
                                 @error('english_title')<span class="text-danger">{{ $message }}</span>@enderror
 
                             </div>
 
+
+                            @php
+                                $value = old('header_show_hide',$widgetDetail->header_show_hide);
+                            @endphp
+                            <div class="mb-3">
+                                <label for="header_show_hide" class="form-label">Header Show/Hide</label>
+                                <select class="form-select" id="header_show_hide" name="header_show_hide" aria-label="Default select example">
+                                    <option @if($value=='1') selected @endif value="1">Show</option>
+                                    <option @if($value=='0') selected @endif value="0">Hide</option>
+                                </select>
+                            </div>
 
                             <div class="mb-3">
                                 <label for="header_background_color" class="form-label">Header Background Color</label>

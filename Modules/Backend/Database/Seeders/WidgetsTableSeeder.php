@@ -23,6 +23,7 @@ class WidgetsTableSeeder extends Seeder
             'type' => 'notice',
             'bangla_title' => 'notice 1',
             'english_title' => 'notice 1',
+            'header_show_hide' => 1,
             //'name' => 'notice-1',
             'header_template' =>'',
             'header_background_color' => null,
@@ -50,6 +51,7 @@ class WidgetsTableSeeder extends Seeder
             //'name' => 'message-2',
             'bangla_title' => 'message-2',
             'english_title' => 'message 2',
+            'header_show_hide' => 1,
         ]);
 
         WidgetFields::create([
@@ -70,6 +72,7 @@ class WidgetsTableSeeder extends Seeder
             //'name' => 'event-1',
             'bangla_title' => 'event-1',
             'english_title' => 'event 1',
+            'header_show_hide' => 1,
 
         ]);
 
@@ -89,6 +92,7 @@ class WidgetsTableSeeder extends Seeder
             'type' => 'custom',
             'bangla_title' => 'custom-1',
             'english_title' => 'custom 1',
+            'header_show_hide' => 1,
         ]);
 
         WidgetFields::create([

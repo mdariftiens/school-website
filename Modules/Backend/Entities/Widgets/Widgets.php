@@ -14,6 +14,7 @@ class Widgets extends BackendModel
         'type',
         'bangla_title',
         'english_title',
+        'header_show_hide',
         'header_template',
         'header_background_color',
         'header_text_color',

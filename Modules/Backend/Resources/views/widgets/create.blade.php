@@ -53,6 +53,14 @@
 
                             </div>
 
+                            <div class="mb-3">
+                                <label for="header_show_hide" class="form-label">Header Show/Hide</label>
+                                <select class="form-select" id="header_show_hide" name="header_show_hide" aria-label="Default select example">
+                                    <option selected value="1">Show</option>
+                                    <option value="0">Hide</option>
+                                </select>
+                            </div>
+
 
                             <div class="mb-3">
                                 <label for="header_background_color" class="form-label">Header Background Color</label>
