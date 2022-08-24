@@ -2,10 +2,10 @@
 
 namespace Modules\Backend\Entities;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Modules\Backend\Abstracts\BackendModel;
 
-class Widgets extends Model
+class Widgets extends BackendModel
 {
     use HasFactory;
 

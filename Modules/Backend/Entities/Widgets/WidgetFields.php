@@ -2,18 +2,18 @@
 
 namespace Modules\Backend\Entities;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Modules\Backend\Abstracts\BackendModel;
 
-class WidgetBar extends Model
+class WidgetFields extends BackendModel
 {
-    protected $table = 'widget_bar';
+    protected $table = 'widget_fields';
 
     use HasFactory;
 
     protected $fillable = [
         'widget_id',
-        'bar_name',
+        'field_name',
         'field_value',
     ];
 
