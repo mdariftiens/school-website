@@ -21,6 +21,7 @@
 
   <!-- Include Scripts for customizer, helper, analytics, config -->
   @include('backend::layouts/sections/scriptsIncludes')
+
 </head>
 
 <body>

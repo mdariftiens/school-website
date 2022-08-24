@@ -4,6 +4,10 @@
 <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
 <script src="{{ asset('js/backend-themes/primary/config.js') }}"></script>
 
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+
 <!-- beautify ignore:end -->
 
 <!-- Global site tag (gtag.js) - Google Analytics -->

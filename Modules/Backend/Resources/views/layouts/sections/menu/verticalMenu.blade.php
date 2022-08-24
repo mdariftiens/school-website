@@ -18,9 +18,33 @@
 
   <ul class="menu-inner py-1">
 
-    <li class="menu-header small text-uppercase">
-      <span class="menu-header-text">header text</span>
-    </li>
+      <li class="menu-item ">
+          <a href="{{ route('dashboard') }}" class="menu-link">
+              <i class="menu-icon tf-icons bx bx-home-circle"></i>
+              <div>Dashboards</div>
+          </a>
+      </li>
+
+
+      <li class="menu-item ">
+          <a href="{{ route('manageSidebarWidgets') }}" class="menu-link">
+              <i class="menu-icon tf-icons bx bx-home-circle"></i>
+              <div>Manage Sidebar Widgets</div>
+          </a>
+      </li>
+      <li class="menu-item" style="">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx "></i>
+              <div>Widgets</div>
+          </a>
+          <ul class="menu-sub">
+                <li class="menu-item ">
+                  <a href="{{ route('widgets.index') }}" class="menu-link">
+                      <div>Widgets</div>
+                  </a>
+              </li>
+          </ul>
+      </li>
 
 
     {{-- main menu --}}
