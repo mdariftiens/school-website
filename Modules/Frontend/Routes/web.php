@@ -13,4 +13,7 @@
 
 Route::prefix('frontend')->group(function() {
     Route::get('/', 'FrontendController@index');
+    \Illuminate\Support\Facades\Route::get('test', function (){
+       return (  \Modules\Backend\Entities\Caches\Cache::first()->cached_data);
+    });
 });

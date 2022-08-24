@@ -17,5 +17,6 @@ class BackendDatabaseSeeder extends Seeder
         Model::unguard();
 
         $this->call(WidgetsTableSeeder::class);
+        $this->call(CacheTableSeeder::class);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Modules\Frontend\Providers;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
 
@@ -38,6 +39,12 @@ class FrontendServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+
+        if (session()->has('selected_lang')){
+            App::setLocale(session()->get('selected_local'));
+        }else{
+            App::setLocale('en');
+        }
     }
 
     /**
