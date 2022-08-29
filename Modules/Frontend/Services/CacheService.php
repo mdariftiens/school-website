@@ -107,7 +107,7 @@ class CacheService implements CacheInterface
             $values[$key] = $this->get($key, $default);
         }
 
-        return $values;
+        return (array)$values;
     }
 
     /**
