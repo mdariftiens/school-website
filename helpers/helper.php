@@ -27,7 +27,7 @@ function getSidebarWithWidgets($sidebarName){
         ->orderBy('display_serial_number')
         ->get();
 
-    if ($widgetIdArray){
+    if (!$widgetIdArray){
         return '';
     }
 
