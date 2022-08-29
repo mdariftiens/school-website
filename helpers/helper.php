@@ -37,9 +37,17 @@ function getSidebarWithWidgets($sidebarName){
 
     $widgetsHtml = '';
         foreach ($widgetsWithWidgetDetail as $widgetWithWidgetDetail){
-            $class = new ("Modules\Frontend\Widgets\\" . ucfirst($widgetWithWidgetDetail->type) . "Widgets")();
+            $class = new ("Modules\Frontend\Widgets\\" . snakeCaseToCamelCase($widgetWithWidgetDetail->type) . "Widgets")();
             $widgetsHtml .=  $class->show($widgetWithWidgetDetail);
         }
     return $widgetsHtml;
 
+}
+
+function snakeCaseToCamelCase($string){
+    // suppose string like : visitor_counter || visitor-counter
+    $str = str_replace(['_','-'],' ', $string); // visitor counter
+    $str = ucfirst($str); // Visitor Counter
+    $str = str_replace(" ",'', $str); // VisitorCounter
+    return $str;
 }
