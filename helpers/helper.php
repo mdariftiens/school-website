@@ -37,7 +37,8 @@ function getSidebarWithWidgets($sidebarName){
 
     $widgetsHtml = '';
         foreach ($widgetsWithWidgetDetail as $widgetWithWidgetDetail){
-            $widgetsHtml .=  \Modules\Frontend\Widgets\NoticeWidgets::show($widgetWithWidgetDetail);
+            $class = new ("Modules\Frontend\Widgets\\" . ucfirst($widgetWithWidgetDetail->type) . "Widgets")();
+            $widgetsHtml .=  $class->show($widgetWithWidgetDetail);
         }
     return $widgetsHtml;
 
