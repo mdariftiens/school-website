@@ -25,21 +25,24 @@ function getSidebarWithWidgets($sidebarName){
     $widgetIdArray = \Modules\Backend\Entities\Widgets\WidgetBar::select('widget_id')
         ->where('sidebar_name',$sidebarName)
         ->orderBy('display_serial_number')
-        ->get();
+        ->get()
+        ->toArray();
 
     if (!$widgetIdArray){
         return '';
     }
 
-    $widgetsWithWidgetDetail = Modules\Backend\Entities\Widgets\Widgets::with('widgetFields')
-        ->whereIn('id', $widgetIdArray)
-        ->get();
-
     $widgetsHtml = '';
-        foreach ($widgetsWithWidgetDetail as $widgetWithWidgetDetail){
-            $class = new ("Modules\Frontend\Widgets\\" . snakeCaseToCamelCase($widgetWithWidgetDetail->type) . "Widgets")();
-            $widgetsHtml .=  $class->show($widgetWithWidgetDetail);
-        }
+
+    foreach ($widgetIdArray as $widgetId) {
+        $widgetWithWidgetDetail = Modules\Backend\Entities\Widgets\Widgets::with('widgetFields')
+            ->where('id', $widgetId)
+            ->first();
+        $widget = \Modules\Frontend\Classes\WidgetFactory::getWidget($widgetWithWidgetDetail->type);
+        $widgetsHtml .=  $widget->show($widgetWithWidgetDetail);
+
+    }
+
     return $widgetsHtml;
 
 }
