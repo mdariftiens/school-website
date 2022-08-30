@@ -15,12 +15,17 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->tinyText('slug');
+            $table->tinyText('english_slug');
+            $table->tinyText('bangla_slug');
             $table->tinyInteger('sl')->nullable();
-            $table->tinyText('title')->nullable();
-            $table->tinyText('name')->nullable();
-            $table->tinyText('designation')->nullable();
-            $table->longText('message')->nullable();
+            $table->string('english_title',500)->nullable();
+            $table->string('bangla_title',500)->nullable();
+            $table->string('english_name', 500)->nullable();
+            $table->string('bangla_name', 500)->nullable();
+            $table->tinyText('english_designation')->nullable();
+            $table->tinyText('bangla_designation')->nullable();
+            $table->longText('english_message')->nullable();
+            $table->longText('bangla_message')->nullable();
             $table->string('image')->nullable();
             $table->timestamps();
             $table->softDeletes();
