@@ -60,6 +60,19 @@
           </ul>
       </li>
 
+      <li class="menu-item" style="">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx "></i>
+              <div>Events</div>
+          </a>
+          <ul class="menu-sub">
+              <li class="menu-item ">
+                  <a href="{{ route('event.index') }}" class="menu-link">
+                      <div>Event Category</div>
+                  </a>
+              </li>
+          </ul>
+      </li>
 
     {{-- main menu --}}
     <li class="menu-item active open">

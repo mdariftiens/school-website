@@ -19,4 +19,7 @@ Route::prefix('admin')->group(function() {
 
     Route::resource('widgets', '\\' . \Modules\Admin\Http\Controllers\Widgets\WidgetsController::class);
     Route::resource('media', '\\'.\Modules\Admin\Http\Controllers\Media\MediaController::class);
+
+    /*===============event routes=================*/
+    Route::resource('event', '\\'.\Modules\Admin\Http\Controllers\Event\EventController::class);
 });
