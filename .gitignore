@@ -16,4 +16,4 @@ composer.lock
 .idea/phpunit.xml
 .idea/schoolWebsite.iml
 .idea/vcs.xml
-
+.idea
