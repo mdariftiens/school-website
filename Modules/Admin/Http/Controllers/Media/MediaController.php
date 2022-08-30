@@ -47,13 +47,13 @@ class MediaController extends Controller
 
     }
 
-    public function update(Request $request, $widgetId)
+    public function update(Request $request, $mediaId)
     {
 
     }
 
 
-    public function destroy($widgetId)
+    public function destroy($mediaId)
     {
         return response()->json(['message' => 'deleted']);
     }

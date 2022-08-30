@@ -15,8 +15,9 @@ class CreateUploadFileCategoryTable extends Migration
     {
         Schema::create('upload_file_category', function (Blueprint $table) {
             $table->id();
-            $table->string('english_name',500)->nullable();
-            $table->string('bangla_name',500)->nullable();
+            $table->string('english_name',500);
+            $table->string('bangla_name',500);
+            $table->unsignedInteger('number_of_file')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

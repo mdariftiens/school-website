@@ -57,3 +57,10 @@ function snakeCaseToCamelCase($string){
     $str = str_replace(" ",'', $str); // VisitorCounter
     return $str;
 }
+
+
+function isImage($fileName){
+    $extension = last(explode('.', $fileName));
+    $imgExtArr = ['jpg', 'jpeg', 'png'];
+    return in_array($extension, $imgExtArr);
+}
