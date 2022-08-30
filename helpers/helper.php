@@ -22,7 +22,7 @@ function getOptions(){
  * @return string as HTML
  */
 function getSidebarWithWidgets($sidebarName){
-    $widgetIdArray = \Modules\Backend\Entities\Widgets\WidgetBar::select('widget_id')
+    $widgetIdArray = \Modules\Admin\Entities\Widgets\WidgetBar::select('widget_id')
         ->where('sidebar_name',$sidebarName)
         ->orderBy('display_serial_number')
         ->get()
@@ -34,7 +34,7 @@ function getSidebarWithWidgets($sidebarName){
     }
 
 
-    $widgetsWithWidgetDetail = Modules\Backend\Entities\Widgets\Widgets::with('widgetFields')
+    $widgetsWithWidgetDetail = Modules\Admin\Entities\Widgets\Widgets::with('widgetFields')
         ->whereIn('id', $widgetIdArray)
         ->get();
 
@@ -42,7 +42,7 @@ function getSidebarWithWidgets($sidebarName){
 
     foreach ($widgetIdArray as $widgetId) {
         $widgetWithWidgetDetail = $widgetsWithWidgetDetail->where('id', $widgetId)->first();
-        $widget = \Modules\Frontend\Classes\WidgetFactory::getWidget($widgetWithWidgetDetail->type);
+        $widget = \Modules\View\Classes\WidgetFactory::getWidget($widgetWithWidgetDetail->type);
         $widgetsHtml .=  $widget->show($widgetWithWidgetDetail);
     }
 
