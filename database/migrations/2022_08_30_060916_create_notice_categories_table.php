@@ -17,6 +17,7 @@ class CreateNoticeCategoriesTable extends Migration
             $table->id();
             $table->string('english_name',500);
             $table->string('bangla_name',500);
+            $table->unsignedInteger('number_of_notice')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
