@@ -16,9 +16,8 @@ class CreateUploadFilesTable extends Migration
         Schema::create('upload_files', function (Blueprint $table) {
             $table->id();
             $table->tinyInteger('category_id');
-            $table->string('title',500)->nullable();
-            $table->tinyText('file_url')->nullable();
-            $table->tinyText('file_type')->nullable();
+            $table->string('bangla_title',500);
+            $table->string('english_title',500);
             $table->tinyInteger('is_publish')->default(0);
             $table->timestamps();
             $table->softDeletes();

@@ -20,8 +20,8 @@ class CreateGalleryTable extends Migration
             $table->text('english_description')->nullable();
             $table->text('bangla_description')->nullable();
             $table->tinyInteger('gallery_type');
-            $table->tinyInteger('is_publish')->default('0');
-            $table->tinyInteger('sl')->nullable();
+            $table->tinyInteger('is_publish')->default(0);
+            $table->tinyInteger('priority')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

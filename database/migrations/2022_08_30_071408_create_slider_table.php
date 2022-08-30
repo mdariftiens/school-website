@@ -15,16 +15,12 @@ class CreateSliderTable extends Migration
     {
         Schema::create('slider', function (Blueprint $table) {
             $table->id();
-            $table->integer('sl');
+            $table->integer('priority')->nullable();
             $table->string('english_title',500)->nullable();
             $table->string('bangla_title',500)->nullable();
             $table->longText('english_description')->nullable();
             $table->longText('bangla_description')->nullable();
-            $table->tinyInteger('is_published')->default('0');
-            $table->tinyInteger('upload_type')->nullable();
-            $table->tinyText('video_image_url')->nullable();
-            $table->string('video_thumbnail')->nullable();
-            $table->tinyText('link')->nullable();
+            $table->tinyInteger('is_published')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
