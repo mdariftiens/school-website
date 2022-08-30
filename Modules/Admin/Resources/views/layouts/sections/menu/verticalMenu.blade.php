@@ -4,7 +4,7 @@
   <div class="app-brand demo">
     <a href="{{url('/')}}" class="app-brand-link">
       <span class="app-brand-logo demo">
-        @include('backend::_partials.macros',["width"=>25,"withbg"=>'#696cff'])
+        @include('admin::_partials.macros',["width"=>25,"withbg"=>'#696cff'])
       </span>
       <span class="app-brand-text demo menu-text fw-bold ms-2">{{config('variables.templateName')}}</span>
     </a>
@@ -32,7 +32,7 @@
           </a>
           <ul class="menu-sub">
               <li class="menu-item ">
-                  <a href="{{ route('media.create') }}" class="menu-link">
+                  <a href="{{ route('media.index') }}" class="menu-link">
                       <div>Add Media</div>
                   </a>
               </li>
@@ -72,7 +72,7 @@
 
       {{-- submenu --}}
       @isset($menu->submenu)
-      @include('backend::layouts.sections.menu.submenu',['menu' => $menu->submenu])
+      @include('admin::layouts.sections.menu.submenu',['menu' => $menu->submenu])
       @endisset
     </li>
   </ul>

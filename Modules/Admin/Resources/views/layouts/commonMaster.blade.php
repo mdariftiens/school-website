@@ -17,10 +17,10 @@
   <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon/favicon.ico') }}" />
 
   <!-- Include Styles -->
-  @include('backend::layouts/sections/styles')
+  @include('admin::layouts/sections/styles')
 
   <!-- Include Scripts for customizer, helper, analytics, config -->
-  @include('backend::layouts/sections/scriptsIncludes')
+  @include('admin::layouts/sections/scriptsIncludes')
 
 </head>
 
@@ -34,7 +34,7 @@
   {{-- remove while creating package end --}}
 
   <!-- Include Scripts -->
-  @include('backend::layouts/sections/scripts')
+  @include('admin::layouts/sections/scripts')
 
 </body>
 

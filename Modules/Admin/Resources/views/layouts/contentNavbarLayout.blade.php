@@ -1,4 +1,4 @@
-@extends('backend::layouts/commonMaster' )
+@extends('admin::layouts/commonMaster' )
 
 @php
 /* Display elements */
@@ -24,7 +24,7 @@ $container = ($container ?? 'container-xxl');
   <div class="layout-container">
 
     @if ($isMenu)
-    @include('backend::layouts/sections/menu/verticalMenu')
+    @include('admin::layouts/sections/menu/verticalMenu')
     @endif
 
 
@@ -32,7 +32,7 @@ $container = ($container ?? 'container-xxl');
     <div class="layout-page">
       <!-- BEGIN: Navbar-->
       @if ($isNavbar)
-      @include('backend::layouts/sections/navbar/navbar')
+      @include('admin::layouts/sections/navbar/navbar')
       @endif
       <!-- END: Navbar-->
 
@@ -60,7 +60,7 @@ $container = ($container ?? 'container-xxl');
 
           <!-- Footer -->
           @if ($isFooter)
-          @include('backend::layouts/sections/footer/footer')
+          @include('admin::layouts/sections/footer/footer')
           @endif
           <!-- / Footer -->
           <div class="content-backdrop fade"></div>

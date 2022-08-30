@@ -18,15 +18,12 @@ class MediaController extends Controller
     public function index()
     {
         $data = [];
-        $data['list'] = $this->mediaRepository->getActiveWidgets();
-        $data['widgetTypeList'] = $this->mediaRepository->getWidgetType();
-        return view('backend::media.index',$data);
+        $data['list'] = $this->mediaRepository->getMediaList();
+        $data['mediaTypeList'] = $this->mediaRepository->getMediaType();
+
+        return view('admin::media.index',$data);
     }
 
-    public function create()
-    {
-        return view('backend::media.create');
-    }
 
     public function store(Request $request)
     {
@@ -36,12 +33,6 @@ class MediaController extends Controller
             'english_title' => 'required',
             'type' => 'required'
         ]);
-
-        $this->widgetsRepository->createOrUpdate($request);
-
-        return redirect()
-            ->route('widgets.index')
-            ->with(['message' => 'Widgets created!']);
     }
 
     public function show($id)
@@ -51,28 +42,17 @@ class MediaController extends Controller
 
     public function edit($widgetId)
     {
-        $data['widgetDetail'] = $this->widgetsRepository->getWidgetDetailData($widgetId);
-        return view('backend::widgets.edit',$data);
 
     }
 
     public function update(Request $request, $widgetId)
     {
-        $request->validate([
-            'bangla_title' => 'required',
-            'english_title' => 'required',
-            'type' => 'required'
-        ]);
 
-        $this->widgetsRepository->createOrUpdate($request);
-        return redirect()->route('widgets.index')
-            ->with(['message'=>'Widget updated!']);
     }
 
 
     public function destroy($widgetId)
     {
-        $this->widgetsRepository->delete($widgetId);
         return response()->json(['message' => 'deleted']);
     }
 }

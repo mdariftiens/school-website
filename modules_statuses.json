@@ -1,5 +1,8 @@
 {
     "Backend": true,
     "API": true,
-    "Frontend": true
+    "Frontend": true,
+    "Test": true,
+    "Admin": true,
+    "View": true
 }
