@@ -6,4 +6,6 @@
     <p>
         This view is loaded from module: {!! config('view.name') !!}
     </p>
+
+    {!! getSidebarWithWidgets('home-right-sidebar') !!}
 @endsection

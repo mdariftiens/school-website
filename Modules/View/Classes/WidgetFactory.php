@@ -2,12 +2,12 @@
 
 namespace Modules\View\Classes;
 
-use Modules\View\Abstracts\Widget;
 
 class WidgetFactory
 {
-    public static function getWidget($type): Widget
+    public static function getWidget($type)
     {
-        return new ("Modules\Frontend\Widgets\\" . snakeCaseToCamelCase($type) . "Widgets")();
+        $class = "Modules\View\Widgets\\" . snakeCaseToCamelCase($type) . "Widgets";
+        return new $class();
     }
 }
