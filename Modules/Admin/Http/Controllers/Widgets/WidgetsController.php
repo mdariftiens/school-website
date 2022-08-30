@@ -6,7 +6,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Backend\Repository\Sidebar\SidebarRepository;
-use Modules\Backend\Repository\Widgets\WidgetsRepository;
+use Modules\Admin\Repository\Widgets\WidgetsRepository;
 
 class WidgetsController extends Controller
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Backend\Repository\Sidebar;
+namespace Modules\Admin\Repository\Sidebar;
 
 use Illuminate\Http\Request;
-use Modules\Backend\Classes\Themes;
-use Modules\Backend\Entities\Widgets\WidgetBar;
+use Modules\Admin\Classes\Themes;
+use Modules\Admin\Entities\Widgets\WidgetBar;
 
 class SidebarRepository
 {

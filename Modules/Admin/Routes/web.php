@@ -14,9 +14,9 @@
 Route::prefix('admin')->group(function() {
     Route::get('/', 'AdminController@index')->name('dashboard');
 
-    Route::get('/manage-sidebar-widgets', [\Modules\Admin\Http\Controllers\Sidebar\SidebarController::class,'index'])->name('manageSidebarWidgets');
-    Route::post('/sidebar/{sidebarName}', [\Modules\Admin\Http\Controllers\Sidebar\SidebarController::class,'update'])->name('sidebar.update');
+    Route::get('/manage-sidebar-widgets', '\Modules\Admin\Http\Controllers\Sidebar\SidebarController@index')->name('manageSidebarWidgets');
+    Route::post('/sidebar/{sidebarName}', '\Modules\Admin\Http\Controllers\Sidebar\SidebarController@update')->name('sidebar.update');
 
-    Route::resource('widgets', \Modules\Admin\Http\Controllers\Widgets\WidgetsController::class);
-    Route::resource('media', \Modules\Admin\Http\Controllers\Media\MediaController::class);
+    Route::resource('widgets', '\\' . \Modules\Admin\Http\Controllers\Widgets\WidgetsController::class);
+    Route::resource('media', '\\'.\Modules\Admin\Http\Controllers\Media\MediaController::class);
 });

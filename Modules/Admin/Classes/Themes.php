@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Backend\Classes;
+namespace Modules\Admin\Classes;
 
 use App\Exceptions\ThemeConfigSidebarInfoNotFoundException;
 use App\Exceptions\ThemeNotFoundException;

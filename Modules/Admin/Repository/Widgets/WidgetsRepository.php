@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Backend\Repository\Widgets;
+namespace Modules\Admin\Repository\Widgets;
 
-use Modules\Backend\Entities\Widgets\WidgetBar;
-use Modules\Backend\Entities\Widgets\WidgetFields;
-use Modules\Backend\Entities\Widgets\Widgets;
+use Modules\Admin\Entities\Widgets\WidgetBar;
+use Modules\Admin\Entities\Widgets\WidgetFields;
+use Modules\Admin\Entities\Widgets\Widgets;
 
 class WidgetsRepository
 {
@@ -25,7 +25,7 @@ class WidgetsRepository
         return Widgets::get();
     }
 
-    public function getSidebarWidget(mixed $sidebarId)
+    public function getSidebarWidget($sidebarId)
     {
         return WidgetBar::select('widgets.id','widgets.type','widgets.bangla_title','widgets.english_title','display_serial_number')
             ->join('widgets','widgets.id','widget_bar.widget_id')
