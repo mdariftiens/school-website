@@ -14,7 +14,7 @@ abstract class Widget
             'data' => $this->data()
         ];
 
-        $view = 'frontend::Widgets/'  . $widgetWithWidgetDetail->type . '/' . $widgetWithWidgetDetail->header_template;
+        $view = 'view::Widgets/'  . $widgetWithWidgetDetail->type . '/' . $widgetWithWidgetDetail->header_template;
 
         return view($view, $data);
     }
