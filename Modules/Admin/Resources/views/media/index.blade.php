@@ -27,17 +27,6 @@
                                 @endforeach
                             </select>
 
-
-                            <div class="dt-buttons">
-
-                                <a class="dt-button create-new btn btn-primary"
-                                   href="#">
-                                <span><i class="bx bx-plus me-sm-2"></i>
-                                    <span class="d-none d-sm-inline-block">Add Media</span>
-                                </span>
-                                </a>
-
-                            </div>
                         </div>
 
                     </div>
@@ -45,8 +34,29 @@
 
                 <div class="row">
                     <div class="col-8">
-                        <div class="card">
-                            <img src="" alt="">
+                        <div class="row">
+                            @foreach($list as $item)
+                                <div class="col-3  ">
+                                    <div class="card m-2" style="width: 200px">
+                                        @if(isImage($item->filename))
+                                            <img src="{{ $item->url }}" alt="{{ $item->filename }}">
+                                        @else
+                                            <img src="https://img.icons8.com/dusk/344/file--v2.png" alt="{{ $item->filename }}">
+
+                                        @endif
+                                        <div class="text-center"> {{ $item->filename }} </div>
+                                            <button  class="btn btn-danger btn-sm"
+                                                     data-id = "{{ $item->id }}
+                                                     data-bangla_title = "{{ $item->bangla_title }}
+                                                     data-english_title = "{{ $item->english_title }}
+                                                     data-filename = "{{ $item->filename }}
+                                            >
+                                            Detail
+                                            </button>
+
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
 
@@ -99,22 +109,13 @@
                     </div>
                 </div>
 
+                </div>
+
 
             </div>
         </div>
     </div>
 
-    <style>
-
-        .add_file_form{
-            width: 300px;
-            display: block;
-            position: absolute;
-            top: 0;
-            right: 0;
-        }
-
-    </style>
     <script>
         $(document).ready(function(){
             $('.delete').on('click',function () {

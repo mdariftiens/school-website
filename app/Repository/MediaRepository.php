@@ -12,9 +12,10 @@ class MediaRepository extends Repository
     public function uploadMedia(Request $request)
     {
         $uploadedFile = $request->file('file');
-        $fileExtension = last(explode(".",$uploadedFile));
 
+        $originalName = $uploadedFile->getClientOriginalName();
         $filename = time().$uploadedFile->getClientOriginalName();
+        $fileExtension = last(explode(".",$filename));
 
         Storage::disk('local')->putFileAs(
             'public/files/'.$filename,
@@ -24,14 +25,14 @@ class MediaRepository extends Repository
         $location = 'public/files/'.$filename.'/'.$filename;
         $fileSize = Storage::disk('local')->size($location);
         $diskLocation = storage_path('app/public/'.$location);
-        $url = $request->getHttpHost() . '/' .'storage/files/'.$filename.'/'.$filename;
+        $url = $request->getSchemeAndHttpHost() . '/' .'storage/files/'.$filename.'/'.$filename;
 
         Media::create([
-            'bangla_title' => $filename,
-            'english_title' => $filename,
-            'bangla_alt_text' => $filename,
-            'english_alt_text' => $filename,
-            'filename' => $filename,
+            'bangla_title' => $originalName,
+            'english_title' => $originalName,
+            'bangla_alt_text' => $originalName,
+            'english_alt_text' => $originalName,
+            'filename' => $originalName,
             'mimetypes' => $fileExtension,
             'extension' =>$fileExtension,
             'size' => $fileSize,
@@ -48,7 +49,7 @@ class MediaRepository extends Repository
 
     public function getMediaType()
     {
-        return Media::select(['mimetypes'])->get()->pluck('mimetypes')->unique();
+        return Media::select(['extension'])->get()->pluck('extension')->unique();
     }
 
 
