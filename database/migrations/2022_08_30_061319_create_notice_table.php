@@ -16,9 +16,11 @@ class CreateNoticeTable extends Migration
         Schema::create('notice', function (Blueprint $table) {
             $table->id();
             $table->integer('category_id');
-            $table->tinyText('title')->nullable();
-            $table->text('description')->nullable();
-            $table->tinyInteger('status')->default('0');
+            $table->string('bangla_title', 500)->nullable();
+            $table->string('english_title', 500)->nullable();
+            $table->text('bangla_description')->nullable();
+            $table->text('english_description')->nullable();
+            $table->tinyInteger('is_published')->default('0');
             $table->tinyText('icon_url')->nullable();
             $table->dateTime('published_datetime');
             $table->tinyInteger('is_ticker');

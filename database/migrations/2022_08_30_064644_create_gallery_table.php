@@ -15,10 +15,12 @@ class CreateGalleryTable extends Migration
     {
         Schema::create('gallery', function (Blueprint $table) {
             $table->id();
-            $table->tinyText('title')->nullable();
-            $table->text('description')->nullable();
+            $table->string('english_title',500)->nullable();
+            $table->string('bangla_title',500)->nullable();
+            $table->text('english_description')->nullable();
+            $table->text('bangla_description')->nullable();
             $table->tinyInteger('gallery_type');
-            $table->tinyInteger('status')->default('0');
+            $table->tinyInteger('is_publish')->default('0');
             $table->tinyInteger('sl')->nullable();
             $table->timestamps();
             $table->softDeletes();

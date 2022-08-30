@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUploadFileCategoryTable extends Migration
+class CreateUploadFilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateUploadFileCategoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('upload_file_category', function (Blueprint $table) {
+        Schema::create('upload_files', function (Blueprint $table) {
             $table->id();
-            $table->string('english_name',500)->nullable();
-            $table->string('bangla_name',500)->nullable();
+            $table->tinyInteger('category_id');
+            $table->string('title',500)->nullable();
+            $table->tinyText('file_url')->nullable();
+            $table->tinyText('file_type')->nullable();
+            $table->tinyInteger('is_publish')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +32,6 @@ class CreateUploadFileCategoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('upload_file_category');
+        Schema::dropIfExists('upload_files');
     }
 }

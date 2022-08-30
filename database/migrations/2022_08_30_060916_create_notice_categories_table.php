@@ -15,7 +15,8 @@ class CreateNoticeCategoriesTable extends Migration
     {
         Schema::create('notice_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name',50);
+            $table->string('english_name',500);
+            $table->string('bangla_name',500);
             $table->timestamps();
             $table->softDeletes();
         });
