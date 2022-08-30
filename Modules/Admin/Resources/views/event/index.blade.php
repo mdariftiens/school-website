@@ -49,7 +49,8 @@
                         <thead>
                         <tr>
                             <th>#</th>
-                            <th>name</th>
+                            <th>English Name</th>
+                            <th>Bangla Name</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -58,7 +59,8 @@
                             @foreach($list as $value)
                                 <tr>
                                     <td>{{ $value->id }}</td>
-                                    <td>{{ $value->name }}</td>
+                                    <td>{{ $value->english_name }}</td>
+                                    <td>{{ $value->bangla_name }}</td>
                                     <td>
                                         <div class="d-inline-block">
                                             <a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">

@@ -14,7 +14,8 @@ class EventCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|unique:event_categories',
+            'english_name' => 'required|unique:event_categories,id',
+            'bangla_name' => 'required|unique:event_categories,id',
         ];
     }
 

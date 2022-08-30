@@ -40,10 +40,17 @@
                         <form method="post" action="{{ route('event.store') }}">
                             {{ csrf_field() }}
                             <div class="mb-3">
-                                <label class="form-label" for="basic-default-name">Name</label>
-                                <input type="text" class="form-control" name="name" placeholder="Event category name" value="{{ old('name') }}">
-                                @if ($errors->has('name'))
-                                    <span class="text-danger">{{ $errors->first('name') }}</span>
+                                <label class="form-label" for="basic-default-name">English Name</label>
+                                <input type="text" class="form-control" name="english_name" placeholder="Event category english name" value="{{ old('english_name') }}">
+                                @if ($errors->has('english_name'))
+                                    <span class="text-danger">{{ $errors->first('english_name') }}</span>
+                                @endif
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="basic-default-name">Bangla Name</label>
+                                <input type="text" class="form-control" name="bangla_name" placeholder="Event category bangla name" value="{{ old('bangla_name') }}">
+                                @if ($errors->has('bangla_name'))
+                                    <span class="text-danger">{{ $errors->first('bangla_name') }}</span>
                                 @endif
                             </div>
                             <button type="submit" class="btn btn-primary">Save</button>
