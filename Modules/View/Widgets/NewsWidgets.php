@@ -2,7 +2,7 @@
 
 namespace Modules\View\Widgets;
 
-use Modules\Frontend\Abstracts\Widget;
+use Modules\View\Abstracts\Widget;
 
 class NewsWidgets extends Widget
 {

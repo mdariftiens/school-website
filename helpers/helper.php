@@ -42,7 +42,7 @@ function getSidebarWithWidgets($sidebarName){
 
     foreach ($widgetIdArray as $widgetId) {
         $widgetWithWidgetDetail = $widgetsWithWidgetDetail->where('id', $widgetId)->first();
-        $widget = \Modules\Frontend\Classes\WidgetFactory::getWidget($widgetWithWidgetDetail->type);
+        $widget = \Modules\View\Classes\WidgetFactory::getWidget($widgetWithWidgetDetail->type);
         $widgetsHtml .=  $widget->show($widgetWithWidgetDetail);
     }
 
