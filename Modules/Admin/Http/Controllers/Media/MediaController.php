@@ -29,10 +29,12 @@ class MediaController extends Controller
     {
 
         $request->validate([
-            'bangla_title' => 'required',
-            'english_title' => 'required',
-            'type' => 'required'
+            'file' => 'required',
         ]);
+
+        $this->mediaRepository->uploadMedia($request);
+
+        return response()->json('uploaded');
     }
 
     public function show($id)

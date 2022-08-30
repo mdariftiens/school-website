@@ -1,4 +1,4 @@
-@extends('backend::layouts/contentNavbarLayout')
+@extends('admin::layouts/contentNavbarLayout')
 
 @section('title', 'Widgets - Edit')
 
@@ -98,7 +98,7 @@
                             </div>
 
                             @php
-                                $widgetType = "backend::widgets.admin-view." . $widgetDetail->type ;
+                                $widgetType = "admin::widgets.admin-view." . $widgetDetail->type ;
                             @endphp
                             @include( $widgetType )
 

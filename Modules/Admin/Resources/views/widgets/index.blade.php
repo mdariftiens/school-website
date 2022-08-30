@@ -1,11 +1,11 @@
-@extends('backend::layouts/contentNavbarLayout')
+@extends('admin::layouts/contentNavbarLayout')
 
 @section('title', 'Widgets - list')
 
 @section('content')
     <div class="row">
         <div class="col-md-12 col-lg-12 mb-4">
-            @include("backend::messages.message")
+            @include("admin::messages.message")
             <div class="card">
 
                 <div class="card-header flex-column flex-md-row">

@@ -1,4 +1,4 @@
-@extends('backend::layouts.commonMaster')
+@extends('admin::layouts.commonMaster')
 
 @section('layoutContent')
     <h1>Hello World</h1>

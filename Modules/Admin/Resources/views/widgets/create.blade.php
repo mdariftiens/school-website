@@ -1,4 +1,4 @@
-@extends('backend::layouts/contentNavbarLayout')
+@extends('admin::layouts/contentNavbarLayout')
 
 @section('bangla_title', 'Widgets - create')
 
@@ -93,7 +93,7 @@
                             </div>
 
                             @php
-                                $widgetType = "backend::widgets.admin-view." . request()->widgetType;
+                                $widgetType = "admin::widgets.admin-view." . request()->widgetType;
                             @endphp
                             @include( $widgetType )
 

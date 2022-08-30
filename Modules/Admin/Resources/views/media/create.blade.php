@@ -93,7 +93,7 @@
                             </div>
 
                             @php
-                                $widgetType = "backend::widgets.admin-view." . request()->widgetType;
+                                $widgetType = "admin::widgets.admin-view." . request()->widgetType;
                             @endphp
                             @include( $widgetType )
 

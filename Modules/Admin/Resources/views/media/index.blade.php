@@ -51,17 +51,48 @@
                     </div>
 
                     <div class="col-4">
-                        <form action="/target" class="dropzone" id="my-great-dropzone"></form>
+                        <form action="{{ route('media.store') }}" class="dropzone" id="my-great-dropzone"></form>
 
                         <script>
                             Dropzone.options.myGreatDropzone = { // camelized version of the `id`
                                 paramName: "file", // The name that will be used to transfer the file
                                 maxFilesize: 1000, // MB
+                                headers: {
+                                    'X-CSRF-TOKEN': "{{ csrf_token() }}"
+                                },
                                 accept: function(file, done) {
                                     if (file.name == "justinbieber.jpg") {
                                         done("Naha, you don't.");
                                     }
                                     else { done(); }
+
+                                    console.log('done', done)
+                                    console.log('file', file)
+                                },
+                                init: function() {
+                                    this.on('error', function(file, errorMessage) {
+                                        console.log('errorMessage', errorMessage)
+                                        console.log('file', file)
+                                        // if (file.accepted) {
+                                        //     var mypreview = document.getElementsByClassName('dz-error');
+                                        //     mypreview = mypreview[mypreview.length - 1];
+                                        //     mypreview.classList.toggle('dz-error');
+                                        //     mypreview.classList.toggle('dz-success');
+                                        // }
+                                    });
+
+                                    this.on('success', function(file, m) {
+                                        console.log('m', m)
+                                        console.log('file', file)
+
+                                        window.location = window.location;
+                                        // if (file.accepted) {
+                                        //     var mypreview = document.getElementsByClassName('dz-error');
+                                        //     mypreview = mypreview[mypreview.length - 1];
+                                        //     mypreview.classList.toggle('dz-error');
+                                        //     mypreview.classList.toggle('dz-success');
+                                        // }
+                                    });
                                 }
                             };
                         </script>

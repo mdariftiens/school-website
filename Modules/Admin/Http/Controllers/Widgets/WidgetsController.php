@@ -22,12 +22,12 @@ class WidgetsController extends Controller
         $data = [];
         $data['list'] = $this->widgetsRepository->getActiveWidgets();
         $data['widgetTypeList'] = $this->widgetsRepository->getWidgetType();
-        return view('backend::widgets.index',$data);
+        return view('admin::widgets.index',$data);
     }
 
     public function create()
     {
-        return view('backend::widgets.create');
+        return view('admin::widgets.create');
     }
 
     public function store(Request $request)
@@ -54,7 +54,7 @@ class WidgetsController extends Controller
     public function edit($widgetId)
     {
         $data['widgetDetail'] = $this->widgetsRepository->getWidgetDetailData($widgetId);
-        return view('backend::widgets.edit',$data);
+        return view('admin::widgets.edit',$data);
 
     }
 

@@ -27,7 +27,7 @@ class SidebarController extends Controller
             $data['widgetsList'] = $widgetsRepository->getActiveWidgets();
             $data['sidebarWidgets'] = $widgetsRepository->getSidebarWidget($sidebarId);
         }
-        return view('backend::sidebar.index',$data);
+        return view('admin::sidebar.index',$data);
     }
 
     public function update(

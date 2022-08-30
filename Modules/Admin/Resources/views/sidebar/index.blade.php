@@ -1,4 +1,4 @@
-@extends('backend::layouts/contentNavbarLayout')
+@extends('admin::layouts/contentNavbarLayout')
 
 @section('title', 'Widgets - list')
 
@@ -68,7 +68,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    @include("backend::messages.message")
+                    @include("admin::messages.message")
 
 
 
