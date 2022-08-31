@@ -17,9 +17,9 @@ class CreateMessagesTable extends Migration
             $table->id();
             $table->tinyText('english_slug');
             $table->tinyText('bangla_slug');
-            $table->tinyInteger('sl')->nullable();
-            $table->string('english_title',500)->nullable();
-            $table->string('bangla_title',500)->nullable();
+            $table->tinyInteger('priority')->nullable();
+            $table->string('english_title',500);
+            $table->string('bangla_title',500);
             $table->string('english_name', 500)->nullable();
             $table->string('bangla_name', 500)->nullable();
             $table->tinyText('english_designation')->nullable();

@@ -12,7 +12,7 @@ class Themes
 
     public function __construct()
     {
-        $this->frontendThemeDir = resource_path('views/themes/frontend-themes');
+        $this->frontendThemeDir = resource_path('views/');
     }
 
     public function getThemeName():array
