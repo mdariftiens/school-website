@@ -2,7 +2,8 @@
 
 namespace Modules\Admin\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+
+use App\Abstracts\FormRequest;
 
 class EventCategoryRequest extends FormRequest
 {
@@ -14,8 +15,8 @@ class EventCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'english_name' => 'required|unique:event_categories,id',
-            'bangla_name' => 'required|unique:event_categories,id',
+            'english_name' => 'required|unique:event_categories,english_name,'.$this->event_category,
+            'bangla_name' => 'required|unique:event_categories,bangla_name,'.$this->event_category,
         ];
     }
 

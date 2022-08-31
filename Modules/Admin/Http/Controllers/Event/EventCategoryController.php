@@ -31,7 +31,7 @@ class EventCategoryController extends Controller
     {
 
         $validatedData = $request->validated();
-        $result = Event::create($validatedData);
+        $result = EventCategory::create($validatedData);
         if ($result){
             return back()->with('success', 'Event category created successfully.');
         }
