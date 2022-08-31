@@ -64,3 +64,7 @@ function isImage($fileName){
     $imgExtArr = ['jpg', 'jpeg', 'png'];
     return in_array($extension, $imgExtArr);
 }
+
+function getCurrentThemeId(){
+    return \App\Models\Option\Option::where('name','current_theme_id')->first()->value;
+}
