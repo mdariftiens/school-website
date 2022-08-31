@@ -67,8 +67,15 @@
           </a>
           <ul class="menu-sub">
               <li class="menu-item ">
-                  <a href="{{ route('event.index') }}" class="menu-link">
+                  <a href="{{ route('event-category.index') }}" class="menu-link">
                       <div>Event Category</div>
+                  </a>
+              </li>
+          </ul>
+          <ul class="menu-sub">
+              <li class="menu-item ">
+                  <a href="{{ route('event.index') }}" class="menu-link">
+                      <div>Event</div>
                   </a>
               </li>
           </ul>

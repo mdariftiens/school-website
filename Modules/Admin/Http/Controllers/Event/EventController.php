@@ -2,39 +2,35 @@
 
 namespace Modules\Admin\Http\Controllers\Event;
 
+use App\Models\Event\Event;
 use App\Models\Event\EventCategory;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Modules\Admin\Http\Requests\EventCategoryRequest;
+use Modules\Admin\Http\Requests\EventRequest;
+use Modules\Admin\Repository\Event\EventRepository;
 
 class EventController extends Controller
 {
-//    private $mediaRepository;
-//
-//    public function __construct(MediaRepository $mediaRepository)
-//    {
-//        $this->mediaRepository = $mediaRepository;
-//    }
+    private $eventRepository;
+
+    public function __construct(EventRepository $eventRepository)
+    {
+        $this->eventRepository = $eventRepository;
+    }
 
     public function index()
     {
-        $data = [];
-        $data['list'] = EventCategory::get();
-        return view('admin::event.index',$data);
+        return $this->eventRepository->index();
     }
 
     public function create(){
-        return view('admin::event.create');
+        return $this->eventRepository->create();
     }
 
-    public function store(EventCategoryRequest $request)
+    public function store( EventRequest $request )
     {
-
-        $validatedData = $request->validated();
-        $result = EventCategory::create($validatedData);
-        if ($result){
-            return back()->with('success', 'Event category created successfully.');
-        }
+        $this->eventRepository->store($request);
+        return back()->with(['message'=>'Event create successfully.']);
     }
 
     public function show($id)
@@ -44,26 +40,20 @@ class EventController extends Controller
 
     public function edit($id)
     {
-        $data['eventCategory'] = EventCategory::find($id);
-        return view('admin::event.edit',$data);
+        return $this->eventRepository->edit($id);
     }
 
-    public function update(EventCategoryRequest $request, $id)
+    public function update(EventRequest $request, $id)
     {
-        $validatedData = $request->validated();
-        $result = EventCategory::where('id', $id)->update($validatedData);
-        if ($result){
-            return back()->with('success', 'Event category update successfully.');
-        }
+        $this->eventRepository->update($request, $id);
+        return back()->with(['message'=>'Event update successfully.']);
     }
 
 
     public function destroy($id)
     {
-        $eventCategory = EventCategory::find($id);
-        $result = $eventCategory->delete();
-        if ($result){
-            return back()->with('success', 'Event category update successfully.');
-        }
+        $this->eventRepository->destroy($id);
+        return back()->with(['message'=>'Event delete successfully.']);
+
     }
 }
