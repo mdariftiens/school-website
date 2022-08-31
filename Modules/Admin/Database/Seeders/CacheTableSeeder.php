@@ -4,10 +4,7 @@ namespace Modules\Admin\Database\Seeders;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
-use Modules\Backend\Entities\Caches\Cache;
-use Modules\Backend\Entities\Widgets\WidgetBar;
-use Modules\Backend\Entities\Widgets\WidgetFields;
-use Modules\Backend\Entities\Widgets\Widgets;
+use Modules\Admin\Entities\Caches\Cache;
 
 class CacheTableSeeder extends Seeder
 {
