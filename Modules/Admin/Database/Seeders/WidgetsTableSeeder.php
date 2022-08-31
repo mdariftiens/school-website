@@ -4,9 +4,9 @@ namespace Modules\Admin\Database\Seeders;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
-use Modules\Backend\Entities\Widgets\WidgetBar;
-use Modules\Backend\Entities\Widgets\WidgetFields;
-use Modules\Backend\Entities\Widgets\Widgets;
+use Modules\Admin\Entities\Widgets\WidgetBar;
+use Modules\Admin\Entities\Widgets\WidgetFields;
+use Modules\Admin\Entities\Widgets\Widgets;
 
 class WidgetsTableSeeder extends Seeder
 {
@@ -25,7 +25,7 @@ class WidgetsTableSeeder extends Seeder
             'english_title' => 'notice 1',
             'header_show_hide' => 1,
             //'name' => 'notice-1',
-            'header_template' =>'',
+            'header_template' =>'default',
             'header_background_color' => null,
             'header_text_color' => null,
             'header_hover_color' => null,
@@ -52,6 +52,7 @@ class WidgetsTableSeeder extends Seeder
             'bangla_title' => 'message-2',
             'english_title' => 'message 2',
             'header_show_hide' => 1,
+            'header_template' =>'default',
         ]);
 
         WidgetFields::create([
@@ -73,6 +74,7 @@ class WidgetsTableSeeder extends Seeder
             'bangla_title' => 'event-1',
             'english_title' => 'event 1',
             'header_show_hide' => 1,
+            'header_template' =>'default',
 
         ]);
 
@@ -93,6 +95,8 @@ class WidgetsTableSeeder extends Seeder
             'bangla_title' => 'custom-1',
             'english_title' => 'custom 1',
             'header_show_hide' => 1,
+            'header_template' =>'default',
+
         ]);
 
         WidgetFields::create([
@@ -106,8 +110,6 @@ class WidgetsTableSeeder extends Seeder
             'field_name' => 'english_text_or_html',
             'field_value' => 'Lorem ipsum dolor sit amet, suas tation eu has, te elit legere vidisse eos, nisl adipisci vel in. Eu ius alia antiopam periculis. Id his populo urbanitas, eam ullum patrioque torquatos at. Pro singulis consulatu ea, in ius falli paulo consequat. Et ius ocurreret evertitur scribentur. Mea cu alii oratio legimus, ut vitae causae discere mel. Mei ne nonumy referrentur conclusionemque.',
         ]);
-
-
 
     }
 }
