@@ -68,3 +68,20 @@ function isImage($fileName){
 function getCurrentThemeId(){
     return \App\Models\Option\Option::where('name','current_theme_id')->first()->value;
 }
+
+function getThemeOptions():array{
+    static $items = null;
+    if ($items){
+        return $items;
+    }
+    return $items = App\Models\Option\Option::select('name','value')->get()->pluck('value','name')->toArray();
+}
+
+function isSidebarActive($sidebarName):bool{
+    $themeOptions = getThemeOptions();
+    $sidebarId = 'is_'.$sidebarName.'_sidebar_active';
+    if (key_exists($sidebarId, $themeOptions)){
+        return $themeOptions[$sidebarId];
+    }
+    return false;
+}
