@@ -15,8 +15,8 @@ class CreateEventCategoriesTable extends Migration
     {
         Schema::create('event_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('english_name',500);
-            $table->string('bangla_name',500);
+            $table->string('english_name',500)->unique();
+            $table->string('bangla_name',500)->unique();
             $table->unsignedInteger('number_of_event')->default(0);
             $table->timestamps();
             $table->softDeletes();
