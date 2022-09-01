@@ -10,5 +10,8 @@ class EventCategory extends Model
     use HasFactory;
     protected $table = 'event_categories';
 
-    protected $fillable = ['english_name','bangla_name'];
+    protected $fillable = [
+        'english_name',
+        'bangla_name'
+    ];
 }

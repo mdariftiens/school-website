@@ -11,11 +11,9 @@ use Modules\Admin\Entities\Widgets\WidgetBar;
 
 class EventRepository
 {
-    public function index()
+    public function getEvent()
     {
-        $data = [];
-        $data['list'] = Event::get();
-        return view('admin::event.index',$data);
+        return Event::get();
     }
 
     public function get(){
@@ -45,24 +43,22 @@ class EventRepository
 
     public function edit($id)
     {
-        $data['EventCategorylist'] = EventCategory::get();
-        $data['event'] = Event::find($id);
-        return $data;
+         return Event::find($id);
     }
 
-    public function update($request, $id)
+    public function update($validatedData, $id)
     {
-        $validatedData = $request->validated();
-        return Event::where('id', $id)->update($validatedData);
+        return Event::find($id)->update($validatedData);
+
     }
 
 
     public function destroy($id)
     {
         try {
-            $eventCategory = Event::find($id);
-            EventCategory::find($eventCategory->category_id)->decrement('number_of_event', 1);
-            $delete = $eventCategory->delete();
+            $event = Event::find($id);
+            EventCategory::find($event->category_id)->decrement('number_of_event', 1);
+            $delete = $event->delete();
             DB::commit();
             return $delete;
         }
