@@ -20,5 +20,6 @@ class AdminDatabaseSeeder extends Seeder
         $this->call(CacheTableSeeder::class);
         $this->call(MediaTableSeeder::class);
         $this->call(OptionTableSeeder::class);
+        $this->call(EventMediaSeeder::class);
     }
 }
