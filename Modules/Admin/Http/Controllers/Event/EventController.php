@@ -24,12 +24,13 @@ class EventController extends Controller
     }
 
     public function create(){
-        return $this->eventRepository->create();
+        $data['EventCategorylist'] = $this->eventRepository->get();
+        return view('admin::event.create',$data);
     }
 
     public function store( EventRequest $request )
     {
-        $this->eventRepository->store($request);
+        $this->eventRepository->store($request->validated());
         return back()->with(['message'=>'Event create successfully.']);
     }
 
@@ -40,7 +41,8 @@ class EventController extends Controller
 
     public function edit($id)
     {
-        return $this->eventRepository->edit($id);
+        $data = $this->eventRepository->edit($id);
+        return view('admin::event.edit',$data);
     }
 
     public function update(EventRequest $request, $id)
@@ -54,6 +56,5 @@ class EventController extends Controller
     {
         $this->eventRepository->destroy($id);
         return back()->with(['message'=>'Event delete successfully.']);
-
     }
 }
