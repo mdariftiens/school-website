@@ -7,24 +7,28 @@ use App\Models\Event\EventCategory;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Admin\Http\Requests\EventRequest;
+use Modules\Admin\Repository\Event\EventCategoryRepository;
 use Modules\Admin\Repository\Event\EventRepository;
 
 class EventController extends Controller
 {
     private $eventRepository;
+    private $eventCategoryRepository;
 
-    public function __construct(EventRepository $eventRepository)
+    public function __construct(EventRepository $eventRepository, EventCategoryRepository $eventCategoryRepository)
     {
         $this->eventRepository = $eventRepository;
+        $this->eventCategoryRepository = $eventCategoryRepository;
     }
 
     public function index()
     {
-        return $this->eventRepository->index();
+        $data['list'] =  $this->eventRepository->getEvent();
+        return view('admin::event.index',$data);
     }
 
     public function create(){
-        $data['EventCategorylist'] = $this->eventRepository->get();
+        $data['EventCategorylist'] = $this->eventCategoryRepository->getEventCategory();
         return view('admin::event.create',$data);
     }
 
@@ -41,13 +45,14 @@ class EventController extends Controller
 
     public function edit($id)
     {
-        $data = $this->eventRepository->edit($id);
+        $data['EventCategorylist'] = $this->eventCategoryRepository->getEventCategory();
+        $data['event'] = $this->eventRepository->edit($id);
         return view('admin::event.edit',$data);
     }
 
     public function update(EventRequest $request, $id)
     {
-        $this->eventRepository->update($request, $id);
+        $this->eventRepository->update($request->validated(), $id);
         return back()->with(['message'=>'Event update successfully.']);
     }
 
