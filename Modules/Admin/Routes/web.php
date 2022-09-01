@@ -25,6 +25,6 @@ Route::prefix('admin')->group(function() {
     Route::resource('event-category', '\\'.\Modules\Admin\Http\Controllers\Event\EventCategoryController::class);
 
     /*===============notice routes=================*/
-//    Route::resource('notice', '\\'.\Modules\Admin\Http\Controllers\Event\EventController::class);
+    Route::resource('notice', '\\'.\Modules\Admin\Http\Controllers\notice\NoticeController::class);
     Route::resource('notice-category', '\\'.\Modules\Admin\Http\Controllers\Notice\NoticeCategoryController::class);
 });

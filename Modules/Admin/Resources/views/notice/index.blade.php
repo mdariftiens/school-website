@@ -1,6 +1,6 @@
 @extends('admin::layouts.contentNavbarLayout')
 
-@section('title', 'Event - list')
+@section('title', 'Notice - list')
 
 @section('content')
     <div class="row">
@@ -9,14 +9,14 @@
 
                 <div class="card-header flex-column flex-md-row">
                     <div class="head-label text-center">
-                        <h5 class="card-title mb-0">Event List</h5>
+                        <h5 class="card-title mb-0">Notice List</h5>
                     </div>
                     <div class="dt-action-buttons text-end pt-3 pt-md-0">
                         <div class="dt-buttons">
                             <div class="btn-group">
-                                <a class="btn btn-primary" href="{{ route('event.create') }}">
+                                <a class="btn btn-primary" href="{{ route('notice.create') }}">
                                     <span><i class="bx bx-plus me-sm-2"></i>
-                                        <span class="d-none d-sm-inline-block">Add New Event</span>
+                                        <span class="d-none d-sm-inline-block">Add New</span>
                                     </span>
                                 </a>
                             </div>
@@ -59,13 +59,13 @@
                                             <div class="dropdown-menu dropdown-menu-end m-0" style="">
                                                 <a href="javascript:;" class="dropdown-item">Details</a>
                                                 <div class="dropdown-divider"></div>
-                                                <form action="{{ route('event.destroy', $value->id) }}" method="POST">
+                                                <form action="{{ route('notice.destroy', $value->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="dropdown-item text-danger delete-record">Delete</button>
                                                 </form>
                                             </div>
-                                        </div> | <a href="{{ route('event.edit', $value->id) }}" class="item-edit text-body"><i class="bx bxs-edit"></i></a>
+                                        </div> | <a href="{{ route('notice.edit', $value->id) }}" class="item-edit text-body"><i class="bx bxs-edit"></i></a>
                                     </td>
                                 </tr>
                             <?php } ?>

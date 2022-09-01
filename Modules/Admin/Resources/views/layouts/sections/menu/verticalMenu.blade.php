@@ -75,7 +75,7 @@
           <ul class="menu-sub">
               <li class="menu-item ">
                   <a href="{{ route('event.index') }}" class="menu-link">
-                      <div>Event</div>
+                      <div>Event List</div>
                   </a>
               </li>
           </ul>
@@ -93,13 +93,13 @@
                   </a>
               </li>
           </ul>
-{{--          <ul class="menu-sub">--}}
-{{--              <li class="menu-item ">--}}
-{{--                  <a href="{{ route('event.index') }}" class="menu-link">--}}
-{{--                      <div>Event</div>--}}
-{{--                  </a>--}}
-{{--              </li>--}}
-{{--          </ul>--}}
+          <ul class="menu-sub">
+              <li class="menu-item ">
+                  <a href="{{ route('notice.index') }}" class="menu-link">
+                      <div>Notice List</div>
+                  </a>
+              </li>
+          </ul>
       </li>
 
     {{-- main menu --}}

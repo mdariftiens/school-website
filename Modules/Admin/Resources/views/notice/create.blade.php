@@ -1,6 +1,6 @@
 @extends('admin::layouts.contentNavbarLayout')
 
-@section('title', 'Event category - list')
+@section('title', 'Notice - list')
 
 @section('content')
     <div class="row">
@@ -9,7 +9,7 @@
 
                 <div class="card-header flex-column flex-md-row">
                     <div class="head-label text-center">
-                        <h5 class="card-title mb-0">Event Create</h5>
+                        <h5 class="card-title mb-0">Notice Create</h5>
                     </div>
                     <div class="dt-action-buttons text-end pt-3 pt-md-0">
                         <div class="dt-buttons">
@@ -27,13 +27,13 @@
                 <div class="card mb-4">
                     @include("admin::messages.message")
                     <div class="card-body" style="box-shadow: none">
-                        <form method="post" action="{{ route('event.store') }}">
+                        <form method="post" action="{{ route('notice.store') }}">
                             {{ csrf_field() }}
                             <div class="mb-3">
                                 <label class="form-label" for="event-category">Category</label>
                                 <select class="form-select" name="category_id" id="event-category">
                                     <option value="">Select Category</option>
-                                    @foreach($EventCategorylist as $value)
+                                    @foreach($categories as $value)
                                         <option value="{{ $value->id }}">{{ $value->english_name }} | {{ $value->bangla_name }}</option>
                                     @endforeach
                                 </select>
@@ -64,41 +64,35 @@
                                 <textarea class="form-control" placeholder="Bangla description" name="bangla_description" rows="3" value="{{ old('bangla_description') }}"></textarea>
                             </div>
 
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label" for="basic-default-name">Published Datetime </label>
+                                    <input class="form-control" type="datetime-local" name="published_datetime" value="{{ old('published_datetime') }}">
+                                    @if ($errors->has('published_datetime'))
+                                        <span class="text-danger">{{ $errors->first('published_datetime') }}</span>
+                                    @endif
+                                </div>
+                            </div>
                             <div class="mb-3">
-                                <label class="form-label" for="basic-default-name">English venue</label>
-                                <input type="text" class="form-control" name="english_venue" placeholder="English venue" value="{{ old('english_venue') }}">
-                                @if ($errors->has('english_venue'))
-                                    <span class="text-danger">{{ $errors->first('english_venue') }}</span>
+                                <label class="form-label" for="event-category">Is Ticker</label>
+                                <select class="form-select" name="is_ticker" id="is_ticker">
+                                    <option value="0">No Ticker</option>
+                                    <option value="1">Ticker</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="basic-default-name">Ticker Link</label>
+                                <input type="url" class="form-control" name="ticker_link" placeholder="Ticker Link" value="{{ old('ticker_link') }}">
+                                @if ($errors->has('ticker_link'))
+                                    <span class="text-danger">{{ $errors->first('ticker_link') }}</span>
                                 @endif
                             </div>
-
                             <div class="mb-3">
-                                <label class="form-label" for="basic-default-name">Bangla venue</label>
-                                <input type="text" class="form-control" name="bangla_venue" placeholder="Bangla venue" value="{{ old('bangla_venue') }}">
-                                @if ($errors->has('bangla_venue'))
-                                    <span class="text-danger">{{ $errors->first('bangla_venue') }}</span>
-                                @endif
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label class="form-label" for="basic-default-name">From datetime *</label>
-                                        <input class="form-control" type="datetime-local" name="from_datetime" value="{{ old('from_datetime') }}">
-                                        @if ($errors->has('from_datetime'))
-                                            <span class="text-danger">{{ $errors->first('from_datetime') }}</span>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <label class="form-label" for="basic-default-name">To datetime</label>
-                                        <input class="form-control" type="datetime-local" name="to_datetime" value="{{ old('to_datetime') }}">
-                                        @if ($errors->has('to_datetime'))
-                                            <span class="text-danger">{{ $errors->first('to_datetime') }}</span>
-                                        @endif
-                                    </div>
-                                </div>
+                                <label class="form-label" for="event-category">Is Teatured</label>
+                                <select class="form-select" name="is_featured" id="is_featured">
+                                    <option value="0">No Featured</option>
+                                    <option value="1">Featured</option>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="event-category">Status</label>
