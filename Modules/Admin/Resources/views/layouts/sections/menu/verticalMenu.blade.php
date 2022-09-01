@@ -81,6 +81,27 @@
           </ul>
       </li>
 
+      <li class="menu-item" style="">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx "></i>
+              <div>Notice</div>
+          </a>
+          <ul class="menu-sub">
+              <li class="menu-item ">
+                  <a href="{{ route('notice-category.index') }}" class="menu-link">
+                      <div>Notice Category</div>
+                  </a>
+              </li>
+          </ul>
+{{--          <ul class="menu-sub">--}}
+{{--              <li class="menu-item ">--}}
+{{--                  <a href="{{ route('event.index') }}" class="menu-link">--}}
+{{--                      <div>Event</div>--}}
+{{--                  </a>--}}
+{{--              </li>--}}
+{{--          </ul>--}}
+      </li>
+
     {{-- main menu --}}
     <li class="menu-item active open">
       <a href="{{ 'javascript:void(0);' }}" class="{{ isset($menu->submenu) ? 'menu-link menu-toggle' : 'menu-link' }}" @if (isset($menu->target) and !empty($menu->target)) target="_blank" @endif>
