@@ -4,14 +4,14 @@ namespace App\Models\Media;
 
 use Illuminate\Database\Eloquent\Model;
 
-class MediaRel extends Model
+class Mediaables extends Model
 {
-    protected $table = 'media_rel';
+    protected $table = 'mediaables';
 
     protected $fillable = [
         'media_id',
-        'rel_id',
-        'class_type',
+        'mediaable_id',
+        'mediaable_type',
     ];
 
 }

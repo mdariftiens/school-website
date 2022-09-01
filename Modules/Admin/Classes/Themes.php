@@ -2,9 +2,6 @@
 
 namespace Modules\Admin\Classes;
 
-use App\Exceptions\ThemeConfigSidebarInfoNotFoundException;
-use App\Exceptions\ThemeNotFoundException;
-use function Composer\Autoload\includeFile;
 
 class Themes
 {
@@ -12,7 +9,7 @@ class Themes
 
     public function __construct()
     {
-        $this->frontendThemeDir = resource_path('views/');
+        $this->frontendThemeDir = resource_path('views');
     }
 
     public function getThemeName():array
