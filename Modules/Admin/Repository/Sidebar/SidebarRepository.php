@@ -21,7 +21,7 @@ class SidebarRepository
     }
     public function getSidebarList()
     {
-        return $this->themes->getSidebarList('primary');
+        return $this->themes->getSidebarList(getCurrentThemeId());
     }
 
     public function update($sidebarName, Request $request)
