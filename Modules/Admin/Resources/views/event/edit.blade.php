@@ -34,8 +34,8 @@
                                 <label class="form-label" for="event-category">Category</label>
                                 <select class="form-select" name="category_id" id="event-category">
                                     <option value="">Select Category</option>
-                                    @foreach($EventCategorylist as $value)
-                                        <option <?= ($value->id = $event->id)? 'selected' : '' ?> value="{{ $value->id }}">{{ $value->english_name }} | {{ $value->bangla_name }}</option>
+                                    @foreach($EventCategorylist as $category)
+                                        <option <?= ($category->id == $event->category_id)? 'selected' : '' ?> value="{{ $category->id }}">{{ $category->english_name }} | {{ $category->bangla_name }}</option>
                                     @endforeach
                                 </select>
                                 @if ($errors->has('category_id'))

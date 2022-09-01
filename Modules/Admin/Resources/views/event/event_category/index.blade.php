@@ -39,19 +39,21 @@
                     <table class="table text-nowrap">
                         <thead>
                         <tr>
-                            <th>#</th>
+                            <th>Sl</th>
                             <th>English Name</th>
                             <th>Bangla Name</th>
+                            <th style="text-align: center">Number of Event</th>
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
                         @if($list)
-                            @foreach($list as $value)
+                            <?php $i=0; foreach($list as $value){ $i++; ?>
                                 <tr>
                                     <td>{{ $value->id }}</td>
                                     <td>{{ $value->english_name }}</td>
                                     <td>{{ $value->bangla_name }}</td>
+                                    <td style="text-align: center">{{ $value->number_of_event }}</td>
                                     <td>
                                         <div class="d-inline-block">
                                             <a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
@@ -68,7 +70,7 @@
                                         </div> | <a href="{{ route('event-category.edit', $value->id) }}" class="item-edit text-body"><i class="bx bxs-edit"></i></a>
                                     </td>
                                 </tr>
-                            @endforeach
+                            <?php } ?>
                         @endif
                         </tbody>
                     </table>

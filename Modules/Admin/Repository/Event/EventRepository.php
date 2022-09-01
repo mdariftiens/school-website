@@ -5,6 +5,7 @@ namespace Modules\Admin\Repository\Event;
 use App\Models\Event\Event;
 use App\Models\Event\EventCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Modules\Admin\Classes\Themes;
 use Modules\Admin\Entities\Widgets\WidgetBar;
 
@@ -17,17 +18,24 @@ class EventRepository
         return view('admin::event.index',$data);
     }
 
-    public function create(){
-        $data['EventCategorylist'] = EventCategory::get();
-        return view('admin::event.create',$data);
+    public function get(){
+        return  EventCategory::get();
     }
 
-    public function store($request)
+    public function store($validatedData)
     {
+        DB::beginTransaction();
 
-        $validatedData = $request->validated();
-        return Event::create($validatedData);
-
+        try {
+            $event = Event::create($validatedData);
+            EventCategory::find($validatedData['category_id'])->increment('number_of_event');
+            DB::commit();
+            return $event;
+        }
+        catch (\Throwable $e) {
+            DB::rollBack();
+            throw $e;
+        }
     }
 
     public function show($id)
@@ -39,7 +47,7 @@ class EventRepository
     {
         $data['EventCategorylist'] = EventCategory::get();
         $data['event'] = Event::find($id);
-        return view('admin::event.edit',$data);
+        return $data;
     }
 
     public function update($request, $id)
@@ -51,8 +59,18 @@ class EventRepository
 
     public function destroy($id)
     {
-        $eventCategory = Event::find($id);
-        return $eventCategory->delete();
+        try {
+            $eventCategory = Event::find($id);
+            EventCategory::find($eventCategory->category_id)->decrement('number_of_event', 1);
+            $delete = $eventCategory->delete();
+            DB::commit();
+            return $delete;
+        }
+        catch (\Throwable $e) {
+            DB::rollBack();
+            throw $e;
+        }
+
 
     }
 }
