@@ -4,7 +4,7 @@ namespace Modules\Admin\Database\Seeders;
 
 use App\Models\Event\Event;
 use App\Models\Event\EventCategory;
-use App\Models\Media\MediaRel;
+use App\Models\Media\Mediaables;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 
@@ -55,22 +55,22 @@ class EventMediaSeeder extends Seeder
             'to_datetime' => now()->addDay(),
         ]);
 
-        MediaRel::create([
+        Mediaables::create([
             'media_id' => 1,
-            'rel_id' => 1,
-            'class_type' => Event::class,
+            'mediaable_id' => 1,
+            'mediaable_type' => Event::class,
         ]);
 
-        MediaRel::create([
+        Mediaables::create([
             'media_id' => 2,
-            'rel_id' => 1,
-            'class_type' => Event::class,
+            'mediaable_id' => 1,
+            'mediaable_type' => Event::class,
         ]);
 
-        MediaRel::create([
+        Mediaables::create([
             'media_id' => 1,
-            'rel_id' => 2,
-            'class_type' => Event::class,
+            'mediaable_id' => 2,
+            'mediaable_type' => Event::class,
         ]);
     }
 }
