@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('media_rel', function (Blueprint $table) {
+        Schema::create('mediaables', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('media_id');
-            $table->unsignedInteger('rel_id');
-            $table->string('class_type');
+            $table->unsignedInteger('mediaable_id');
+            $table->string('mediaable_type');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('media_rel');
+        Schema::dropIfExists('mediaables');
     }
 };
