@@ -34,4 +34,7 @@ Route::prefix('admin')->group(function() {
 
     /*===============Gallery routes=================*/
     Route::resource('gallery', '\\'.\Modules\Admin\Http\Controllers\Gallery\GalleryController::class);
+
+    /*===============Slider routes=================*/
+    Route::resource('slider', '\\'. \Modules\Admin\Http\Controllers\Slider\SliderController::class);
 });
