@@ -77,34 +77,4 @@
         </div>
     </div>
 
-    <script>
-        $(document).ready(function(){
-            $('.delete').on('click',function () {
-                if(confirm("are you sure to delete?")){
-
-                    id = $(this).data('id');
-                    url = "{{ route('widgets.destroy','@@@') }}"
-                    url = url.replace("@@@",id)
-
-                    $.ajax(
-                        {
-                            url: url,
-                            type: 'DELETE',
-                            data: {
-                                "id": id,
-                                "_token": "{{ csrf_token() }}",
-                            },
-                            success: function (){
-                                console.log('.row-'+id);
-                                $('.row-'+id).fadeOut(1000,function(){
-                                    $('.row-'+id).empty()
-                                })
-                            }
-                        });
-
-                }
-            })
-        })
-    </script>
-
 @endsection
