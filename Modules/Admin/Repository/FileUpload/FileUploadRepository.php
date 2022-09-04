@@ -24,10 +24,10 @@ class FileUploadRepository
         DB::beginTransaction();
 
         try {
-            $notice = FileUpload::create($validatedData);
+            $fileUpload = FileUpload::create($validatedData);
             FileUploadCategory::find($validatedData['category_id'])->increment('number_of_file');
             DB::commit();
-            return $notice;
+            return $fileUpload;
         } catch (\Throwable $e) {
             DB::rollBack();
             throw $e;
@@ -55,9 +55,9 @@ class FileUploadRepository
     {
         DB::beginTransaction();
         try {
-            $notice = FileUpload::find($id);
-            FileUploadCategory::find($notice->category_id)->decrement('number_of_file', 1);
-            $delete = $notice->delete();
+            $fileUpload = FileUpload::find($id);
+            FileUploadCategory::find($fileUpload->category_id)->decrement('number_of_file', 1);
+            $delete = $fileUpload->delete();
             DB::commit();
             return $delete;
         } catch (\Throwable $e) {

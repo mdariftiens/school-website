@@ -123,6 +123,20 @@
           </ul>
       </li>
 
+      <li class="menu-item" style="">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx "></i>
+              <div>Gallery</div>
+          </a>
+          <ul class="menu-sub">
+              <li class="menu-item ">
+                  <a href="{{ route('gallery.index') }}" class="menu-link">
+                      <div>Gallery List</div>
+                  </a>
+              </li>
+          </ul>
+      </li>
+
     {{-- main menu --}}
     <li class="menu-item active open">
       <a href="{{ 'javascript:void(0);' }}" class="{{ isset($menu->submenu) ? 'menu-link menu-toggle' : 'menu-link' }}" @if (isset($menu->target) and !empty($menu->target)) target="_blank" @endif>
