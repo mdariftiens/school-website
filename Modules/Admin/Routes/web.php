@@ -27,4 +27,8 @@ Route::prefix('admin')->group(function() {
     /*===============notice routes=================*/
     Route::resource('notice', '\\'.\Modules\Admin\Http\Controllers\notice\NoticeController::class);
     Route::resource('notice-category', '\\'.\Modules\Admin\Http\Controllers\Notice\NoticeCategoryController::class);
+
+    /*===============notice routes=================*/
+//    Route::resource('notice', '\\'.\Modules\Admin\Http\Controllers\notice\NoticeController::class);
+    Route::resource('file-upload-category', '\\'.\Modules\Admin\Http\Controllers\File_upload\FileUploadCategoryController::class);
 });
