@@ -15,8 +15,6 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->tinyText('english_slug');
-            $table->tinyText('bangla_slug');
             $table->tinyInteger('priority')->nullable();
             $table->string('english_title',500);
             $table->string('bangla_title',500);

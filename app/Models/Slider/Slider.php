@@ -16,8 +16,7 @@ class Slider extends Model
         'english_title',
         'english_description',
         'bangla_description',
-        'gallery_type',
         'priority',
-        'is_publish'
+        'is_published'
     ];
 }

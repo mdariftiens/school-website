@@ -27,9 +27,8 @@ class SliderController extends Controller
 
     public function store( SliderRequest $request )
     {
-        dd($request->validated());
-//        $this->SliderRepository->store($request->validated());
-//        return back()->with(['message'=>'Slider create successfully.']);
+        $this->SliderRepository->store($request->validated());
+        return back()->with(['message'=>'Slider create successfully.']);
     }
 
     public function show($id)

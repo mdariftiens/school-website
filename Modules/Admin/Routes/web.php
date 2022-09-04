@@ -37,4 +37,7 @@ Route::prefix('admin')->group(function() {
 
     /*===============Slider routes=================*/
     Route::resource('slider', '\\'. \Modules\Admin\Http\Controllers\Slider\SliderController::class);
+
+    /*===============Message routes=================*/
+    Route::resource('message', '\\'. \Modules\Admin\Http\Controllers\Message\MessageController::class);
 });
