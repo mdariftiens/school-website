@@ -1,6 +1,6 @@
 @extends('admin::layouts.contentNavbarLayout')
 
-@section('title', 'Notice - list')
+@section('title', 'File Upload - list')
 
 @section('content')
     <div class="row">
@@ -9,12 +9,12 @@
 
                 <div class="card-header flex-column flex-md-row">
                     <div class="head-label text-center">
-                        <h5 class="card-title mb-0">Notice List</h5>
+                        <h5 class="card-title mb-0">File Upload List</h5>
                     </div>
                     <div class="dt-action-buttons text-end pt-3 pt-md-0">
                         <div class="dt-buttons">
                             <div class="btn-group">
-                                <a class="btn btn-primary" href="{{ route('notice.create') }}">
+                                <a class="btn btn-primary" href="{{ route('file-upload.create') }}">
                                     <span><i class="bx bx-plus me-sm-2"></i>
                                         <span class="d-none d-sm-inline-block">Add New</span>
                                     </span>
@@ -34,9 +34,6 @@
                             <th>Sl</th>
                             <th>Title</th>
                             <th>Is Published</th>
-                            <th>Is Ticker</th>
-                            <th>Is Featured</th>
-                            <th>Published datetime</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -46,12 +43,7 @@
                                 <tr>
                                     <td>{{ $i }}</td>
                                     <td>{{ $value->english_title }}</td>
-                                    <td><?= ($value->is_published == '1')? 'Published' : 'Unpublished'?></td>
-                                    <td><?= ($value->is_ticker == '1')? 'yes' : 'No'?></td>
-                                    <td>
-                                        <?= ($value->is_featured == '1') ? '<span>Yes</span>' : 'No'; ?>
-                                    </td>
-                                    <td>{{ $value->published_datetime }}</td>
+                                    <td><?= ($value->is_published == '1')? 'Yes' : 'No'?></td>
                                     <td>
                                         <div class="d-inline-block">
                                             <a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
@@ -59,13 +51,13 @@
                                             <div class="dropdown-menu dropdown-menu-end m-0" style="">
                                                 <a href="javascript:;" class="dropdown-item">Details</a>
                                                 <div class="dropdown-divider"></div>
-                                                <form action="{{ route('notice.destroy', $value->id) }}" method="POST">
+                                                <form action="{{ route('file-upload.destroy', $value->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="dropdown-item text-danger delete-record">Delete</button>
                                                 </form>
                                             </div>
-                                        </div> | <a href="{{ route('notice.edit', $value->id) }}" class="item-edit text-body"><i class="bx bxs-edit"></i></a>
+                                        </div> | <a href="{{ route('file-upload.edit', $value->id) }}" class="item-edit text-body"><i class="bx bxs-edit"></i></a>
                                     </td>
                                 </tr>
                             <?php } ?>

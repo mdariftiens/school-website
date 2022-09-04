@@ -114,13 +114,13 @@
                   </a>
               </li>
           </ul>
-{{--          <ul class="menu-sub">--}}
-{{--              <li class="menu-item ">--}}
-{{--                  <a href="{{ route('notice.index') }}" class="menu-link">--}}
-{{--                      <div>Notice List</div>--}}
-{{--                  </a>--}}
-{{--              </li>--}}
-{{--          </ul>--}}
+          <ul class="menu-sub">
+              <li class="menu-item ">
+                  <a href="{{ route('file-upload.index') }}" class="menu-link">
+                      <div>File List</div>
+                  </a>
+              </li>
+          </ul>
       </li>
 
     {{-- main menu --}}

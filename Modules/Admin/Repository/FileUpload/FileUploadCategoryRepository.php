@@ -2,34 +2,34 @@
 
 namespace Modules\Admin\Repository\FileUpload;
 
-use App\Models\FileUpload\FileUpload;
+use App\Models\FileUpload\FileUploadCategory;
 
 class FileUploadCategoryRepository
 {
     public function getCategories()
     {
-        return FileUpload::get();
+        return FileUploadCategory::get();
     }
 
     public function store($validatedData)
     {
-        return FileUpload::create($validatedData);
+        return FileUploadCategory::create($validatedData);
     }
 
     public function getOne($id)
     {
-        return FileUpload::find($id);
+        return FileUploadCategory::find($id);
     }
 
     public function update($validatedData, $id)
     {
-        return FileUpload::find($id)->update($validatedData);
+        return FileUploadCategory::find($id)->update($validatedData);
 
     }
 
     public function destroy($id)
     {
-        $Category = FileUpload::find($id);
+        $Category = FileUploadCategory::find($id);
         return $Category->delete();
     }
 }
