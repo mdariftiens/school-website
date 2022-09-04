@@ -13,8 +13,8 @@ class NoticeRepository
         return Notice::get();
     }
 
-    public function getOne(){
-        return  NoticeCategory::get();
+    public function getOne($id){
+        return  Notice::find($id);
     }
 
     public function store($validatedData)

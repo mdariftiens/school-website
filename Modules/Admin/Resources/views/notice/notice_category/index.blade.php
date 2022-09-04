@@ -43,7 +43,7 @@
                                     <td>{{ $value->id }}</td>
                                     <td>{{ $value->english_name }}</td>
                                     <td>{{ $value->bangla_name }}</td>
-                                    <td style="text-align: center">{{ $value->number_of_event }}</td>
+                                    <td style="text-align: center">{{ $value->number_of_notice }}</td>
                                     <td>
                                         <div class="d-inline-block">
                                             <a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">

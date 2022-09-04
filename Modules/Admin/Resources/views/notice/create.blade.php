@@ -15,7 +15,7 @@
                         <div class="dt-buttons">
 
                             <a class="dt-button create-new btn btn-info"
-                               href="{{ route('event.index') }}">
+                               href="{{ route('notice.index') }}">
                                 <span><i class="bx bx-list-ol me-sm-2"></i>
                                     <span class="d-none d-sm-inline-block">List</span>
                                 </span>
@@ -103,8 +103,6 @@
                             </div>
                             <button type="submit" class="btn btn-primary">Save</button>
                         </form>
-
-
                     </div>
                 </div>
             </div>

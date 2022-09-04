@@ -33,10 +33,10 @@
                         <tr>
                             <th>Sl</th>
                             <th>Title</th>
-                            <th>Venue</th>
-                            <th>From</th>
-                            <th>To</th>
-                            <th>Status</th>
+                            <th>Is Published</th>
+                            <th>Is Ticker</th>
+                            <th>Is Featured</th>
+                            <th>Published datetime</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -46,12 +46,12 @@
                                 <tr>
                                     <td>{{ $i }}</td>
                                     <td>{{ $value->english_title }}</td>
-                                    <td>{{ $value->english_venue }}</td>
-                                    <td>{{ $value->from_datetime }}</td>
-                                    <td>{{ $value->to_datetime }}</td>
+                                    <td><?= ($value->is_published == '1')? 'Published' : 'Unpublished'?></td>
+                                    <td><?= ($value->is_ticker == '1')? 'yes' : 'No'?></td>
                                     <td>
-                                        <?= ($value->is_published == '1') ? '<span>Published</span>' : '<span>Draft</span>'; ?>
+                                        <?= ($value->is_featured == '1') ? '<span>Yes</span>' : 'No'; ?>
                                     </td>
+                                    <td>{{ $value->published_datetime }}</td>
                                     <td>
                                         <div class="d-inline-block">
                                             <a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
