@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 class NoticeRepository
 {
-    public function getEvent()
+    public function getNotice()
     {
         return Notice::get();
     }
@@ -52,6 +52,7 @@ class NoticeRepository
 
     public function destroy($id)
     {
+        DB::beginTransaction();
         try {
             $notice = Notice::find($id);
             NoticeCategory::find($notice->category_id)->decrement('number_of_notice', 1);

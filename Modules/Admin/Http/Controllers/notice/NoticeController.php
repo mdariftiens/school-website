@@ -20,7 +20,7 @@ class NoticeController extends Controller
 
     public function index()
     {
-        $data['list'] =  $this->noticeRepository->getEvent();
+        $data['list'] =  $this->noticeRepository->getNotice();
         return view('admin::notice.index',$data);
     }
 
