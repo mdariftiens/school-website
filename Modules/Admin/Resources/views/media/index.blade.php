@@ -61,6 +61,7 @@
                     </div>
 
                     <div class="col-4">
+
                         <form action="{{ route('media.store') }}" class="dropzone" id="my-great-dropzone"></form>
 
                         <script>

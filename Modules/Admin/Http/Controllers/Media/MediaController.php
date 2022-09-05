@@ -15,11 +15,15 @@ class MediaController extends Controller
         $this->mediaRepository = $mediaRepository;
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $data = [];
         $data['list'] = $this->mediaRepository->getMediaList();
         $data['mediaTypeList'] = $this->mediaRepository->getMediaType();
+
+       if($request->ajax()){
+            return $data['list'];
+        }
 
         return view('admin::media.index',$data);
     }
