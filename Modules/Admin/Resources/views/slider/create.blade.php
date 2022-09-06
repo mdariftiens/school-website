@@ -132,7 +132,11 @@
 
                                                         <div class="selected_media">
                                                             <div class="selected_media_content">
+                                                                <?php if(old('mediaInputValue')){ ?>
+                                                                    {!! old('mediaInputValue') !!}
+                                                                <?php }else{ ?>
                                                                 <div class="row"></div>
+                                                                <?php } ?>
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-md-12">
