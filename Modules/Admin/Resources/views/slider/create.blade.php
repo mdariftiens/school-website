@@ -11,6 +11,20 @@
             padding: 4px;
             border-radius: 10px;
         }
+        .media_pagination{
+            margin-top: 52px;
+        }
+        .media_pagination ul{
+            list-style: none;
+            display: inline-block;
+            padding: 0px;
+        }
+        .media_pagination ul li{
+            display: inline-block;
+            background: #ddd;
+            margin: 0px 6px;
+            padding: 2px 12px;
+        }
     </style>
     <div class="row">
         <div class="col-md-12 col-lg-12 mb-4">
@@ -71,15 +85,19 @@
                                     <option value="1">Publish</option>
                                 </select>
                             </div>
-                            <div class="mb-3 mt-5">
-                                <div class="row">
-                                    <div class="col-md-10">
-                                    </div>
-                                    <div class="col-md-2">
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Media/Video</button>
+                            <!--==================Media upload configuration html=========-->
+                            <div class="mb-3 from_media_area"> {!! old('mediaInputValue') !!} </div>
+                                <input type="hidden" id="inputFieldOldValue" name="mediaInputValue" value="{{ old('mediaInputValue') }}">
+                                <div class="mb-3 mt-5">
+                                    <div class="row">
+                                        <div class="col-md-10">
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button type="button" id="add_media_or_video" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Media/Video</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            <!--==================Media upload configuration html=========-->
                             <button type="submit" class="btn btn-primary">Save</button>
                         </form>
 
@@ -109,6 +127,17 @@
                                                             <div class="row media_content"></div>
                                                             <div class="media_pagination">
 
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="selected_media">
+                                                            <div class="selected_media_content">
+                                                                <div class="row"></div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <button class="btn btn-primary" id="media_insert">Media Insert</button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>

@@ -2,6 +2,8 @@
 
 namespace Modules\Admin\Repository\Slider;
 
+use App\Models\Event\Event;
+use App\Models\Media\Mediaables;
 use App\Models\Slider\Slider;
 
 
@@ -14,12 +16,21 @@ class SliderRepository
 
     public function getOne($id)
     {
-        return Slider::find($id);
+        return Slider::with('media')->find($id);
     }
 
     public function store($validatedData)
     {
-        return Slider::create($validatedData);
+        $slider =  Slider::create($validatedData);
+
+        foreach ($validatedData['mediaids'] as $mediaId){
+            Mediaables::create([
+                'media_id' => $mediaId,
+                'mediaable_id' => $slider->id,
+                'mediaable_type' => Slider::class,
+            ]);
+        }
+
     }
 
     public function show($id)
@@ -34,7 +45,20 @@ class SliderRepository
 
     public function update($validatedData, $id)
     {
-        return Slider::find($id)->update($validatedData);
+        Slider::find($id)->update($validatedData);
+
+        Mediaables::where([
+            'mediaable_id' => $id,
+            'mediaable_type' => Slider::class,
+        ])->foreDelete();
+
+        foreach ($validatedData['mediaids'] as $mediaId){
+            Mediaables::create([
+                'media_id' => $mediaId,
+                'mediaable_id' => $id,
+                'mediaable_type' => Slider::class,
+            ]);
+        }
 
     }
 

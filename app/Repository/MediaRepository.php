@@ -44,7 +44,8 @@ class MediaRepository extends Repository
 
     public function getMediaList()
     {
-        return Media::paginate($this->getPerPage());
+        return Media::paginate(1);
+//        return Media::paginate($this->getPerPage());
     }
 
     public function getMediaType()
