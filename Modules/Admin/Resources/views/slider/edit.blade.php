@@ -63,10 +63,19 @@
                                     <option <?= ( $row->is_published == '1' )? 'selected' : '' ?> value="1">Publish</option>
                                 </select>
                             </div>
+
+                            <!--==================Media upload configuration html=========-->
+                                @include('admin::media_uploader_modal.media_placeholder')
+                            <!--==================Media upload configuration html=========-->
+
                             <button type="submit" class="btn btn-primary">Save</button>
                         </form>
                     </div>
                 </div>
+
+                <!-------------------media uloader------------------->
+                    @include('admin::media_uploader_modal.media_modal')
+                <!-------------------media uloader------------------->
             </div>
         </div>
 @endsection

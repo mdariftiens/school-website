@@ -50,7 +50,7 @@ class SliderRepository
         Mediaables::where([
             'mediaable_id' => $id,
             'mediaable_type' => Slider::class,
-        ])->foreDelete();
+        ])->forceDelete();
 
         foreach ($validatedData['mediaids'] as $mediaId){
             Mediaables::create([
