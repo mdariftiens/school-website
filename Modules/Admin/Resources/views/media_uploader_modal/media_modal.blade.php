@@ -70,7 +70,9 @@
                                 </div>
                             </div>
                             <div class="col-12 col-sm-4 col-md-4">
-                                <form action="{{ route('media.store') }}" class="dropzone" id="my-great-dropzone"></form>
+                                <form action="{{ route('media.store') }}" class="dropzone" id="my-great-dropzone">
+                                    {{ csrf_field() }}
+                                </form>
                                 <script>
 
                                 </script>

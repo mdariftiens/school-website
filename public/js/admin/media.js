@@ -3,9 +3,6 @@ $(document).ready(function(){
     Dropzone.options.myGreatDropzone = { // camelized version of the `id`
         paramName: "file", // The name that will be used to transfer the file
         maxFilesize: 1000, // MB
-        headers: {
-            'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content,
-        },
         accept: function(file, done) {
             if (file.name == "justinbieber.jpg") {
                 done("Naha, you don't.");
