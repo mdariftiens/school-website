@@ -22,7 +22,6 @@ class CreateNoticeTable extends Migration
             $table->text('english_description')->nullable();
             $table->tinyInteger('is_published')->default(0);
             $table->tinyText('featured_image_link')->nullable();
-            $table->tinyText('thumbnail_image_link')->nullable();
             $table->dateTime('published_datetime');
             $table->tinyInteger('is_ticker')->default(0);
             $table->tinyText('ticker_link')->nullable();

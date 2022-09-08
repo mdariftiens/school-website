@@ -15,22 +15,22 @@ class CreateEmployee extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('english_name')->nullable();
-            $table->string('bangla_name')->nullable();
+            $table->string('english_name');
+            $table->string('bangla_name');
             $table->string('employee_identification_number')->nullable();
-            $table->unsignedInteger('designation_id')->nullable();
-            $table->unsignedInteger('department_id')->nullable();
+            $table->unsignedInteger('designation_id');
+            $table->unsignedInteger('department_id');
+            $table->unsignedInteger('employee_category_id')->nullable();
+            $table->unsignedInteger('employee_type_id')->nullable();
             $table->string('english_description')->nullable();
             $table->string('bangla_description')->nullable();
-            $table->unsignedInteger('employee_category_id')->nullable();
-            $table->string('employee_type')->nullable();
             $table->string('contact_number')->nullable();
             $table->string('email')->nullable();
             $table->date('date_of_birth')->nullable();
             $table->date('date_of_joining')->nullable();
             $table->string('blood_group')->nullable();
             $table->text('educational_qualification')->nullable();
-            $table->string('subject')->nullable(); // @todo why subject after educational_qualification
+            $table->string('major_subject')->nullable();
             $table->integer('priority')->nullable();
             $table->timestamps();
             $table->softDeletes();
