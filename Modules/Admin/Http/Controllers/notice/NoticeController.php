@@ -43,7 +43,7 @@ class NoticeController extends Controller
     public function edit($id)
     {
         $data['categories'] = $this->noticeCategoryRepository->getCategories();
-        $data['notice'] = $this->noticeRepository->getOne($id);
+        $data['row'] = $this->noticeRepository->getOne($id);
         return view('admin::notice.edit',$data);
     }
 

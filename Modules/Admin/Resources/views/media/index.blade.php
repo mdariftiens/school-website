@@ -96,7 +96,7 @@
                                         console.log('m', m)
                                         console.log('file', file)
 
-                                        window.location = window.location;
+                                        //window.location = window.location;
                                         // if (file.accepted) {
                                         //     var mypreview = document.getElementsByClassName('dz-error');
                                         //     mypreview = mypreview[mypreview.length - 1];

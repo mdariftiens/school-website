@@ -1,5 +1,48 @@
 $(document).ready(function(){
 
+    Dropzone.options.myGreatDropzone = { // camelized version of the `id`
+        paramName: "file", // The name that will be used to transfer the file
+        maxFilesize: 1000, // MB
+        headers: {
+            'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content,
+        },
+        accept: function(file, done) {
+            if (file.name == "justinbieber.jpg") {
+                done("Naha, you don't.");
+            }
+            else { done(); }
+
+            console.log('done', done)
+            console.log('file', file)
+        },
+        init: function() {
+            this.on('error', function(file, errorMessage) {
+                console.log('errorMessage', errorMessage)
+                console.log('file', file)
+                alert("error");
+                // if (file.accepted) {
+                //     var mypreview = document.getElementsByClassName('dz-error');
+                //     mypreview = mypreview[mypreview.length - 1];
+                //     mypreview.classList.toggle('dz-error');
+                //     mypreview.classList.toggle('dz-success');
+                // }
+            });
+
+            this.on('success', function(file, m) {
+                console.log('m', m)
+                console.log('file', file)
+                mediaList();
+                // window.location = window.location;
+                // if (file.accepted) {
+                //     var mypreview = document.getElementsByClassName('dz-error');
+                //     mypreview = mypreview[mypreview.length - 1];
+                //     mypreview.classList.toggle('dz-error');
+                //     mypreview.classList.toggle('dz-success');
+                // }
+            });
+        }
+    };
+
     var SelectMedia = []
 
     function mediaList(url = null){

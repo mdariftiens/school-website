@@ -2,12 +2,14 @@
 
 namespace App\Models\Notice;
 
+use App\Traits\HasMedia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Notice extends Model
 {
     use HasFactory;
+    use HasMedia;
     protected $table = 'notice';
 
     protected $fillable = [
