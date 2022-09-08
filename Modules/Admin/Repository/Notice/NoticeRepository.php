@@ -2,6 +2,7 @@
 
 namespace Modules\Admin\Repository\Notice;
 
+use App\Models\Media\Mediaables;
 use App\Models\Notice\Notice;
 use App\Models\Notice\NoticeCategory;
 use Illuminate\Support\Facades\DB;
@@ -14,7 +15,7 @@ class NoticeRepository
     }
 
     public function getOne($id){
-        return  Notice::find($id);
+        return  Notice::with('media')->find($id);
     }
 
     public function store($validatedData)
@@ -23,6 +24,14 @@ class NoticeRepository
 
         try {
             $notice = Notice::create($validatedData);
+
+            foreach (request()->mediaids as $mediaId){
+                Mediaables::create([
+                    'media_id' => $mediaId,
+                    'mediaable_id' => $notice->id,
+                    'mediaable_type' => Notice::class,
+                ]);
+            }
             NoticeCategory::find($validatedData['category_id'])->increment('number_of_notice');
             DB::commit();
             return $notice;
@@ -38,14 +47,23 @@ class NoticeRepository
 
     }
 
-    public function edit($id)
-    {
-        return Notice::find($id);
-    }
 
     public function update($validatedData, $id)
     {
-        return Notice::find($id)->update($validatedData);
+        Notice::find($id)->update($validatedData);
+
+        Mediaables::where([
+            'mediaable_id' => $id,
+            'mediaable_type' => Notice::class,
+        ])->forceDelete();
+
+        foreach (request()->mediaids as $mediaId){
+            Mediaables::create([
+                'media_id' => $mediaId,
+                'mediaable_id' => $id,
+                'mediaable_type' => Notice::class,
+            ]);
+        }
 
     }
 

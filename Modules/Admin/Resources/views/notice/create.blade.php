@@ -1,6 +1,6 @@
 @extends('admin::layouts.contentNavbarLayout')
 
-@section('title', 'Notice - list')
+@section('title', 'Notice - create')
 
 @section('content')
     <div class="row">
@@ -64,6 +64,10 @@
                                 <textarea class="form-control" placeholder="Bangla description" name="bangla_description" rows="3" value="{{ old('bangla_description') }}"></textarea>
                             </div>
 
+                            <!--==================Media upload configuration html=========-->
+                                @include('admin::media_uploader_modal.feature_image_placeholder')
+                            <!--==================Media upload configuration html=========-->
+
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="basic-default-name">Published Datetime </label>
@@ -76,8 +80,8 @@
                             <div class="mb-3">
                                 <label class="form-label" for="event-category">Is Ticker</label>
                                 <select class="form-select" name="is_ticker" id="is_ticker">
-                                    <option value="0">No Ticker</option>
-                                    <option value="1">Ticker</option>
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
                                 </select>
                             </div>
                             <div class="mb-3">
@@ -90,8 +94,8 @@
                             <div class="mb-3">
                                 <label class="form-label" for="event-category">Is Teatured</label>
                                 <select class="form-select" name="is_featured" id="is_featured">
-                                    <option value="0">No Featured</option>
-                                    <option value="1">Featured</option>
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
                                 </select>
                             </div>
                             <div class="mb-3">
@@ -101,8 +105,14 @@
                                     <option value="1">Publish</option>
                                 </select>
                             </div>
+                            <!--==================Media upload configuration html=========-->
+                                @include('admin::media_uploader_modal.media_placeholder')
+                            <!--==================Media upload configuration html=========-->
                             <button type="submit" class="btn btn-primary">Save</button>
                         </form>
+                        <!-------------------media uloader------------------->
+                            @include('admin::media_uploader_modal.media_modal')
+                        <!-------------------media uloader------------------->
                     </div>
                 </div>
             </div>

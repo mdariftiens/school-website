@@ -61,6 +61,7 @@
                     </div>
 
                     <div class="col-4">
+
                         <form action="{{ route('media.store') }}" class="dropzone" id="my-great-dropzone"></form>
 
                         <script>
@@ -95,7 +96,7 @@
                                         console.log('m', m)
                                         console.log('file', file)
 
-                                        window.location = window.location;
+                                        //window.location = window.location;
                                         // if (file.accepted) {
                                         //     var mypreview = document.getElementsByClassName('dz-error');
                                         //     mypreview = mypreview[mypreview.length - 1];

@@ -17,6 +17,9 @@ class SliderRequest extends FormRequest
             'bangla_description' => 'nullable',
             'is_published' => 'nullable',
             'priority' => 'nullable',
+            "mediaids"    => "nullable",
+            "mediaids[].*"  => "nullable",
+            'mediaInputValue' => "nullable"
         ];
     }
 
