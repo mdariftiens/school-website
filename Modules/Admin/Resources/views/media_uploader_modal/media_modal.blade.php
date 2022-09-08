@@ -73,9 +73,6 @@
                                 <form action="{{ route('media.store') }}" class="dropzone" id="my-great-dropzone">
                                     {{ csrf_field() }}
                                 </form>
-                                <script>
-
-                                </script>
                             </div>
                         </div>
                     </div>
@@ -85,6 +82,5 @@
     </div>
 </div><!--dropjone From-->
 
-@push('pricing-script')
+
 <script src="{{ asset('js/admin/media.js') }}"></script>
-@endpush

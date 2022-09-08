@@ -1,45 +1,3 @@
-$(document).ready(function(){
-
-    Dropzone.options.myGreatDropzone = { // camelized version of the `id`
-        paramName: "file", // The name that will be used to transfer the file
-        maxFilesize: 1000, // MB
-        accept: function(file, done) {
-            if (file.name == "justinbieber.jpg") {
-                done("Naha, you don't.");
-            }
-            else { done(); }
-
-            console.log('done', done)
-            console.log('file', file)
-        },
-        init: function() {
-            this.on('error', function(file, errorMessage) {
-                console.log('errorMessage', errorMessage)
-                console.log('file', file)
-                alert("error");
-                // if (file.accepted) {
-                //     var mypreview = document.getElementsByClassName('dz-error');
-                //     mypreview = mypreview[mypreview.length - 1];
-                //     mypreview.classList.toggle('dz-error');
-                //     mypreview.classList.toggle('dz-success');
-                // }
-            });
-
-            this.on('success', function(file, m) {
-                console.log('m', m)
-                console.log('file', file)
-                mediaList();
-                // window.location = window.location;
-                // if (file.accepted) {
-                //     var mypreview = document.getElementsByClassName('dz-error');
-                //     mypreview = mypreview[mypreview.length - 1];
-                //     mypreview.classList.toggle('dz-error');
-                //     mypreview.classList.toggle('dz-success');
-                // }
-            });
-        }
-    };
-
     var SelectMedia = []
 
     function mediaList(url = null){
@@ -48,6 +6,7 @@ $(document).ready(function(){
         }else{
             dataurl = '/admin/media';
         }
+        console.log('in medialist function  ', dataurl)
 
         $.ajax({
             type: 'get',
@@ -91,7 +50,45 @@ $(document).ready(function(){
         });
     }
 
-        mediaList();
+    mediaList();
+
+    Dropzone.options.myGreatDropzone = { // camelized version of the `id`
+        paramName: "file", // The name that will be used to transfer the file
+        maxFilesize: 10000, // MB
+        accept: function(file, done) {
+
+            done()
+
+            console.log('in accept ')
+
+            console.log('done', done)
+            console.log('file', file)
+        },
+        init: function() {
+            this.on('error', function(file, errorMessage) {
+                console.log('errorMessage', errorMessage)
+                console.log('file', file)
+                alert("error");
+
+            });
+
+            this.on('success', function(file, m) {
+                console.log('m', m)
+                console.log('file', file)
+                console.log('in success ')
+
+                mediaList()
+
+                $('.dz-preview').remove()
+                $('.dropzone ').removeClass('dz-started')
+
+
+            });
+
+
+        }
+    };
+
 
     $(document).on('click', '.mediaImagelabel',function (){
         $(this).toggleClass('selectImage');
@@ -122,5 +119,3 @@ $(document).ready(function(){
     })
 
 
-
-});//document ready end
