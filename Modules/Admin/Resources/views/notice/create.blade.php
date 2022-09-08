@@ -64,6 +64,10 @@
                                 <textarea class="form-control" placeholder="Bangla description" name="bangla_description" rows="3" value="{{ old('bangla_description') }}"></textarea>
                             </div>
 
+                            <!--==================Media upload configuration html=========-->
+                                @include('admin::media_uploader_modal.feature_image_placeholder')
+                            <!--==================Media upload configuration html=========-->
+
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="basic-default-name">Published Datetime </label>

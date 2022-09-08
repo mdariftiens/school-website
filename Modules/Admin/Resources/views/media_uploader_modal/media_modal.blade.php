@@ -68,6 +68,27 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <!---------------feature image html section-------------->
+                                <div class="selected_feature_image">
+                                    <div class="selected_media_content">
+                                        <?php if(old('featured_image_link')){ ?>
+                                        {!! old('featured_image_link') !!}
+                                        <?php }else{ ?>
+                                        <div class="row">
+                                            @if(isset($row->featured_image_link))
+                                                @include('admin::media_uploader_modal.media_edit_data')
+                                            @endif
+                                        </div>
+                                        <?php } ?>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <button class="btn btn-primary" id="feature_image_insert">Set Feature Image</button>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                             <div class="col-12 col-sm-4 col-md-4">
                                 <form action="{{ route('media.store') }}" class="dropzone" id="my-great-dropzone"></form>
