@@ -13,4 +13,5 @@ return [
     'file_upload_category'=>10,
     'file_upload'=>200,
     'message'=>20,
+    'management_committee'=>50,
 ];

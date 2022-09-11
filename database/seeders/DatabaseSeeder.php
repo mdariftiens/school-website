@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             GallerySeeder::class,
             FileUploadSeeder::class,
             MessageSeeder::class,
+            ManagementCommitteeSeeder::class,
         ]);
     }
 }
