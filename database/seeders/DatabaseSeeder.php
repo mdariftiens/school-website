@@ -20,12 +20,13 @@ class DatabaseSeeder extends Seeder
             WidgetsTableSeeder::class,
             EventSeeder::class,
             NoticeSeeder::class,
-            MediaableTableSeeder::class,
             SliderSeeder::class,
             GallerySeeder::class,
             FileUploadSeeder::class,
             MessageSeeder::class,
             ManagementCommitteeSeeder::class,
+            EmployeeSeeder::class,
+            MediaableTableSeeder::class,
         ]);
     }
 }
