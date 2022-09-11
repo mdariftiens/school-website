@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             EventSeeder::class,
             NoticeSeeder::class,
             MediaableTableSeeder::class,
+            SliderSeeder::class,
         ]);
     }
 }

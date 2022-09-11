@@ -6,6 +6,7 @@ use App\Models\Event\Event;
 use App\Models\Media\Media;
 use App\Models\Media\Mediaables;
 use App\Models\Notice\Notice;
+use App\Models\Slider\Slider;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 
@@ -20,12 +21,12 @@ class MediaableTableSeeder extends Seeder
     {
         Model::unguard();
 
-        $classes = [Event::class, Notice::class];
+        $classes = [Event::class, Notice::class, Slider::class];
 
         for ($i=1; $i< config('seeder.mediaable');$i++){
             Mediaables::create([
                 'media_id' => random_int(1, config('seeder.media')),
-                'mediaable_id' => 1,
+                'mediaable_id' => random_int(1,50),
                 'mediaable_type' => $classes[random_int(0,count($classes)-1)]
             ]);
         }

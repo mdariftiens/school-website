@@ -8,4 +8,5 @@ return [
     'notice_category'=>50,
     'notice'=>100,
     'mediaable'=>100,
+    'slider'=>10,
 ];
