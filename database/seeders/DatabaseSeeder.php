@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             SliderSeeder::class,
             GallerySeeder::class,
             FileUploadSeeder::class,
+            MessageSeeder::class,
         ]);
     }
 }

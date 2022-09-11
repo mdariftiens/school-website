@@ -12,4 +12,5 @@ return [
     'gallery'=>10,
     'file_upload_category'=>10,
     'file_upload'=>200,
+    'message'=>20,
 ];
