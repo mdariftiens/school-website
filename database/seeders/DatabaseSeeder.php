@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             MediaTableSeeder::class,
             WidgetsTableSeeder::class,
             EventSeeder::class,
+            NoticeSeeder::class,
             MediaableTableSeeder::class,
         ]);
     }

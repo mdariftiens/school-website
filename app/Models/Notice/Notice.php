@@ -21,7 +21,6 @@ class Notice extends Model
         'is_published',
         'published_datetime',
         'featured_image_link',
-        'thumbnail_image_link',
         'is_ticker',
         'ticker_link',
         'is_featured'
