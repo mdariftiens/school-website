@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             MediaableTableSeeder::class,
             SliderSeeder::class,
             GallerySeeder::class,
+            FileUploadSeeder::class,
         ]);
     }
 }
