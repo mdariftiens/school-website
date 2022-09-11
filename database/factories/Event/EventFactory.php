@@ -16,7 +16,7 @@ class EventFactory extends Factory
     public function definition()
     {
         return [
-            'category_id' => random_int(1,2),
+            'category_id' => config('seeder.event_category'),
             'bangla_title' => $this->faker->text,
             'english_title' => $this->faker->text,
             'bangla_description' => $this->faker->text,

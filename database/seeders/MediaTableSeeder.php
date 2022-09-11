@@ -17,7 +17,7 @@ class MediaTableSeeder extends Seeder
     {
         Model::unguard();
 
-        Media::factory(50)->create();
+        Media::factory(config('seeder.media'))->create();
 
     }
 }

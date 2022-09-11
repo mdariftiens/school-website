@@ -18,7 +18,7 @@ class EventSeeder extends Seeder
     {
         Model::unguard();
 
-        EventCategory::factory(2)->create();
+        EventCategory::factory(config('seeder.event_category'))->create();
 
         Event::factory(config('seeder.event'))->create();
 
