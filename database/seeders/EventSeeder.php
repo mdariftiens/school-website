@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Admin\Database\Seeders;
+namespace Database\Seeders;
 
 use App\Models\Event\Event;
 use App\Models\Event\EventCategory;
@@ -20,7 +20,7 @@ class EventSeeder extends Seeder
 
         EventCategory::factory(2)->create();
 
-        Event::factory(100)->create();
+        Event::factory(config('seeder.event'))->create();
 
     }
 }

@@ -1,8 +1,7 @@
 <?php
 
-namespace Modules\Admin\Database\Seeders;
+namespace Database\Seeders;
 
-use App\Models\Media\Media;
 use App\Models\Option\Option;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
