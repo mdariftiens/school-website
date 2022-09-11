@@ -9,4 +9,5 @@ return [
     'notice'=>100,
     'mediaable'=>100,
     'slider'=>10,
+    'gallery'=>10,
 ];

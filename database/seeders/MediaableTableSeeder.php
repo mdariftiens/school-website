@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Event\Event;
+use App\Models\Gallery\Gallery;
 use App\Models\Media\Media;
 use App\Models\Media\Mediaables;
 use App\Models\Notice\Notice;
@@ -21,7 +22,7 @@ class MediaableTableSeeder extends Seeder
     {
         Model::unguard();
 
-        $classes = [Event::class, Notice::class, Slider::class];
+        $classes = [Event::class, Notice::class, Slider::class, Gallery::class];
 
         for ($i=1; $i< config('seeder.mediaable');$i++){
             Mediaables::create([
