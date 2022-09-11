@@ -52,5 +52,17 @@ class MediaRepository extends Repository
         return Media::select(['extension'])->get()->pluck('extension')->unique();
     }
 
+    public function delete($mediaId)
+    {
+        $media = Media::findOrFail($mediaId);
+        $this->deleteFileFromSystemIfLocalFile($media);
+        $media->delete();
+    }
+
+    private function deleteFileFromSystemIfLocalFile( Media $media){
+        if(file_exists($media->diskLocation)){
+            @unlink($media->diskLocation);
+        }
+    }
 
 }

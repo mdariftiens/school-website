@@ -59,6 +59,7 @@ class MediaController extends Controller
 
     public function destroy($mediaId)
     {
+        $this->mediaRepository->delete($mediaId);
         return response()->json(['message' => 'deleted']);
     }
 }
