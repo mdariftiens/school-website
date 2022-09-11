@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Employee\Employee;
 use App\Models\Event\Event;
 use App\Models\FileUpload\FileUpload;
 use App\Models\Gallery\Gallery;
@@ -32,13 +33,17 @@ class MediaableTableSeeder extends Seeder
             FileUpload::class,
             Message::class,
             ManagementCommittee::class,
+            Employee::class,
         ];
 
         for ($i=1; $i< config('seeder.mediaable');$i++){
+
+            $class = $classes[random_int(1,count($classes)-1)];
+
             Mediaables::create([
                 'media_id' => random_int(1, config('seeder.media')),
-                'mediaable_id' => random_int(1,50),
-                'mediaable_type' => $classes[random_int(0,count($classes)-1)]
+                'mediaable_id' => random_int(1,$class::count()),
+                'mediaable_type' => $class
             ]);
         }
 
