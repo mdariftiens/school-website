@@ -36,9 +36,7 @@ class MediaController extends Controller
             'file' => 'required',
         ]);
 
-        $this->mediaRepository->uploadMedia($request);
-
-        return response()->json('uploaded');
+        return response()->json($this->mediaRepository->uploadMedia($request));
     }
 
     public function show($id)
