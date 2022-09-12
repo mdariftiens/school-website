@@ -56,8 +56,13 @@ class EventRepository
     public function destroy($id)
     {
         try {
-            $event = Event::find($id);
-            EventCategory::find($event->category_id)->decrement('number_of_event', 1);
+            $event = Event::findOrFail($id);
+            $eventCategory = EventCategory::find($event->category_id);
+
+            if ($eventCategory && $eventCategory->number_of_event > 0){
+                $eventCategory->decrement('number_of_event', 1);
+            }
+
             $delete = $event->delete();
             DB::commit();
             return $delete;
