@@ -77,7 +77,10 @@ class NoticeRepository
         DB::beginTransaction();
         try {
             $notice = Notice::findOrFail($id);
-            NoticeCategory::find($notice->category_id)->decrement('number_of_notice', 1);
+            $noticeCategory = NoticeCategory::find($notice->category_id);
+            if ($noticeCategory && $noticeCategory->number_of_notice > 0){
+                $noticeCategory->decrement('number_of_notice');
+            }
             $delete = $notice->delete();
 
             Mediaables::where([
