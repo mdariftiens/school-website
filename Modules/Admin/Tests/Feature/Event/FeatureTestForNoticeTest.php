@@ -72,7 +72,7 @@ class FeatureTestForNoticeTest extends TestCase
 
     public function testCanVisitEditPage()
     {
-        $item = Event::factory()->create();
+        $item = Notice::factory()->create();
         $this->get(route('notice.edit', $item->id))
             ->assertSee($item->bangla_title);
     }
