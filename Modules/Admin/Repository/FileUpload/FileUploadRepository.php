@@ -4,6 +4,8 @@ namespace Modules\Admin\Repository\FileUpload;
 
 use App\Models\FileUpload\FileUpload;
 use App\Models\FileUpload\FileUploadCategory;
+use App\Models\Media\Mediaables;
+use App\Models\Notice\Notice;
 use Illuminate\Support\Facades\DB;
 
 
@@ -26,6 +28,16 @@ class FileUploadRepository
         try {
             $fileUpload = FileUpload::create($validatedData);
             FileUploadCategory::find($validatedData['category_id'])->increment('number_of_file');
+
+            if (request()->has('mediaids')){
+                foreach (request()->mediaids as $mediaId){
+                    Mediaables::create([
+                        'media_id' => $mediaId,
+                        'mediaable_id' => $fileUpload->id,
+                        'mediaable_type' => FileUpload::class,
+                    ]);
+                }
+            }
             DB::commit();
             return $fileUpload;
         } catch (\Throwable $e) {
@@ -46,7 +58,22 @@ class FileUploadRepository
 
     public function update($validatedData, $id)
     {
-        return FileUpload::find($id)->update($validatedData);
+        FileUpload::find($id)->update($validatedData);
+
+        Mediaables::where([
+            'mediaable_id' => $id,
+            'mediaable_type' => FileUpload::class,
+        ])->forceDelete();
+
+        if (request()->has('mediaids')){
+            foreach (request()->mediaids as $mediaId){
+                Mediaables::create([
+                    'media_id' => $mediaId,
+                    'mediaable_id' => $id,
+                    'mediaable_type' => FileUpload::class,
+                ]);
+            }
+        }
 
     }
 
@@ -55,9 +82,18 @@ class FileUploadRepository
     {
         DB::beginTransaction();
         try {
-            $fileUpload = FileUpload::find($id);
-            FileUploadCategory::find($fileUpload->category_id)->decrement('number_of_file', 1);
+            $fileUpload = FileUpload::findOrFail($id);
+            $category = FileUploadCategory::find($fileUpload->category_id);
+            if ($category && $category->number_of_file > 0){
+                $category->decrement('number_of_file');
+            }
             $delete = $fileUpload->delete();
+
+            Mediaables::where([
+                'mediaable_id' => $id,
+                'mediaable_type' => FileUpload::class,
+            ])->forceDelete();
+
             DB::commit();
             return $delete;
         } catch (\Throwable $e) {
