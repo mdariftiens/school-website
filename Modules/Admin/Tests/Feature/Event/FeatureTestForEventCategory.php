@@ -11,6 +11,12 @@ use Tests\TestCase;
 class FeatureTestForEventCategory extends TestCase
 {
 
+    public function testCanVisitCreatePage()
+    {
+        $this->get(route('event-category.create'))
+            ->assertOk();
+    }
+
     public function testShowValidationError()
     {
         $this->post(route('event-category.store'),[])
