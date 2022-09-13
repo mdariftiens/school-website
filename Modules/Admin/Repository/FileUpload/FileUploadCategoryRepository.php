@@ -29,7 +29,7 @@ class FileUploadCategoryRepository
 
     public function destroy($id)
     {
-        $Category = FileUploadCategory::find($id);
+        $Category = FileUploadCategory::findOrFail($id);
         return $Category->delete();
     }
 }
