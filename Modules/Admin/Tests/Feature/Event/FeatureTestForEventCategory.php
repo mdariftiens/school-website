@@ -26,6 +26,8 @@ class FeatureTestForEventCategory extends TestCase
 
         $this->post(route('event-category.store'),$dataArray)
             ->assertSessionHas('message');
+
+        $this->assertDatabaseHas('event_categories',$dataArray);
     }
 
 
@@ -33,12 +35,14 @@ class FeatureTestForEventCategory extends TestCase
     {
         $event = EventCategory::factory()->create();
         $eventWillUpdateArray = $event->toArray();
-        $eventWillUpdateArray['bangla_name'] = 'bangla_name';
+        $eventWillUpdateArray['bangla_name'] = 'bangla_name' . time();
 
         $this->put(route('event-category.update', $event->id),
             $eventWillUpdateArray
         )
             ->assertSessionHas('message');
+        unset($eventWillUpdateArray['updated_at']);
+        $this->assertDatabaseHas('event_categories', $eventWillUpdateArray);
 
     }
 
@@ -67,13 +71,15 @@ class FeatureTestForEventCategory extends TestCase
         $event = EventCategory::factory()->create();
         $this->delete(route('event-category.destroy', $event->id))
             ->assertSessionHas('message');
+        $this->assertDatabaseMissing('event_categories', $event->toArray());
     }
 
 
 
     public function testEventList()
     {
-        $this->get(route('event-categoryindex'))
-            ->assertOk();
+        $eventCategory = EventCategory::factory()->create();
+        $this->get(route('event-category.index'))
+            ->assertSee($eventCategory->english_name);
     }
 }
