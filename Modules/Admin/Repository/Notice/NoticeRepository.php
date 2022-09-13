@@ -79,6 +79,12 @@ class NoticeRepository
             $notice = Notice::findOrFail($id);
             NoticeCategory::find($notice->category_id)->decrement('number_of_notice', 1);
             $delete = $notice->delete();
+
+            Mediaables::where([
+                'mediaable_id' => $id,
+                'mediaable_type' => Notice::class,
+            ])->forceDelete();
+
             DB::commit();
             return $delete;
         }
