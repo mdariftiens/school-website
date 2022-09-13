@@ -23,14 +23,16 @@ class SliderRepository
     {
         $slider =  Slider::create($validatedData);
 
-        foreach ($validatedData['mediaids'] as $mediaId){
-            Mediaables::create([
-                'media_id' => $mediaId,
-                'mediaable_id' => $slider->id,
-                'mediaable_type' => Slider::class,
-            ]);
+        if (request()->has('mediaids')){
+            foreach (request()->mediaids as $mediaId){
+                Mediaables::create([
+                    'media_id' => $mediaId,
+                    'mediaable_id' => $slider->id,
+                    'mediaable_type' => Slider::class,
+                ]);
+            }
         }
-
+        return $slider;
     }
 
     public function show($id)
@@ -52,19 +54,21 @@ class SliderRepository
             'mediaable_type' => Slider::class,
         ])->forceDelete();
 
-        foreach ($validatedData['mediaids'] as $mediaId){
-            Mediaables::create([
-                'media_id' => $mediaId,
-                'mediaable_id' => $id,
-                'mediaable_type' => Slider::class,
-            ]);
+        if (request()->has('mediaids')){
+            foreach (request()->mediaids as $mediaId){
+                Mediaables::create([
+                    'media_id' => $mediaId,
+                    'mediaable_id' => $id,
+                    'mediaable_type' => Slider::class,
+                ]);
+            }
         }
 
     }
 
     public function destroy($id)
     {
-        $result = Slider::find($id);
+        $result = Slider::findOrFail($id);
         return $result->delete();
     }
 }
