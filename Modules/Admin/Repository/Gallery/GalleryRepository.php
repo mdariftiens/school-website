@@ -3,6 +3,7 @@
 namespace Modules\Admin\Repository\Gallery;
 
 use App\Models\Gallery\Gallery;
+use App\Models\Media\Mediaables;
 
 
 class GalleryRepository
@@ -19,7 +20,18 @@ class GalleryRepository
 
     public function store($validatedData)
     {
-        return Gallery::create($validatedData);
+        $gallery =  Gallery::create($validatedData);
+
+        if (request()->has('mediaids')){
+            foreach (request()->mediaids as $mediaId){
+                Mediaables::create([
+                    'media_id' => $mediaId,
+                    'mediaable_id' => $gallery->id,
+                    'mediaable_type' => Gallery::class,
+                ]);
+            }
+        }
+        return $gallery;
     }
 
     public function show($id)
@@ -34,14 +46,35 @@ class GalleryRepository
 
     public function update($validatedData, $id)
     {
-        return Gallery::find($id)->update($validatedData);
+        Gallery::find($id)->update($validatedData);
 
+        Mediaables::where([
+            'mediaable_id' => $id,
+            'mediaable_type' => Gallery::class,
+        ])->forceDelete();
+
+        if (request()->has('mediaids')){
+            foreach (request()->mediaids as $mediaId){
+                Mediaables::create([
+                    'media_id' => $mediaId,
+                    'mediaable_id' => $id,
+                    'mediaable_type' => Gallery::class,
+                ]);
+            }
+        }
     }
 
 
     public function destroy($id)
     {
-        $gallery = Gallery::find($id);
+        $gallery = Gallery::findOrFail($id);
+
+        Mediaables::where([
+            'mediaable_id' => $id,
+            'mediaable_type' => Gallery::class,
+        ])->forceDelete();
+
+
         return $gallery->delete();
     }
 }
