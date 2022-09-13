@@ -22,7 +22,7 @@ class NoticeFactory extends Factory
             'bangla_description' => $this->faker->text,
             'english_description' => $this->faker->text,
             'is_published' => random_int(0,1),
-            'published_datetime' => now(),
+            'published_datetime' => now()->format("Y-m-d H:i:s"),
             'featured_image_link' => $this->faker->imageUrl(),
             'is_ticker' => random_int(0,1),
             'ticker_link' => $this->faker->url,
