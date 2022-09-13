@@ -3,6 +3,7 @@
 namespace Modules\Admin\Tests\Feature\Event;
 
 use App\Models\Event\Event;
+use App\Models\Event\EventCategory;
 use Tests\TestCase;
 
 class FeatureTestForEventTest extends TestCase
@@ -30,7 +31,10 @@ class FeatureTestForEventTest extends TestCase
     public function testCreateSuccessfully()
     {
 
-        $item = Event::factory()->create()->toArray();
+        $eventCategory = EventCategory::factory()->create();
+        $item = Event::factory()->create([
+            'category_id' => $eventCategory->id
+        ])->toArray();
         unset($item['created_at']);
         unset($item['updated_at']);
         $this->post(route('event.store'),$item)
