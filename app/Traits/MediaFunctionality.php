@@ -3,7 +3,6 @@
 namespace App\Traits;
 
 use App\Models\Media\Mediaables;
-use App\Models\Slider\Slider;
 
 trait MediaFunctionality
 {
