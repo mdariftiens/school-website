@@ -40,7 +40,7 @@ class MessageRepository
 
     public function destroy($id)
     {
-        $result = Message::find($id);
+        $result = Message::findOrFail($id);
         return $result->delete();
     }
 }
