@@ -1,9 +1,7 @@
 <?php
 
-namespace Modules\Admin\Tests\Feature\Event;
+namespace Modules\Admin\Tests\Feature\Notice;
 
-use App\Models\Event\Event;
-use App\Models\Event\EventCategory;
 use App\Models\Notice\Notice;
 use App\Models\Notice\NoticeCategory;
 use Tests\TestCase;

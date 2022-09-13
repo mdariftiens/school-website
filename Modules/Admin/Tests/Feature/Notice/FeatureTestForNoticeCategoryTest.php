@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Admin\Tests\Feature\Event;
+namespace Modules\Admin\Tests\Feature\Notice;
 
 use App\Models\Notice\NoticeCategory;
 use Tests\TestCase;

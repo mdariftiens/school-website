@@ -1,9 +1,8 @@
 <?php
 
-namespace Modules\Admin\Tests\Feature\Event;
+namespace Modules\Admin\Tests\Feature\FileUpload;
 
 use App\Models\FileUpload\FileUploadCategory;
-
 use Tests\TestCase;
 
 class FeatureTestForFileUploadCategoryTest extends TestCase
