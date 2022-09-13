@@ -25,12 +25,14 @@ class NoticeRepository
         try {
             $notice = Notice::create($validatedData);
 
-            foreach (request()->mediaids as $mediaId){
-                Mediaables::create([
-                    'media_id' => $mediaId,
-                    'mediaable_id' => $notice->id,
-                    'mediaable_type' => Notice::class,
-                ]);
+            if (request()->has('mediaids')){
+                foreach (request()->mediaids as $mediaId){
+                    Mediaables::create([
+                        'media_id' => $mediaId,
+                        'mediaable_id' => $notice->id,
+                        'mediaable_type' => Notice::class,
+                    ]);
+                }
             }
             NoticeCategory::find($validatedData['category_id'])->increment('number_of_notice');
             DB::commit();
@@ -57,12 +59,14 @@ class NoticeRepository
             'mediaable_type' => Notice::class,
         ])->forceDelete();
 
-        foreach (request()->mediaids as $mediaId){
-            Mediaables::create([
-                'media_id' => $mediaId,
-                'mediaable_id' => $id,
-                'mediaable_type' => Notice::class,
-            ]);
+        if (request()->has('mediaids')){
+            foreach (request()->mediaids as $mediaId){
+                Mediaables::create([
+                    'media_id' => $mediaId,
+                    'mediaable_id' => $id,
+                    'mediaable_type' => Notice::class,
+                ]);
+            }
         }
 
     }
@@ -72,7 +76,7 @@ class NoticeRepository
     {
         DB::beginTransaction();
         try {
-            $notice = Notice::find($id);
+            $notice = Notice::findOrFail($id);
             NoticeCategory::find($notice->category_id)->decrement('number_of_notice', 1);
             $delete = $notice->delete();
             DB::commit();
