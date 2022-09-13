@@ -31,6 +31,14 @@ class FeatureTestForEventCategory extends TestCase
     }
 
 
+
+    public function testCanVisitEditPage()
+    {
+        $event = EventCategory::factory()->create();
+        $this->get(route('event-category.edit', $event->id))
+            ->assertSee($event->bangla_name);
+    }
+
     public function testUpdatedSuccessfully()
     {
         $event = EventCategory::factory()->create();
@@ -66,7 +74,7 @@ class FeatureTestForEventCategory extends TestCase
             ->assertNotFound();
     }
 
-    public function testEventDeletedSuccessfully()
+    public function testDeletedSuccessfully()
     {
         $event = EventCategory::factory()->create();
         $this->delete(route('event-category.destroy', $event->id))
@@ -76,7 +84,7 @@ class FeatureTestForEventCategory extends TestCase
 
 
 
-    public function testEventList()
+    public function testList()
     {
         $eventCategory = EventCategory::factory()->create();
         $this->get(route('event-category.index'))
