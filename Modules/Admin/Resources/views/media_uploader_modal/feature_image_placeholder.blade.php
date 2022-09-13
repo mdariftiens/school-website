@@ -1,7 +1,7 @@
 <!--==================Media upload configuration html=========-->
 <div class="mb-3 from_feature_area">
     {!! old('featueImageInputFieldOldValue') !!}
-    @if(isset($row->media))
+    @if(isset($row->featured_image_link))
         <div class="row">
             @include('admin::media_uploader_modal.feature_image_placeholder_edit')
         </div>

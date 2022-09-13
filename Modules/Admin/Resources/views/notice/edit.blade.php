@@ -66,8 +66,8 @@
                             </div>
 
                             <!--==================Media upload configuration html=========-->
-                        @include('admin::media_uploader_modal.feature_image_placeholder')
-                        <!--==================Media upload configuration html=========-->
+                                @include('admin::media_uploader_modal.feature_image_placeholder')
+                            <!--==================Media upload configuration html=========-->
 
                             <div class="col-md-6">
                                 <div class="mb-3">
