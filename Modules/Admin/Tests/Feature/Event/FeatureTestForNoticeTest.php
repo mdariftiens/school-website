@@ -8,7 +8,7 @@ use App\Models\Notice\Notice;
 use App\Models\Notice\NoticeCategory;
 use Tests\TestCase;
 
-class FeatureTestForNotice extends TestCase
+class FeatureTestForNoticeTest extends TestCase
 {
 
 

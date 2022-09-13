@@ -8,7 +8,7 @@ use Illuminate\Http\Response;
 use Modules\Admin\Http\Requests\EventRequest;
 use Tests\TestCase;
 
-class FeatureTestForEventCategory extends TestCase
+class FeatureTestForEventCategoryTest extends TestCase
 {
 
     public function testCanVisitCreatePage()

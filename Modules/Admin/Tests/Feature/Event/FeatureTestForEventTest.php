@@ -3,57 +3,69 @@
 namespace Modules\Admin\Tests\Feature\Event;
 
 use App\Models\Event\Event;
-use App\Models\Event\EventCategory;
-use Illuminate\Http\Response;
-use Modules\Admin\Http\Requests\EventRequest;
 use Tests\TestCase;
 
 class FeatureTestForEventTest extends TestCase
 {
 
-    public function testEventShowValidationError()
+
+    public function testList()
     {
-        $this->post(route('event.store'),[])->assertSessionHasErrors();
+        $this->get(route('event.index'))
+            ->assertOk();
     }
 
-    public function testEventCreateSuccessfully()
+    public function testCanVisitCreatePage()
     {
-        $dataArray = [
-            'category_id' => EventCategory::first()->id,
-            'english_title' => 'english_title',
-            'bangla_title' => 'bangla_title',
-            'bangla_description' => null,
-            'english_description' => null,
-            'bangla_venue' => 'nullable',
-            'english_venue' => 'nullable',
-            'from_datetime' => now(),
-            'to_datetime' => now(),
-            'is_published' => 0
-        ];
+        $this->get(route('event.create'))
+            ->assertOk();
+    }
 
-        $this->post(route('event.store'),$dataArray )
+    public function testShowValidationError()
+    {
+        $this->post(route('event.store'),[])
+            ->assertSessionHasErrors();
+    }
+
+    public function testCreateSuccessfully()
+    {
+
+        $item = Event::factory()->create()->toArray();
+        unset($item['created_at']);
+        unset($item['updated_at']);
+        $this->post(route('event.store'),$item)
             ->assertSessionHas('message');
+
+        $this->assertDatabaseHas('events',$item);
     }
 
 
-    public function testEventUpdatedSuccessfully()
-    {
-        $event = Event::factory()->create();
-        $eventWillUpdateArray = $event->toArray();
-        $eventWillUpdateArray['english_title'] = 'english_title';
 
-        $this->put(route('event.update', $event->id),
+    public function testCanVisitEditPage()
+    {
+        $item = Event::factory()->create();
+        $this->get(route('event.edit', $item->id))
+            ->assertSee($item->bangla_title);
+    }
+
+    public function testUpdatedSuccessfully()
+    {
+        $eventWillUpdateArray = Event::factory()->create()->toArray();
+        $eventWillUpdateArray['bangla_title'] = 'bangla_title' . time();
+        $this->put(route('event.update', $eventWillUpdateArray['id']),
             $eventWillUpdateArray
         )
             ->assertSessionHas('message');
+        unset($eventWillUpdateArray['updated_at']);
+        $this->assertDatabaseHas('events', $eventWillUpdateArray);
 
     }
 
-    public function testEventUpdatedFailShowValidationError()
+    public function testUpdatedFailShowValidationError()
     {
         $event = Event::factory()->create();
         $eventWillUpdateArray = $event->toArray();
-        $eventWillUpdateArray['english_title'] = '';
+        $eventWillUpdateArray['category_id'] = null;
 
         $this->put(route('event.update', $event->id),
             $eventWillUpdateArray
@@ -63,24 +75,19 @@ class FeatureTestForEventTest extends TestCase
     }
 
 
-    public function testEventDeleteShowErrorOnEventNotFound()
+    public function testDeleteShowErrorOnEventNotFound()
     {
         $this->delete(route('event.destroy', 0))
             ->assertNotFound();
     }
 
-    public function testEventDeletedSuccessfully()
+    public function testDeletedSuccessfully()
     {
         $event = Event::factory()->create();
         $this->delete(route('event.destroy', $event->id))
             ->assertSessionHas('message');
+        $this->assertDatabaseMissing('events', $event->toArray());
     }
 
 
-
-    public function testEventList()
-    {
-        $this->get(route('event.index'))
-            ->assertOk();
-    }
 }
