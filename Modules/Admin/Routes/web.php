@@ -14,6 +14,8 @@
 Route::prefix('admin')->group(function() {
     Route::get('/', 'AdminController@index')->name('dashboard');
 
+    Route::resource('settings', 'SettingsController');
+
     Route::get('/manage-sidebar-widgets', '\Modules\Admin\Http\Controllers\Sidebar\SidebarController@index')->name('manageSidebarWidgets');
     Route::post('/sidebar/{sidebarName}', '\Modules\Admin\Http\Controllers\Sidebar\SidebarController@update')->name('sidebar.update');
 

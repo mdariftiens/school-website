@@ -77,7 +77,7 @@
                                         <?php }else{ ?>
                                         <div class="row">
                                             @if(isset($row->featured_image_link))
-                                                @include('admin::media_uploader_modal.media_edit_data')
+                                                @include('admin::media_uploader_modal.feature_image_placeholder_edit')
                                             @endif
                                         </div>
                                         <?php } ?>

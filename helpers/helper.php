@@ -1,6 +1,8 @@
 <?php
 
-function getWidgetCustomFieldValue($widgetFieldsCollection,$fieldName){
+use Modules\Admin\Classes\Themes;
+
+function getWidgetCustomFieldValue($widgetFieldsCollection, $fieldName){
     return optional($widgetFieldsCollection->where('field_name',$fieldName)->first())->field_value;
 }
 
@@ -77,6 +79,9 @@ function getThemeOptions():array{
     return $items = App\Models\Option\Option::select('name','value')->get()->pluck('value','name')->toArray();
 }
 
+function getThemeSettingValue($settingKeyName){
+    return getThemeOptions()[$settingKeyName] ?? '';
+}
 function isSidebarActive($sidebarName):bool{
     $themeOptions = getThemeOptions();
     $sidebarId = 'is_'.$sidebarName.'_sidebar_active';
@@ -84,4 +89,23 @@ function isSidebarActive($sidebarName):bool{
         return $themeOptions[$sidebarId];
     }
     return false;
+}
+
+function getThemeSectionsWithFields(){
+    return (new Themes())->settingPageTypeWithFields();
+}
+
+function getThemeSections(): array
+{
+
+    $sectionWithFields = getThemeSectionsWithFields();
+
+    $sections = array_keys($sectionWithFields);
+
+    return $sections;
+}
+
+function getThemeSectionFields($sectionName): array
+{
+    return getThemeSectionsWithFields()[$sectionName];
 }

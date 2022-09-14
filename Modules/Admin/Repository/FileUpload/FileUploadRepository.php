@@ -4,11 +4,16 @@ namespace Modules\Admin\Repository\FileUpload;
 
 use App\Models\FileUpload\FileUpload;
 use App\Models\FileUpload\FileUploadCategory;
+use App\Models\Media\Mediaables;
+use App\Models\Notice\Notice;
+use App\Traits\MediaFunctionality;
 use Illuminate\Support\Facades\DB;
 
 
 class FileUploadRepository
 {
+    use MediaFunctionality;
+
     public function getFiles()
     {
         return FileUpload::get();
@@ -26,6 +31,9 @@ class FileUploadRepository
         try {
             $fileUpload = FileUpload::create($validatedData);
             FileUploadCategory::find($validatedData['category_id'])->increment('number_of_file');
+
+            $this->addMedia( $fileUpload->id, FileUpload::class);
+
             DB::commit();
             return $fileUpload;
         } catch (\Throwable $e) {
@@ -46,7 +54,9 @@ class FileUploadRepository
 
     public function update($validatedData, $id)
     {
-        return FileUpload::find($id)->update($validatedData);
+        FileUpload::find($id)->update($validatedData);
+
+        $this->updateMedia($id, FileUpload::class);
 
     }
 
@@ -55,9 +65,15 @@ class FileUploadRepository
     {
         DB::beginTransaction();
         try {
-            $fileUpload = FileUpload::find($id);
-            FileUploadCategory::find($fileUpload->category_id)->decrement('number_of_file', 1);
+            $fileUpload = FileUpload::findOrFail($id);
+            $category = FileUploadCategory::find($fileUpload->category_id);
+            if ($category && $category->number_of_file > 0){
+                $category->decrement('number_of_file');
+            }
             $delete = $fileUpload->delete();
+
+            $this->removeMedia($id, FileUpload::class);
+
             DB::commit();
             return $delete;
         } catch (\Throwable $e) {

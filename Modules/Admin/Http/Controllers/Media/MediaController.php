@@ -36,9 +36,7 @@ class MediaController extends Controller
             'file' => 'required',
         ]);
 
-        $this->mediaRepository->uploadMedia($request);
-
-        return response()->json('uploaded');
+        return response()->json($this->mediaRepository->uploadMedia($request));
     }
 
     public function show($id)
@@ -59,6 +57,7 @@ class MediaController extends Controller
 
     public function destroy($mediaId)
     {
+        $this->mediaRepository->delete($mediaId);
         return response()->json(['message' => 'deleted']);
     }
 }

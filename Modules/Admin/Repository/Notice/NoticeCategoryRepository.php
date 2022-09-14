@@ -28,7 +28,7 @@ class NoticeCategoryRepository
 
     public function destroy($id)
     {
-        $eventCategory = NoticeCategory::find($id);
+        $eventCategory = NoticeCategory::findOrFail($id);
         return $eventCategory->delete();
     }
 }

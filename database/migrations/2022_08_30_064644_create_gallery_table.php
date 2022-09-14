@@ -19,7 +19,7 @@ class CreateGalleryTable extends Migration
             $table->string('bangla_title',500);
             $table->text('english_description')->nullable();
             $table->text('bangla_description')->nullable();
-            $table->enum('gallery_type',['Image','Video']);
+            $table->enum('gallery_type',['video','image']);
             $table->tinyInteger('is_publish')->default(0);
             $table->tinyInteger('priority')->nullable();
             $table->timestamps();

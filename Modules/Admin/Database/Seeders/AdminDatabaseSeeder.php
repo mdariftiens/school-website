@@ -2,8 +2,12 @@
 
 namespace Modules\Admin\Database\Seeders;
 
-use Illuminate\Database\Seeder;
+use Database\Seeders\EventSeeder;
+use Database\Seeders\MediaTableSeeder;
+use Database\Seeders\OptionTableSeeder;
+use Database\Seeders\WidgetsTableSeeder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
 
 class AdminDatabaseSeeder extends Seeder
 {
@@ -16,10 +20,5 @@ class AdminDatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        $this->call(WidgetsTableSeeder::class);
-        $this->call(CacheTableSeeder::class);
-        $this->call(MediaTableSeeder::class);
-        $this->call(OptionTableSeeder::class);
-        $this->call(EventMediaSeeder::class);
     }
 }

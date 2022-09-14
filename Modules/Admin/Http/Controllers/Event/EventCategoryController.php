@@ -31,7 +31,7 @@ class EventCategoryController extends Controller
     public function store(EventCategoryRequest $request)
     {
         $this->eventCategoryRepository->store($request->validated());
-        return back()->with('success', 'Event category created successfully.');
+        return back()->with(['message' => 'Event category created successfully.']);
     }
 
     public function show($id)
@@ -48,13 +48,13 @@ class EventCategoryController extends Controller
     public function update(EventCategoryRequest $request, $id)
     {
         $this->eventCategoryRepository->update($request->validated(), $id);
-        return back()->with('success', 'Event category update successfully.');
+        return back()->with(['message' => 'Event category update successfully.']);
     }
 
 
     public function destroy($id)
     {
         $this->eventCategoryRepository->destroy($id);
-        return back()->with('success', 'Event category update successfully.');
+        return back()->with(['message' => 'Event category update successfully.']);
     }
 }

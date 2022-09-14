@@ -40,6 +40,23 @@
       </li>
 
 
+      <li class="menu-item" style="">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx "></i>
+              <div>Settings</div>
+          </a>
+          <ul class="menu-sub">
+              @foreach(getThemeSections() as $section)
+              <li class="menu-item ">
+                  <a href="{{ route('settings.create') }}?section={{ $section }}" class="menu-link">
+                      <div>{{ ucwords($section) }}</div>
+                  </a>
+              </li>
+              @endforeach
+          </ul>
+      </li>
+
+
       <li class="menu-item ">
           <a href="{{ route('manageSidebarWidgets') }}" class="menu-link">
               <i class="menu-icon tf-icons bx bx-home-circle"></i>

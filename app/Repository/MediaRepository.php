@@ -18,16 +18,17 @@ class MediaRepository extends Repository
         $fileExtension = last(explode(".",$filename));
 
         Storage::disk('local')->putFileAs(
-            'public/files/'.$filename,
+            'public/files/'.date("Y-m-d"),
             $uploadedFile,
             $filename
         );
-        $location = 'public/files/'.$filename.'/'.$filename;
-        $fileSize = Storage::disk('local')->size($location);
-        $diskLocation = storage_path('app/public/'.$location);
-        $url = $request->getSchemeAndHttpHost() . '/' .'storage/files/'.$filename.'/'.$filename;
 
-        Media::create([
+        $location = 'public/files/'.date("Y-m-d").'/'.$filename;
+        $fileSize = Storage::disk('local')->size($location);
+        $diskLocation = storage_path('app/'.$location);
+        $url = $request->getSchemeAndHttpHost() . '/' .'storage/files/'.date("Y-m-d").'/'.$filename;
+
+        return Media::create([
             'bangla_title' => $originalName,
             'english_title' => $originalName,
             'bangla_alt_text' => $originalName,
@@ -52,5 +53,17 @@ class MediaRepository extends Repository
         return Media::select(['extension'])->get()->pluck('extension')->unique();
     }
 
+    public function delete($mediaId)
+    {
+        $media = Media::findOrFail($mediaId);
+        $this->deleteFileFromSystemIfLocalFile($media);
+        $media->delete();
+    }
+
+    private function deleteFileFromSystemIfLocalFile( Media $media){
+        if(file_exists($media->diskLocation)){
+            @unlink($media->diskLocation);
+        }
+    }
 
 }

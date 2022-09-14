@@ -3,10 +3,14 @@
 namespace Modules\Admin\Repository\Gallery;
 
 use App\Models\Gallery\Gallery;
+use App\Models\Media\Mediaables;
+use App\Traits\MediaFunctionality;
 
 
 class GalleryRepository
 {
+    use MediaFunctionality;
+
     public function getFiles()
     {
         return Gallery::get();
@@ -19,7 +23,11 @@ class GalleryRepository
 
     public function store($validatedData)
     {
-        return Gallery::create($validatedData);
+        $gallery =  Gallery::create($validatedData);
+
+        $this->addMedia( $gallery->id, Gallery::class);
+
+        return $gallery;
     }
 
     public function show($id)
@@ -34,14 +42,18 @@ class GalleryRepository
 
     public function update($validatedData, $id)
     {
-        return Gallery::find($id)->update($validatedData);
+        Gallery::find($id)->update($validatedData);
 
+        $this->updateMedia( $id, Gallery::class);
     }
 
 
     public function destroy($id)
     {
-        $gallery = Gallery::find($id);
+        $gallery = Gallery::findOrFail($id);
+
+        $this->removeMedia( $id, Gallery::class);
+
         return $gallery->delete();
     }
 }

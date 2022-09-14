@@ -33,7 +33,7 @@ class EventCategoryRepository
 
     public function destroy($id)
     {
-        $eventCategory = EventCategory::find($id);
+        $eventCategory = EventCategory::findOrFail($id);
         return $eventCategory->delete();
     }
 }
