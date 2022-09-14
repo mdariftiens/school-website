@@ -9,7 +9,7 @@
 
                 <div class="card-header flex-column flex-md-row">
                     <div class="head-label text-center">
-                        <h5 class="card-title mb-0">Homepage - Settings</h5>
+                        <h5 class="card-title mb-0">{{ ucwords($type) }} - Settings</h5>
                     </div>
                 </div>
 

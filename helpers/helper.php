@@ -80,7 +80,7 @@ function getThemeOptions():array{
 }
 
 function getThemeSettingValue($settingKeyName){
-    return getThemeOptions()[$settingKeyName];
+    return getThemeOptions()[$settingKeyName] ?? '';
 }
 function isSidebarActive($sidebarName):bool{
     $themeOptions = getThemeOptions();

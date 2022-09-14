@@ -49,7 +49,7 @@
               @foreach(getThemeSections() as $section)
               <li class="menu-item ">
                   <a href="{{ route('settings.create') }}?section={{ $section }}" class="menu-link">
-                      <div>{{ $section }}</div>
+                      <div>{{ ucwords($section) }}</div>
                   </a>
               </li>
               @endforeach
