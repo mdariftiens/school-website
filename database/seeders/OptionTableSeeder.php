@@ -18,20 +18,9 @@ class OptionTableSeeder extends Seeder
         Model::unguard();
 
         Option::create([
-            'name' => 'site_name',
-            'value' => 'School website',
-        ]);
-
-        Option::create([
-            'name' => 'site_tagline',
-            'value' => 'Best School website',
-        ]);
-
-        Option::create([
             'name' => 'current_theme_id',
             'value' => 'primary-theme',
         ]);
-
 
     }
 }
