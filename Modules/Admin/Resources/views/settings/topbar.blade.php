@@ -18,7 +18,7 @@
 </div>
 
 <div class="mb-3">
-    <label class="form-label" for="_theme_setting_top_bar_template">Show Right Sidebar</label>
+    <label class="form-label" for="_theme_setting_top_bar_template">Template</label>
     @php
         $options = [
             'default' => 'Default',

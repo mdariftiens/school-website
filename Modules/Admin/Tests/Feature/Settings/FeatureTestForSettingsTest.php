@@ -15,8 +15,11 @@ class FeatureTestForSettingsTest extends TestCase
 
     public function testCreatePageWithMultipleSectionPage()
     {
-        $this->get(route('settings.create').'?section')
-            ->assertOk();
+        $sections = getThemeSections();
+        foreach ($sections as $section){
+            $this->get(route('settings.create').'?section='.$section)
+                ->assertOk();
+        }
     }
 
     public function testCanSaveSettings()
@@ -34,7 +37,7 @@ class FeatureTestForSettingsTest extends TestCase
         }
 
         $this->post(route('settings.store'),$fields)
-            ->assertOk();
+            ->assertSessionHas('message');
     }
 
 
