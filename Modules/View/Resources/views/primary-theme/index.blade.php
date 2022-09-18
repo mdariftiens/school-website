@@ -50,7 +50,9 @@
 
                     </div>
 
+                    @if(getThemeSettingValue('_theme_setting_homepage_right_sidebar_visibility')=='yes')
                     @include('view::'.getCurrentThemeId().'.template.sidebar.default')
+                    @endif
 
                 </div>
             </div>
