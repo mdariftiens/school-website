@@ -9,13 +9,14 @@
         <section class="home-main-content-with-slider-and-sidebar mt-10">
             <div class="container mx-auto">
                 <div class="flex sm:flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row">
-                    <div class="sm:w-full md:w-3/4 lg:w-1/1 xl:w-3/4 2xl:w-3/4 pr-6">
+
+                    <div class=" {{getContainerCssClasses() }} pr-6">
                         @if(getThemeSettingValue('_theme_setting_homepage_slider_visibility')=='yes')
-                        @include('view::'.getCurrentThemeId().'.template.slider.default')
+                            @include('view::'.getCurrentThemeId().'.template.slider.default')
                         @endif
 
                         @if(getThemeSettingValue('_theme_setting_homepage_about_school_visibility') == 'yes')
-                        <div class="about_school_area mt-5 font-lato">
+                            <div class="about_school_area mt-5 font-lato">
                             <h1 class="text-2xl shadow-[0px_2px_2px_2px_rgba(0,0,0,0.1)] py-2 px-2 mb-4">Welcome to SHAHEED
                                 BIR UTTAM LT ANWAR GIRLS' COLLEGE (SAGC)</h1>
                             <div
@@ -50,8 +51,8 @@
 
                     </div>
 
-                    @if(getThemeSettingValue('_theme_setting_homepage_right_sidebar_visibility')=='yes')
-                    @include('view::'.getCurrentThemeId().'.template.sidebar.default')
+                    @if( isHomepageRightSidebarVisible() )
+                        @include('view::'.getCurrentThemeId().'.template.sidebar.default')
                     @endif
 
                 </div>

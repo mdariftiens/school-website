@@ -114,3 +114,44 @@ function getThemeSectionFields($sectionName): array
 function getCurrentRouteName() : string{
     return \Illuminate\Support\Facades\Route::getCurrentRoute()->getName();
 }
+
+function isHomepageRightSidebarVisible(){
+
+    if( getThemeSettingValue('_theme_setting_homepage_layout')=='full-width')
+    {
+        return false;
+    }
+
+    if(getThemeSettingValue('_theme_setting_homepage_right_sidebar_visibility')=='yes')
+    {
+        return true;
+    }
+    return  true;
+}
+
+function isHomepageLeftSidebarVisible(){
+
+    if( getThemeSettingValue('_theme_setting_homepage_layout')=='full-width')
+    {
+        return false;
+    }
+
+    if(getThemeSettingValue('_theme_setting_homepage_left_sidebar_visibility')=='yes')
+    {
+        return true;
+    }
+    return  true;
+}
+
+function getContainerCssClasses(){
+    if( getThemeSettingValue('_theme_setting_homepage_layout')=='full-width')
+    {
+        return "sm:w-full md:w-4/4 lg:w-1/1 xl:w-4/4 2xl:w-4/4 ";
+    }
+
+    if (getThemeSettingValue('_theme_setting_homepage_right_sidebar_visibility')=='yes')
+    {
+        return "sm:w-full md:w-3/4 lg:w-3/4 xl:w-3/4 2xl:w-3/4 ";
+    }
+
+}

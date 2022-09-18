@@ -6,6 +6,7 @@
     @php
         $options = [
             'default' => 'Default',
+            'full-width' => 'full-width',
         ];
         $presentValue = getThemeSettingValue('_theme_setting_homepage_layout');
 
