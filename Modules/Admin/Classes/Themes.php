@@ -9,7 +9,7 @@ class Themes
 
     public function __construct()
     {
-        $this->frontendThemeDir = resource_path('views');
+        $this->frontendThemeDir = module_path('view') . '/Resources/views/' ;
     }
 
     public function getThemeName():array
@@ -29,6 +29,7 @@ class Themes
     public function getConfig(string $themeName)
     {
         $path = $this->frontendThemeDir.'/'.$themeName.'/config.php';
+
         if(!file_exists($path)){
             throw new \Exception('Config file not found in path '. $path);
         }
@@ -40,6 +41,8 @@ class Themes
     {
         if (!$themeName){
             $themeName = request()->themename;
+        }else {
+            $themeName = getCurrentThemeId();
         }
         if (!$themeName){
             throw new \Exception('Theme name not found.');
