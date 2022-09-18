@@ -16,3 +16,4 @@
 <!-- BEGIN: Page JS-->
 @yield('page-script')
 <!-- END: Page JS-->
+@stack('menu-script')
