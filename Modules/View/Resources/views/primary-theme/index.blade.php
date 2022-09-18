@@ -10,9 +10,7 @@
             <div class="container mx-auto">
                 <div class="flex sm:flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row">
 
-                    @if( isHomepageLeftSidebarVisible() )
-                        @include('view::'.getCurrentThemeId().'.template.sidebar.default')
-                    @endif
+                    @include('view::'.getCurrentThemeId().'.template.sidebar.left.default')
 
                     <div class=" {{getContainerCssClasses() }} pr-6">
                         @if(getThemeSettingValue('_theme_setting_homepage_slider_visibility')=='yes')
@@ -33,9 +31,7 @@
 
                     </div>
 
-                    @if( isHomepageRightSidebarVisible() )
-                        @include('view::'.getCurrentThemeId().'.template.sidebar.default')
-                    @endif
+                    @include('view::'.getCurrentThemeId().'.template.sidebar.right.default')
 
                 </div>
             </div>
