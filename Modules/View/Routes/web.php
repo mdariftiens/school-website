@@ -11,6 +11,6 @@
 |
 */
 
-Route::prefix('view')->group(function() {
-    Route::get('/', 'ViewController@index');
+Route::prefix('')->group(function() {
+    Route::get('/', [\Modules\View\Http\Controllers\HomeController::class,'index'])->name('home');
 });

@@ -68,7 +68,7 @@ function isImage($fileName){
 }
 
 function getCurrentThemeId(){
-    return \App\Models\Option\Option::where('name','current_theme_id')->first()->value;
+    return getThemeSettingValue('current_theme_id');
 }
 
 function getThemeOptions():array{
@@ -108,4 +108,9 @@ function getThemeSections(): array
 function getThemeSectionFields($sectionName): array
 {
     return getThemeSectionsWithFields()[$sectionName];
+}
+
+
+function getCurrentRouteName() : string{
+    return \Illuminate\Support\Facades\Route::getCurrentRoute()->getName();
 }
