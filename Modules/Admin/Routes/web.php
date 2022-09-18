@@ -42,4 +42,22 @@ Route::prefix('admin')->group(function() {
 
     /*===============Message routes=================*/
     Route::resource('message', '\\'. \Modules\Admin\Http\Controllers\Message\MessageController::class);
+
+    /*===============Menu routes=================*/
+    Route::get('manage-menus/{id?}', ['\\'. \Modules\Admin\Http\Controllers\Menu\MenuController::class, 'index'])->name('manage-menus');
+    Route::get('create-new-menu', ['\\'. \Modules\Admin\Http\Controllers\Menu\MenuController::class, 'create_menu'])->name('create-new-menu');
+    Route::post('create-menu', ['\\'. \Modules\Admin\Http\Controllers\Menu\MenuController::class,'store'])->name('create-menu');
+    Route::get('update-menu', ['\\'. \Modules\Admin\Http\Controllers\Menu\MenuController::class,'updateMenu'])->name('update-menu');
+
+
+    Route::get('add-categories-to-menu', ['\\'. \Modules\Admin\Http\Controllers\Menu\MenuController::class,'addCatToMenu'])->name('add-categories-to-menu');
+    Route::get('add-post-to-menu', ['\\'. \Modules\Admin\Http\Controllers\Menu\MenuController::class,'addPostToMenu'])->name('add-post-to-menu');
+    Route::get('add-custom-link', ['\\'. \Modules\Admin\Http\Controllers\Menu\MenuController::class,'addCustomLink'])->name('add-custom-link');
+
+
+    Route::post('update-menuitem/{id}', ['\\'. \Modules\Admin\Http\Controllers\Menu\MenuController::class,'updateMenuItem'])->name('update-menuitem');
+    Route::get('delete-menuitem/{id}/{key}/{in?}', ['\\'. \Modules\Admin\Http\Controllers\Menu\MenuController::class,'deleteMenuItem'])->name('delete-menuitem');
+
+
+    Route::get('delete-menu/{id}', ['\\'. \Modules\Admin\Http\Controllers\Menu\MenuController::class,'destroy'])->name('delete-menu');
 });
