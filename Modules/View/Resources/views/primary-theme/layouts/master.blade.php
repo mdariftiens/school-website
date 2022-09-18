@@ -63,8 +63,7 @@
     @yield('content')
 
 
-    @include('view::'.getCurrentThemeId().'.template.footer.default')
-    @include('view::'.getCurrentThemeId().'.template.footer.style1')
+    @include('view::'.getCurrentThemeId().'.template.footer.' .getThemeSettingValue('_theme_setting_footer_template') )
     @include('view::'.getCurrentThemeId().'.template.copyright.default')
 
 

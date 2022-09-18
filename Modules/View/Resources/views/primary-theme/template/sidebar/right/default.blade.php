@@ -6,11 +6,6 @@
             <!-- Right sidebar container -->
         {!! getSidebarWithWidgets('home-right-sidebar') !!}
         @endif
-
-        @if( isHomepageLeftSidebarVisible() )
-            <!-- left sidebar container -->
-        {!! getSidebarWithWidgets('home-left-sidebar') !!}
-        @endif
     </div>
     <!--Sidebar area end-->
 

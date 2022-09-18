@@ -114,3 +114,55 @@ function getThemeSectionFields($sectionName): array
 function getCurrentRouteName() : string{
     return \Illuminate\Support\Facades\Route::getCurrentRoute()->getName();
 }
+
+function isHomepageRightSidebarVisible(){
+
+    if( getThemeSettingValue('_theme_setting_homepage_layout')=='full-width')
+    {
+        return false;
+    }
+
+    if(getThemeSettingValue('_theme_setting_homepage_right_sidebar_visibility')=='yes')
+    {
+        return true;
+    }
+    return  false;
+}
+
+function isHomepageLeftSidebarVisible(){
+
+    if( getThemeSettingValue('_theme_setting_homepage_layout')=='full-width')
+    {
+        return false;
+    }
+
+    if(getThemeSettingValue('_theme_setting_homepage_left_sidebar_visibility')=='yes')
+    {
+        return true;
+    }
+    return  false;
+}
+
+function getContainerCssClasses(){
+    $fullWidthCssClass = "sm:w-full md:w-4/4 lg:w-1/1 xl:w-4/4 2xl:w-4/4 ";
+
+    if( getThemeSettingValue('_theme_setting_homepage_layout')=='full-width')
+    {
+        return $fullWidthCssClass;
+    }
+
+    $showLeftSidebar = getThemeSettingValue('_theme_setting_homepage_left_sidebar_visibility')=='yes';
+
+
+    $showRightSidebar = getThemeSettingValue('_theme_setting_homepage_right_sidebar_visibility')=='yes';
+
+    if ($showLeftSidebar && $showRightSidebar){
+        return "sm:w-full md:w-2/4 lg:w-2/4 xl:w-2/4 2xl:w-2/4 ";
+    }
+    if (!$showLeftSidebar && !$showRightSidebar){
+        return $fullWidthCssClass;
+    }
+
+    return "sm:w-full md:w-3/4 lg:w-3/4 xl:w-3/4 2xl:w-3/4 ";
+
+}
