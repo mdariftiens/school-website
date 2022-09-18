@@ -9,7 +9,9 @@ function getThemeConfig():array{
             'home-right-sidebar',
             'home-left-sidebar',
             'home-header-top-right-sidebar',
-            'home-footer-sidebar',
+            'home-footer-top-sidebar',
+            'home-footer-middle-sidebar',
+            'home-footer-bottom-sidebar',
 
             'detail-page-right-sidebar',
             'detail-page-left-sidebar',
