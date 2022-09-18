@@ -70,6 +70,14 @@ class Themes
                 $prefix . 'homepage_right_sidebar_visibility' => '0',
                 $prefix . 'homepage_left_sidebar_visibility' => '0',
                 $prefix . 'homepage_about_school_visibility' => '1',
+                $prefix . 'homepage_about_school_title' => 'Welcome to SHAHEED BIR UTTAM LT ANWAR GIRLS\' COLLEGE (SAGC)',
+                $prefix . 'homepage_about_school_detail' => 'Shaheed Bir Uttam Lt Anwar Girls’ College is one of the renowned institutions located inside the Dhaka Cantonment on an area of 5.24 acres. The institution started its journey in January 1957 under Cantonment Board as a primary school. In 1963 it had emerged as a full-fledged high school named as Cantonment Modern School.
+
+Since its inception, the institution has been striving to impart quality education to the students. Being a girls\' college, it has been a bench-mark on the advancement of female education in the country. Besides the glorious achievements in academic results, the students of this institution have been playing a commendable role in various co-curricular activities. This institution is advancing with the motto,(“O Lord, thrive my knowledge.”)
+
+In 1966 first high school building was inaugurated by the then GOC of erstwhile East pakistan Major general Fazle Mukim Khan and at that time medium of instruction of the institution was English. After the liberation war, the institution was named after martyred army officer Lt. Anwar Hossain BU. Since then it was known as shaheed Anwar girls’ school. In 1974 it became completely a Bengali medium school and remained under cantonment Board till 1984, when it was brought under Army Headquarters a special committee was formed to take care of the school. In 1990 when the college section was opened the school came to be known as Shaheed Anwar girls’ college. In July 21, 1990 a principal joined here for the first time as head of the institution. In the beginning college section started its activities with humanities group only. Successively it opened science group in 1992 and commerce group in 1996. In 2001 for the first time an officer from Army Education Corps joined the institution as principal.
+
+        Now this institution is established as a full fledged intermediate college and known as shaheed Bir Uttam Lt. Anwar girls’ college.',
             ],
 
             'singlepage' => [
