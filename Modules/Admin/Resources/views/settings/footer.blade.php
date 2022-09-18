@@ -4,6 +4,7 @@
     @php
         $options = [
             'default' => 'Default',
+            'style1' => 'style 1',
         ];
         $presentValue = getThemeSettingValue('_theme_setting_footer_template');
     @endphp
