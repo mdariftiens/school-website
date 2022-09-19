@@ -178,8 +178,8 @@
                                                                         </div>
                                                                     </div>
                                                                     <ul>
-                                                                        @if(isset($m[0]->children))
-                                                                            @foreach($m[0]->children as $n)
+                                                                        @if(isset($data->children))
+                                                                            @foreach($data->children as $n)
                                                                                 @foreach($n as $inn=>$NData)
                                                                                     <li data-id="{{$NData->id}}" class="menu-item"> <span class="menu-item-bar"><i class="fa fa-arrows"></i> @if(empty($NData->name)) {{$NData->title}} @else {{$NData->name}} @endif <a href="#collapse{{$NData->id}}" class="pull-right" data-toggle="collapse"><i class="caret"></i></a></span>
                                                                                         <div class="collapse" id="collapse{{$NData->id}}">
@@ -207,8 +207,8 @@
                                                                                             </div>
                                                                                         </div>
                                                                                         <ul>
-                                                                                            @if(isset($n[0]->children))
-                                                                                                @foreach($n[0]->children as $nchild)
+                                                                                            @if(isset($NData->children))
+                                                                                                @foreach($NData->children as $nchild)
                                                                                                     @foreach($nchild as $nChildKey=>$nChildData)
                                                                                                         <li data-id="{{$nChildData->id}}" class="menu-item"> <span class="menu-item-bar"><i class="fa fa-arrows"></i> @if(empty($nChildData->name)) {{$nChildData->title}} @else {{$nChildData->name}} @endif <a href="#collapse{{$nChildData->id}}" class="pull-right" data-toggle="collapse"><i class="caret"></i></a></span>
                                                                                                             <div class="collapse" id="collapse{{$nChildData->id}}">
