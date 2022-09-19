@@ -5,8 +5,8 @@ namespace App\Models\Menu;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class menuitem extends Model
+class Menu extends Model
 {
     use HasFactory;
-    protected $fillable = ['title','name','slug','type','target','menu_id','created_at','updated_at'];
+    protected $fillable = ['title','location','content','created_at','updated_at'];
 }
