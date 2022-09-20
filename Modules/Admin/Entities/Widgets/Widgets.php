@@ -15,6 +15,7 @@ class Widgets extends AdminModel
         'bangla_title',
         'english_title',
         'header_show_hide',
+        'use_theme_default_style',
         'header_template',
         'header_background_color',
         'header_text_color',
