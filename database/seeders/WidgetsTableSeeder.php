@@ -24,6 +24,7 @@ class WidgetsTableSeeder extends Seeder
             'bangla_title' => 'notice 1',
             'english_title' => 'notice 1',
             'header_show_hide' => 1,
+            'use_theme_default_style' => 'yes',
             //'name' => 'notice-1',
             'header_template' =>'default',
             'header_background_color' => null,
@@ -52,6 +53,7 @@ class WidgetsTableSeeder extends Seeder
             'bangla_title' => 'message-2',
             'english_title' => 'message 2',
             'header_show_hide' => 1,
+            'use_theme_default_style' => 'yes',
             'header_template' =>'default',
         ]);
 
@@ -74,6 +76,7 @@ class WidgetsTableSeeder extends Seeder
             'bangla_title' => 'event-1',
             'english_title' => 'event 1',
             'header_show_hide' => 1,
+            'use_theme_default_style' => 'yes',
             'header_template' =>'default',
 
         ]);
@@ -95,6 +98,7 @@ class WidgetsTableSeeder extends Seeder
             'bangla_title' => 'custom-1',
             'english_title' => 'custom 1',
             'header_show_hide' => 1,
+            'use_theme_default_style' => 'yes',
             'header_template' =>'default',
 
         ]);
