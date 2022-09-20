@@ -18,6 +18,7 @@ class WidgetsRepository
             'visitor_counter' => 'Visitor Counter',
             'custom' => 'Custom',
             'social' => 'Social',
+            'achievement' => 'Achievement',
         ];
     }
     public function getActiveWidgets()
