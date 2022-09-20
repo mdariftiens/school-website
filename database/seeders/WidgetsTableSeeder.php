@@ -59,7 +59,7 @@ class WidgetsTableSeeder extends Seeder
 
         WidgetFields::create([
             'widget_id' => $widget->id,
-            'field_name' => 'number_of_notice_show',
+            'field_name' => 'limit_message_number',
             'field_value' => '1',
         ]);
 
