@@ -23,6 +23,45 @@ function getThemeConfig():array{
 
         ],
 
+        'widget_templates' =>
+        [
+
+            'message' => [
+                'default' => 'Default',
+                'style1' => 'Style 1',
+                'style2' => 'Style 2',
+                'style3' => 'Style 3',
+            ],
+
+            'notice' => [
+                'default' => 'Default'
+            ],
+
+            'event' => [
+                'default' => 'Default',
+                'style1' => 'Style 1',
+            ],
+
+            'achievement' => [
+                'default' => 'Default',
+                'style1' => 'Style 1',
+            ],
+
+            'news' => [
+                'default' => 'Default',
+                'style1' => 'Style 1',
+                'style2' => 'Style 2',
+                'style3' => 'Style 3',
+            ],
+
+            'custom' => [
+                'default' => 'Default',
+            ],
+
+            'social' => [
+                'default' => 'Default',
+            ],
+        ],
 
     ];
 
