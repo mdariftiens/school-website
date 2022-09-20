@@ -8,7 +8,7 @@ function getThemeConfig():array{
         'sidebars' =>[
             'home-right-sidebar',
             'home-left-sidebar',
-            'home-header-top-right-sidebar',
+            'header-top-right-sidebar',
             'home-footer-top-sidebar',
             'home-footer-middle-sidebar',
             'home-footer-bottom-sidebar',
