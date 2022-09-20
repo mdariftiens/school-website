@@ -1,2 +1,8 @@
-<h1>Custom template1</h1>
-{{ $widgetWithWidgetDetail->type }}
+@if($widgetWithWidgetDetail->header_show_hide == 1)
+<h4 class="text-2xl font-medium mb-2">
+
+    {!! $widgetWithWidgetDetail->bangla_title !!}
+</h4>
+@endif
+{!! getWidgetCustomFieldValue($widgetWithWidgetDetail->widgetFields,'bangla_text_or_html') !!}
+
