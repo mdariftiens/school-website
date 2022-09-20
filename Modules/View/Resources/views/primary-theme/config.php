@@ -17,6 +17,10 @@ function getThemeConfig():array{
             'detail-page-left-sidebar',
             'detail-page-header-top-right-sidebar',
             'detail-page-footer-sidebar',
+
+            'footer-left-sidebar',
+            'footer-left-2nd-sidebar',
+
         ],
 
 
