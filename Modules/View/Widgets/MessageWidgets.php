@@ -10,7 +10,7 @@ class MessageWidgets extends Widget
 
     function data()
     {
-        $numberOfMessageShow = getWidgetCustomFieldValue($this->widgetWithWidgetDetail->widgetFields,'number_of_notice_show');
-        return Message::take($numberOfMessageShow)->get();
+        $numberOfMessageShow = getWidgetCustomFieldValue($this->widgetWithWidgetDetail->widgetFields,'limit_message_number');
+        return Message::take($numberOfMessageShow)->orderBy('priority', 'asc')->get();
     }
 }
