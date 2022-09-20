@@ -7,28 +7,28 @@
                 class="flex xs:flex-col sm:flex-row md:flex-row lg:flex-row xl:flex-row 2xl:flex-row sm:items-center bg-color-clifford">
                 <div class="flex mr-5 align-middle">
                     <i class="fa fa-phone mt-1 mr-2"></i>
-                    <p><strong>Phone</strong> +8801785365247</p>
+                    <p><strong>Phone</strong> {{ getThemeSettingValue('_theme_setting_top_bar_phone_number') }}</p>
                 </div>
 
                 <div class="flex text-base">
                     <i class="fa fa-envelope mt-1 mr-2"></i>
-                    <p>sagc1957@gmail.com</p>
+                    <p>{{ getThemeSettingValue('_theme_setting_top_bar_email') }}</p>
                 </div>
             </div>
 
             <div class="grid grid-cols-4 font-semibold items-center">
-                <p class="col-span-3">Help Line: 01309063364 (ClassTune, From 9:00 am to 5:00 pm)</p>
+                <p class="col-span-3">{{ getThemeSettingValue('_theme_setting_top_bar_rightside_content') }}</p>
                 <div class="grid grid-cols-4 top_social_link">
-                    <a href="">
+                    <a href="{{ getThemeSettingValue('_theme_setting_top_bar_top_bar_fb_link') }}">
                         <i class="fab fa-facebook px-2 py-2 hover:bg-[#EC1C24] rounded-lg"></i>
                     </a>
-                    <a href="">
+                    <a href="{{ getThemeSettingValue('_theme_setting_top_bar_top_bar_ln_link') }}">
                         <i class="fab fa-linkedin px-2 py-2 hover:bg-[#EC1C24] rounded-lg"></i>
                     </a>
-                    <a href="">
+                    <a href="{{ getThemeSettingValue('_theme_setting_top_bar_top_bar_tw_link') }}">
                         <i class="fab fa-twitter px-2 py-2 hover:bg-[#EC1C24] rounded-lg"></i>
                     </a>
-                    <a href="">
+                    <a href="{{ getThemeSettingValue('_theme_setting_top_bar_top_bar_yt_link') }}">
                         <i class="fab fa-youtube-square px-2 py-2 hover:bg-[#EC1C24] rounded-lg"></i>
                     </a>
                 </div>
