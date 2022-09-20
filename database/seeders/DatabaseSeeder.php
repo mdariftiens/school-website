@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
             MessageSeeder::class,
             ManagementCommitteeSeeder::class,
             EmployeeSeeder::class,
+            NewsSeeder::class,
+            AchievementSeeder::class,
             MediaableTableSeeder::class,
         ]);
     }

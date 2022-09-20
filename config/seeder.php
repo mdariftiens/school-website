@@ -19,4 +19,6 @@ return [
     'employee_designation' => 10,
     'employee_type' => 10,
     'employee' => 100,
+    'news' => 100,
+    'achievement' => 100,
 ];
