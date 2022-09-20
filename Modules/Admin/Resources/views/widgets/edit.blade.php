@@ -34,10 +34,10 @@
                         <div class="card-body">
 
                             <div class="mb-3">
-                                <label for="use_theme_default_style" class="form-label"></label>
+                                <label for="use_theme_default_style" class="form-label">use Theme Default Style</label>
                                 <select class="form-select" id="use_theme_default_style" name="use_theme_default_style" aria-label="Default select example">
                                     <option @if($widgetDetail->use_theme_default_style == 'yes') selected @endif value="yes">Yes</option>
-                                    <option @if($widgetDetail->use_theme_default_style == 'no') selected @endifvalue="no">No</option>
+                                    <option @if($widgetDetail->use_theme_default_style == 'no') selected @endif value="no">No</option>
                                 </select>
                             </div>
 
