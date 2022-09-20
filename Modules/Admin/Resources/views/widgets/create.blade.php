@@ -31,6 +31,15 @@
                         <input type="hidden" name="type" value="{{ request()->widgetType }}">
                         <div class="card-body">
 
+
+                            <div class="mb-3">
+                                <label for="use_theme_default_style" class="form-label"></label>
+                                <select class="form-select" id="use_theme_default_style" name="use_theme_default_style" aria-label="Default select example">
+                                    <option @if(old('use_theme_default_style') == 'yes') selected @endif value="yes">Yes</option>
+                                    <option @if(old('use_theme_default_style') == 'no') selected @endifvalue="no">No</option>
+                                </select>
+                            </div>
+
                             <div class="mb-3">
                                 <label for="header_template" class="form-label">Select Header Template</label>
                                 <select class="form-select" id="header_template" name="header_template" aria-label="Default select example">
