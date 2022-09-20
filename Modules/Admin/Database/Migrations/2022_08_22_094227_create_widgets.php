@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('bangla_title',200);
             $table->string('english_title',200);
             $table->boolean('header_show_hide')->default(1);
+            $table->string('use_theme_default_style')->default('yes');
 
             $table->string('header_template',200)->nullable();
             $table->string('header_background_color')->nullable();
