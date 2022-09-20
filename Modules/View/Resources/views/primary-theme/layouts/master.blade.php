@@ -53,12 +53,20 @@
 </head>
 <body>
 
-    @include('view::'.getCurrentThemeId().'.template.topbar.default')
-    @include('view::'.getCurrentThemeId().'.template.header.default')
-    @include('view::'.getCurrentThemeId().'.template.header.style1')
-    @include('view::'.getCurrentThemeId().'.template.menu.default')
-    @include('view::'.getCurrentThemeId().'.template.menu.style1')
-    @include('view::'.getCurrentThemeId().'.template.ticker.default')
+    @if(getThemeSettingValue('_theme_setting_top_bar_visibility')=='yes')
+        @include('view::'.getCurrentThemeId().'.template.topbar.'.  getThemeSettingValue('_theme_setting_top_bar_template'))
+    @endif
+
+    @include('view::'.getCurrentThemeId().'.template.header.'.  getThemeSettingValue('_theme_setting_header_template'))
+
+
+    @if(getThemeSettingValue('_theme_setting_main_menu_visibility')=='yes')
+        @include('view::'.getCurrentThemeId().'.template.menu.' . getThemeSettingValue('_theme_setting_main_menu_template'))
+    @endif
+
+    @if(getThemeSettingValue('_theme_setting_ticker_visibility_only_homepage')=='yes')
+        @include('view::'.getCurrentThemeId().'.template.ticker.' . getThemeSettingValue('_theme_setting_ticker_template'))
+    @endif
 
     @yield('content')
 

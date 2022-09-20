@@ -55,6 +55,7 @@
     @php
         $options = [
             'default' => 'Default',
+            'style1' => 'Style 1',
         ];
         $presentValue = getThemeSettingValue('_theme_setting_main_menu_template');
     @endphp

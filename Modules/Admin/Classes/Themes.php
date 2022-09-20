@@ -87,7 +87,7 @@ In 1966 first high school building was inaugurated by the then GOC of erstwhile 
             ],
 
             'topbar' => [
-                $prefix . 'top_bar_visibility' => '0',
+                $prefix . 'top_bar_visibility' => 'Yes',
                 $prefix . 'top_bar_template' => 'default',
                 $prefix . 'top_bar_phone_number' => 'default',
                 $prefix . 'top_bar_email' => 'default',
@@ -103,14 +103,14 @@ In 1966 first high school building was inaugurated by the then GOC of erstwhile 
             ],
 
             'menu' => [
-                $prefix . 'top_menu_visibility' => '0',
+                $prefix . 'top_menu_visibility' => 'yes',
                 $prefix . 'top_menu_template' => 'default',
-                $prefix . 'main_menu_visibility' => '1',
+                $prefix . 'main_menu_visibility' => 'yes',
                 $prefix . 'main_menu_template' => 'default',
             ],
 
             'ticker' => [
-                $prefix . 'ticker_visibility_only_homepage' => '0',
+                $prefix . 'ticker_visibility_only_homepage' => 'yes',
                 $prefix . 'ticker_template' => 'default',
             ],
 
