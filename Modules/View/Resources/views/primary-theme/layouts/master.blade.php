@@ -64,7 +64,10 @@
         @include('view::'.getCurrentThemeId().'.template.menu.' . getThemeSettingValue('_theme_setting_main_menu_template'))
     @endif
 
-    @if(getThemeSettingValue('_theme_setting_ticker_visibility_only_homepage')=='yes')
+
+    @if(getThemeSettingValue('_theme_setting_ticker_visibility')=='yes'
+        && getCurrentRouteName() == 'home'
+        && getThemeSettingValue('_theme_setting_ticker_visibility_only_homepage')=='yes')
         @include('view::'.getCurrentThemeId().'.template.ticker.' . getThemeSettingValue('_theme_setting_ticker_template'))
     @endif
 

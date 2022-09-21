@@ -2,8 +2,10 @@
 
 namespace Modules\View\Providers;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\View\View\Components\TickerComponent;
 
 class ViewServiceProvider extends ServiceProvider
 {
@@ -28,6 +30,9 @@ class ViewServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
+
+        Blade::component('ticker-component', TickerComponent::class);
+
     }
 
     /**

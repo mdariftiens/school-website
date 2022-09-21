@@ -7,7 +7,9 @@
                 <h4 class="bg-bgColor text-xl text-white pl-3 pr-10 pt-2 pb-2">Latest</h4>
             </div>
             <div class="latest_scroll_content w-auto w-11/12">
-                <marquee behavior="" direction="">Latest scroll content</marquee>
+                <marquee behavior="" direction="">
+                    <x-ticker-component/>
+                </marquee>
             </div>
         </div>
     </div>

@@ -10,6 +10,9 @@ class Notice extends Model
 {
     use HasFactory;
     use HasMedia;
+
+    const IS_TICKER = 1;
+
     protected $table = 'notice';
 
     protected $fillable = [
