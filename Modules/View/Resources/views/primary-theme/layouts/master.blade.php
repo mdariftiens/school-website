@@ -87,15 +87,15 @@
     <script>
         $(document).ready(function () {
             $(".owl-carousel").owlCarousel({
-                'items': 1,
-                'autoplay': true,
-                'autoplayTimeout': 3000,
-                'loop': true,
-                'autoplayHoverPause': true,
-                'dots': true,
-                'lazyLoad': true,
-                'nav': true,
-                'navText': ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"]
+                'items': {{getThemeSettingValue('_theme_setting_slider_item_to_show')}},
+                'autoplay': {{getThemeSettingValue('_theme_setting_slider_autoplay')}},
+                'autoplayTimeout': {{getThemeSettingValue('_theme_setting_slider_autoplayTimeout')}},
+                'loop': {{getThemeSettingValue('_theme_setting_slider_loop')}},
+                'autoplayHoverPause': {{getThemeSettingValue('_theme_setting_slider_autoplayHoverPause')}},
+                'dots': {{getThemeSettingValue('_theme_setting_slider_dots')}},
+                'lazyLoad': {{getThemeSettingValue('_theme_setting_slider_lazyLoad')}},
+                'nav': {{getThemeSettingValue('_theme_setting_slider_nav_show')}},
+                'navText': [{!! getThemeSettingValue('_theme_setting_slider_navText') !!}]
             });
         });
     </script>

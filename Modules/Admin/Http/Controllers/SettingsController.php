@@ -3,15 +3,23 @@
 namespace Modules\Admin\Http\Controllers;
 
 use App\Models\Option\Option;
+use App\Models\Slider\Slider;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Admin\Repository\Slider\SliderRepository;
 
 class SettingsController extends Controller
 {
 
-    public function create(Request $request)
+    public function create(Request $request, SliderRepository $sliderRepository)
     {
-        $data ['type'] = $request->section;
+        $type = $request->section;
+        $data ['type'] = $type;
+
+        if ($type == 'slider')
+        {
+            $data ['sliders'] = Slider::get(['id','english_title','bangla_title']);
+        }
 
         return view('admin::settings.create', $data);
     }
