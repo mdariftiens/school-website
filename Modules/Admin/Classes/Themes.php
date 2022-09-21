@@ -110,6 +110,7 @@ In 1966 first high school building was inaugurated by the then GOC of erstwhile 
             ],
 
             'ticker' => [
+                $prefix . 'ticker_visibility' => 'yes',
                 $prefix . 'ticker_visibility_only_homepage' => 'yes',
                 $prefix . 'ticker_template' => 'default',
             ],
