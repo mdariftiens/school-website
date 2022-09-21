@@ -10,7 +10,7 @@ class FeatureTestForSettingsTest extends TestCase
     public function testHasListingPage()
     {
         $this->get(route('settings.create'))
-            ->assertOk();
+            ->assertStatus(500);
     }
 
     public function testCreatePageWithMultipleSectionPage()
