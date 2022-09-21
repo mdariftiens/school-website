@@ -21,7 +21,7 @@ class NoticeRequest extends FormRequest
             'english_description' => 'nullable',
             'featured_image_link' => 'nullable',
             'thumbnail_image_link' => 'nullable',
-            'published_datetime' => 'required',
+            'published_date' => 'required',
             'is_ticker' => 'required',
             'ticker_link' => 'nullable',
             'is_published' => 'required',

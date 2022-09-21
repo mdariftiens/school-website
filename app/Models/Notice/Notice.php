@@ -19,7 +19,7 @@ class Notice extends Model
         'bangla_description',
         'english_description',
         'is_published',
-        'published_datetime',
+        'published_date',
         'featured_image_link',
         'is_ticker',
         'ticker_link',

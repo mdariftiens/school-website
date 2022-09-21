@@ -20,6 +20,7 @@ class CreateAchievementsTable extends Migration
             $table->string('featured_image_link');
             $table->string('bangla_detail');
             $table->string('english_detail');
+            $table->date('published_date')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

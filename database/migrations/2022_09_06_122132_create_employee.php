@@ -32,6 +32,7 @@ class CreateEmployee extends Migration
             $table->text('educational_qualification')->nullable();
             $table->string('major_subject')->nullable();
             $table->integer('priority')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

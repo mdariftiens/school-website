@@ -29,6 +29,7 @@ class Employee extends Model
         'educational_qualification',
         'major_subject',
         'priority',
+        'image',
     ];
 
 

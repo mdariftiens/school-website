@@ -33,6 +33,7 @@ class EmployeeFactory extends Factory
             'educational_qualification' => $this->faker->text,
             'major_subject' => $this->faker->text,
             'priority' => $this->faker->text,
+            'image' => $this->faker->imageUrl(),
         ];
     }
 }

@@ -22,7 +22,7 @@ class CreateNoticeTable extends Migration
             $table->text('english_description')->nullable();
             $table->tinyInteger('is_published')->default(0);
             $table->tinyText('featured_image_link')->nullable();
-            $table->dateTime('published_datetime');
+            $table->date('published_date');
             $table->tinyInteger('is_ticker')->default(0);
             $table->tinyText('ticker_link')->nullable();
             $table->tinyInteger('is_featured')->default(0);

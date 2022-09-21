@@ -17,5 +17,6 @@ class Achievements extends Model
         'featured_image_link',
         'bangla_detail',
         'english_detail',
+        'published_date',
     ];
 }
