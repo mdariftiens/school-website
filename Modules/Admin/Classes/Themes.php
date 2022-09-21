@@ -37,6 +37,10 @@ class Themes
         return getThemeConfig();
     }
 
+    function getWidgetTemplateList($widgetType):array{
+        return $this->getConfig(getCurrentThemeId())['widget_templates'][$widgetType]??['default'=>'No Widget Template found in Config tile.'];
+    }
+
     public function getSidebarList(string $themeName=null)
     {
         if (!$themeName){

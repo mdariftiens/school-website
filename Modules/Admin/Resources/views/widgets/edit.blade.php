@@ -45,7 +45,9 @@
                             <div class="mb-3">
                                 <label for="header_template" class="form-label">Select Header Template</label>
                                 <select class="form-select" id="header_template" name="header_template" aria-label="Default select example">
-                                    <option selected="default">Default</option>
+                                    @foreach($templates as $templateValue=>$templateTitle)
+                                        <option @if(old('header_template')==$templateValue || $widgetDetail->header_template==$templateValue) selected @endif value="{{$templateValue}}">{{$templateTitle}}</option>
+                                    @endforeach
                                 </select>
                             </div>
 

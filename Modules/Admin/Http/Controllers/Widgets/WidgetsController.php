@@ -5,6 +5,7 @@ namespace Modules\Admin\Http\Controllers\Widgets;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Admin\Classes\Themes;
 use Modules\Backend\Repository\Sidebar\SidebarRepository;
 use Modules\Admin\Repository\Widgets\WidgetsRepository;
 
@@ -12,9 +13,10 @@ class WidgetsController extends Controller
 {
     private $widgetsRepository;
 
-    public function __construct(WidgetsRepository $widgetsRepository)
+    public function __construct(WidgetsRepository $widgetsRepository, Themes $theme)
     {
         $this->widgetsRepository = $widgetsRepository;
+        $this->theme = $theme;
     }
 
     public function index()
@@ -27,7 +29,9 @@ class WidgetsController extends Controller
 
     public function create()
     {
-        return view('admin::widgets.create');
+        $data['templates'] = $this->theme->getWidgetTemplateList(\request()->widgetType);
+
+        return view('admin::widgets.create',$data);
     }
 
     public function store(Request $request)
@@ -53,7 +57,9 @@ class WidgetsController extends Controller
 
     public function edit($widgetId)
     {
-        $data['widgetDetail'] = $this->widgetsRepository->getWidgetDetailData($widgetId);
+        $widgetDetail = $this->widgetsRepository->getWidgetDetailData($widgetId);
+        $data['templates'] = $this->theme->getWidgetTemplateList($widgetDetail->type);
+        $data['widgetDetail'] = $widgetDetail;
         return view('admin::widgets.edit',$data);
 
     }
