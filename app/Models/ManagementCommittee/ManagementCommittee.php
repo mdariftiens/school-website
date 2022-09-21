@@ -19,6 +19,7 @@ class ManagementCommittee extends Model
         'contact_number',
         'email',
         'priority',
+        'image',
     ];
 
 

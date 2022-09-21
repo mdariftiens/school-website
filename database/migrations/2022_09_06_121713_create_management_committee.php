@@ -21,6 +21,7 @@ class CreateManagementCommittee extends Migration
             $table->string('bangla_designation');
             $table->string('contact_number');
             $table->string('email');
+            $table->string('image');
             $table->unsignedInteger('priority');
             $table->timestamps();
             $table->softDeletes();
