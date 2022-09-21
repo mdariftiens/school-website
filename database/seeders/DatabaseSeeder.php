@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             EmployeeSeeder::class,
             NewsSeeder::class,
             AchievementSeeder::class,
+            ThemeSettingSeeder::class,
             MediaableTableSeeder::class,
         ]);
     }

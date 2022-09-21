@@ -65,11 +65,11 @@ class Themes
             ],
 
             'homepage' => [
-                $prefix . 'homepage_layout' => 'full-width',
-                $prefix . 'homepage_slider_visibility' => '0',
-                $prefix . 'homepage_right_sidebar_visibility' => '0',
+                $prefix . 'homepage_layout' => 'default', // full-width
+                $prefix . 'homepage_slider_visibility' => 'yes',
+                $prefix . 'homepage_right_sidebar_visibility' => 'yes',
                 $prefix . 'homepage_left_sidebar_visibility' => '0',
-                $prefix . 'homepage_about_school_visibility' => '1',
+                $prefix . 'homepage_about_school_visibility' => 'yes',
                 $prefix . 'homepage_about_school_title' => 'Welcome to SHAHEED BIR UTTAM LT ANWAR GIRLS\' COLLEGE (SAGC)',
                 $prefix . 'homepage_about_school_detail' => 'Shaheed Bir Uttam Lt Anwar Girls’ College is one of the renowned institutions located inside the Dhaka Cantonment on an area of 5.24 acres. The institution started its journey in January 1957 under Cantonment Board as a primary school. In 1963 it had emerged as a full-fledged high school named as Cantonment Modern School.
 
@@ -82,12 +82,12 @@ In 1966 first high school building was inaugurated by the then GOC of erstwhile 
 
             'singlepage' => [
                 $prefix . 'singlepage_layout' => 'full-width',
-                $prefix . 'singlepage_right_sidebar_visibility' => '0',
-                $prefix . 'singlepage_left_sidebar_visibility' => '0',
+                $prefix . 'singlepage_right_sidebar_visibility' => 'no',
+                $prefix . 'singlepage_left_sidebar_visibility' => 'no',
             ],
 
             'topbar' => [
-                $prefix . 'top_bar_visibility' => 'Yes',
+                $prefix . 'top_bar_visibility' => 'yes',
                 $prefix . 'top_bar_template' => 'default',
                 $prefix . 'top_bar_phone_number' => 'default',
                 $prefix . 'top_bar_email' => 'default',
