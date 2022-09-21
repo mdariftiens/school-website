@@ -60,4 +60,8 @@ Route::prefix('admin')->group(function() {
 
 
     Route::get('delete-menu/{id}', ['\\'. \Modules\Admin\Http\Controllers\Menu\MenuController::class,'destroy'])->name('delete-menu');
+
+    /*===============Management committee routes=================*/
+    Route::resource('management-committee', '\\'. \Modules\Admin\Http\Controllers\ManagementCommittee\ManagementCommitteeController::class);
+
 });
