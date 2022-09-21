@@ -25,7 +25,6 @@
                 </div>
 
                 <div class="card mb-4">
-                    @include("admin::messages.message")
                     <div class="card-body" style="box-shadow: none">
                         <form method="post" action="{{ route('management-committee.store') }}">
                             {{ csrf_field() }}
@@ -38,7 +37,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="bangla_name">Bangla Name <span>*</span></label>
-                                <input type="text" class="form-control" name="bangla_title" id="bangla_name" placeholder="Bangla Name" value="{{ old('bangla_name') }}">
+                                <input type="text" class="form-control" name="bangla_name" id="bangla_name" placeholder="Bangla Name" value="{{ old('bangla_name') }}">
                                 @if ($errors->has('bangla_name'))
                                     <span class="text-danger">{{ $errors->first('bangla_name') }}</span>
                                 @endif
@@ -67,6 +66,14 @@
                             </div>
 
                             <div class="mb-3">
+                                <label class="form-label" for="contact_number">Contact Number <span>*</span></label>
+                                <input type="text" class="form-control" name="contact_number" id="contact_number" placeholder="Contact Number" value="{{ old('contact_number') }}">
+                                @if ($errors->has('contact_number'))
+                                    <span class="text-danger">{{ $errors->first('contact_number') }}</span>
+                                @endif
+                            </div>
+
+                            <div class="mb-3">
                                 <label class="form-label" for="priority">Priority <span>*</span></label>
                                 <input type="text" class="form-control" name="priority" id="priority" placeholder="priority" value="{{ old('priority') }}">
                                 @if ($errors->has('priority'))
@@ -74,15 +81,12 @@
                                 @endif
                             </div>
 
-                            <!--==================Media upload configuration html=========-->
-                            @include('admin::media_uploader_modal.feature_image_placeholder')
-                            <!--==================Media upload configuration html=========-->
+                            <div class="mb-3">
+                                <input type="hidden" class="form-control" name="image" id="image" value="abc.png">
+                            </div>
+
                             <button type="submit" class="btn btn-primary">Save</button>
                         </form>
-
-                        <!-------------------media uloader------------------->
-                            @include('admin::media_uploader_modal.media_modal')
-                        <!-------------------media uloader------------------->
 
                     </div>
                 </div>

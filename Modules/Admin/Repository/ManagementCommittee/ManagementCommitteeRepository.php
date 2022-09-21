@@ -22,7 +22,7 @@ class ManagementCommitteeRepository
 
     public function store($validatedData)
     {
-        $slider =  ManagementCommittee::create($validatedData);
+        return ManagementCommittee::create($validatedData);
     }
 
     public function show($id)

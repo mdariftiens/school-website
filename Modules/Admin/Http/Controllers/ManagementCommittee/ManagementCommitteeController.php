@@ -28,7 +28,7 @@ class ManagementCommitteeController extends Controller
     public function store( ManagementCommitteeRequest $request )
     {
         $this->managementCommitteeRepository->store($request->validated());
-        return back()->with(['message'=>'Data create successfully.']);
+        return redirect()->route('management-committee.index')->with(['message'=>'Data create successfully.']);
     }
 
     public function show($id)
@@ -45,7 +45,7 @@ class ManagementCommitteeController extends Controller
     public function update(ManagementCommitteeRequest $request, $id)
     {
         $this->managementCommitteeRepository->update($request->validated(), $id);
-        return back()->with(['message'=>'Data update successfully.']);
+        return redirect()->route('management-committee.index')->with(['message'=>'Data update successfully.']);
     }
 
 

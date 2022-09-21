@@ -33,8 +33,8 @@
                         <tr>
                             <th>Sl</th>
                             <th>Name</th>
-                            <th style="text-align: center">Designation</th>
-                            <th style="text-align: center">Contact Number</th>
+                            <th>Designation</th>
+                            <th>Contact Number</th>
                             <th>Email</th>
                             <th>Priority</th>
                             <th>Action</th>

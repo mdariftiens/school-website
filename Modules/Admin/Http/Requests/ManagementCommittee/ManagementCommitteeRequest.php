@@ -11,13 +11,14 @@ class ManagementCommitteeRequest extends FormRequest
     public function rules()
     {
         return [
-            'english_name' => 'required',
             'english_designation' => 'required',
-            'bangla_name' => 'required',
             'bangla_designation' => 'required',
+            'english_name' => 'required',
+            'bangla_name' => 'required',
             'contact_number' => 'required',
             'email' => 'required',
             "priority"    => "required",
+            "image" => 'nullable'
         ];
     }
 
