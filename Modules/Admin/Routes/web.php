@@ -64,4 +64,7 @@ Route::prefix('admin')->group(function() {
     /*===============Management committee routes=================*/
     Route::resource('management-committee', '\\'. \Modules\Admin\Http\Controllers\ManagementCommittee\ManagementCommitteeController::class);
 
+    /*===============achievements committee routes=================*/
+    Route::resource('achievements', '\\'. \Modules\Admin\Http\Controllers\Achievement\AchievementController::class);
+
 });
