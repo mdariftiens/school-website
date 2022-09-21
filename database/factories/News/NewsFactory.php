@@ -21,6 +21,7 @@ class NewsFactory extends Factory
             'featured_image_link' => $this->faker->imageUrl(),
             'bangla_detail' => $this->faker->text,
             'english_detail' => $this->faker->text,
+            'published_date' => $this->faker->date(),
         ];
     }
 }
