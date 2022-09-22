@@ -129,7 +129,7 @@ In 1966 first high school building was inaugurated by the then GOC of erstwhile 
                 $prefix . 'slider_dots' => 'true',
                 $prefix . 'slider_lazyLoad' => 'true',
                 $prefix . 'slider_nav_show' => 'true',
-                $prefix . 'slider_navText' => "<i class='fa fa-chevron-left'></i>\", \"<i class='fa fa-chevron-right'></i>",
+                $prefix . 'slider_navText' => "\"<i class='fa fa-chevron-left'></i>\", \"<i class='fa fa-chevron-right'></i>\"",
             ],
             'footer' => [
                 $prefix . 'footer_template' => 'default',
