@@ -3,13 +3,12 @@
 namespace Modules\Admin\Http\Controllers\Employee;
 
 use Illuminate\Routing\Controller;
+use Modules\Admin\Http\Requests\Employee\EmployeeRequest;
 use Modules\Admin\Http\Requests\Notice\NoticeRequest;
 use Modules\Admin\Repository\Employee\EmployeeCategoryRepository;
 use Modules\Admin\Repository\Employee\EmployeeDepartmentRepository;
 use Modules\Admin\Repository\Employee\EmployeeDesignationRepository;
 use Modules\Admin\Repository\Employee\EmployeeListRepository;
-use Modules\Admin\Repository\Notice\NoticeCategoryRepository;
-use Modules\Admin\Repository\Notice\NoticeRepository;
 
 class EmployeeListController extends Controller
 {
@@ -39,7 +38,7 @@ class EmployeeListController extends Controller
         return view('admin::employee.create',$data);
     }
 
-    public function store( NoticeRequest $request )
+    public function store( EmployeeRequest $request )
     {
         $this->employeeListRepository->store($request->validated());
         return redirect()->route('employee-list.index')->with(['message'=>'Data create successfully.']);
@@ -52,15 +51,17 @@ class EmployeeListController extends Controller
 
     public function edit($id)
     {
-        $data['categories'] = $this->noticeCategoryRepository->getCategories();
+        $data['employeeCategories'] = $this->employeeCategoryRepository->getCategories();
+        $data['employeeDepartment'] = $this->employeeDepartmentRepository->getCategories();
+        $data['employeeDesignation'] = $this->employeeDesignationRepository->getCategories();
         $data['row'] = $this->employeeListRepository->getOne($id);
-        return view('admin::notice.edit',$data);
+        return view('admin::employee.edit',$data);
     }
 
-    public function update(NoticeRequest $request, $id)
+    public function update(EmployeeRequest $request, $id)
     {
         $this->employeeListRepository->update($request->validated(), $id);
-        return back()->with(['message'=>'Notice update successfully.']);
+        return redirect()->route('employee-list.index')->with(['message'=>'Data update successfully.']);
     }
 
 

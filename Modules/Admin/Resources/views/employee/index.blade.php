@@ -46,6 +46,7 @@
                             <tr>
                                 <td>{{ $loop->index+1 }}</td>
                                 <td>{{ $value->english_name }}</td>
+                                <td>{{ $value->contact_number }}</td>
                                 <td>{{ $value->email }}</td>
                                 <td>{{ $value->date_of_birth }}</td>
                                 <td>{{ $value->date_of_joining }}</td>
