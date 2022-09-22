@@ -8,9 +8,7 @@
     <link rel="apple-touch-icon" sizes="76x76"href="{{ asset('images/frontend-themes/primary/apple-icon.png') }}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 
-
     @include("view::primary-theme.layouts._partial.google-fonts")
-
 
     <link rel="stylesheet" href="{{ asset('css/frontend-themes/primary/owl/owl.carousel.min.css') }}">
 
@@ -51,6 +49,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
             integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="{{ asset('js/frontend-themes/primary/owl/owl.carousel.min.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                'items': {{getThemeSettingValue('_theme_setting_slider_item_to_show')}},
+                'autoplay': {{getThemeSettingValue('_theme_setting_slider_autoplay')}},
+                'autoplayTimeout': {{getThemeSettingValue('_theme_setting_slider_autoplayTimeout')}},
+                'loop': {{getThemeSettingValue('_theme_setting_slider_loop')}},
+                'autoplayHoverPause': {{getThemeSettingValue('_theme_setting_slider_autoplayHoverPause')}},
+                'dots': {{getThemeSettingValue('_theme_setting_slider_dots')}},
+                'lazyLoad': {{getThemeSettingValue('_theme_setting_slider_lazyLoad')}},
+                'nav': {{getThemeSettingValue('_theme_setting_slider_nav_show')}},
+                'navText': [{!! getThemeSettingValue('_theme_setting_slider_navText') !!}]
+            });
+        });
+    </script>
 
 </body>
 </html>

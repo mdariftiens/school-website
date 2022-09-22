@@ -1,4 +1,9 @@
-@extends("view::" . getCurrentThemeId() . ".layouts.master")
+@if(getCurrentRouteName() == 'home')
+    @extends("view::" . getCurrentThemeId() . ".layouts.home")
+@else
+    @extends("view::" . getCurrentThemeId() . ".layouts.master")
+@endif
+
 
 @section('content')
 
