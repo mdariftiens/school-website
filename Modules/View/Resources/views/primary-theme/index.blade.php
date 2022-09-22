@@ -2,12 +2,19 @@
 
 @section('content')
 
-    @dd($rows)
     @if( getCurrentRouteName() == 'home')
         @include('view::primary-theme.home')
     @else
 
-        @include("view::primary-theme.content-type.default",['rows'=>$rows])
+        @if(isset($rows) && $rows->count())
+            @php $type = $rows->first()->getTable() @endphp
+        @endif
+
+        @includeFirst([
+                "view::primary-theme.content-type.".$type."-list",
+                "view::primary-theme.content-type.default-list"
+            ],['rows'=>$rows])
+
     @endif
 
 @endsection
