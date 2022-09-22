@@ -18,7 +18,7 @@ class NewsFactory extends Factory
         return [
             'bangla_title' => $this->faker->text,
             'english_title' => $this->faker->text,
-            'featured_image_link' => $this->faker->imageUrl(),
+            'featured_image_link' => 'https://dummyimage.com/600x400/000/fff',
             'bangla_detail' => $this->faker->text,
             'english_detail' => $this->faker->text,
             'published_date' => $this->faker->date(),

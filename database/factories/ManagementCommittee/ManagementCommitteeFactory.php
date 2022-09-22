@@ -24,7 +24,7 @@ class ManagementCommitteeFactory extends Factory
             'bangla_designation'=> $this->faker->text,
             'contact_number'=> $this->faker->phoneNumber,
             'email' => $this->faker->safeEmail,
-            'image' => $this->faker->imageUrl(),
+            'image' => 'https://dummyimage.com/600x400/000/fff',
         ];
     }
 }

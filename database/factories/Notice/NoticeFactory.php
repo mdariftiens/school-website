@@ -23,7 +23,7 @@ class NoticeFactory extends Factory
             'english_description' => $this->faker->text(5000),
             'is_published' => random_int(0,1),
             'published_date' => $this->faker->date(),
-            'featured_image_link' => $this->faker->imageUrl(),
+            'featured_image_link' => 'https://dummyimage.com/600x400/000/fff',
             'is_ticker' => random_int(0,1),
             'ticker_link' => $this->faker->url,
             'is_featured' => random_int(0,1),
