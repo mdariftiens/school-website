@@ -13,4 +13,8 @@
 
 Route::prefix('')->group(function() {
     Route::get('/', [\Modules\View\Http\Controllers\HomeController::class,'index'])->name('home');
+    Route::resource("notices", "\\".\Modules\View\Http\Controllers\NoticeController::class);
+    Route::resource("messages", "\\".\Modules\View\Http\Controllers\MessageController::class);
+    Route::resource("news", "\\".\Modules\View\Http\Controllers\NewsController::class);
+    Route::resource("achievements", "\\".\Modules\View\Http\Controllers\AchievementController::class);
 });

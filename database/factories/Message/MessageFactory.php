@@ -26,7 +26,7 @@ class MessageFactory extends Factory
             'bangla_name' => $this->faker->text,
             'english_message' => $this->faker->paragraph,
             'bangla_message' => $this->faker->paragraph,
-            'image'=> $this->faker->imageUrl(),
+            'image'=> 'https://dummyimage.com/600x400/000/fff',
         ];
     }
 }
