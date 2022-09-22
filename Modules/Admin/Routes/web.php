@@ -64,7 +64,16 @@ Route::prefix('admin')->group(function() {
     /*===============Management committee routes=================*/
     Route::resource('management-committee', '\\'. \Modules\Admin\Http\Controllers\ManagementCommittee\ManagementCommitteeController::class);
 
-    /*===============achievements committee routes=================*/
+    /*===============achievements routes=================*/
     Route::resource('achievements', '\\'. \Modules\Admin\Http\Controllers\Achievement\AchievementController::class);
+
+    /*===============News routes=================*/
+    Route::resource('news', '\\'. \Modules\Admin\Http\Controllers\News\NewsController::class);
+
+    /*===============Employee management routes=================*/
+    Route::resource('employee-category', '\\'. \Modules\Admin\Http\Controllers\Employee\EmployeeCategoryController::class);
+    Route::resource('employee-department', '\\'. \Modules\Admin\Http\Controllers\Employee\EmployeeDepartmentController::class);
+    Route::resource('employee-designation', '\\'. \Modules\Admin\Http\Controllers\Employee\EmployeeDesignationController::class);
+    Route::resource('employee-list', '\\'. \Modules\Admin\Http\Controllers\Employee\EmployeeListController::class);
 
 });
