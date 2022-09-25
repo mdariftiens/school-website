@@ -65,7 +65,10 @@ class Themes
             'global' => [
                 $prefix . 'school_name' => "SHAHEED BIR UTTAM LT ANWAR GIRLS' COLLEGE",
                 $prefix . 'school_code_eiin' => "School Code : 1262 | College Code : 1000 | EIIN : 132143",
-                $prefix . 'google_map' => "",
+                $prefix . 'google_map' => '<iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14603.125165517895!2d90.3921266!3d23.7908013!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x136e3a32720e8c75!2sShaheed%20Bir%20Uttam%20Lt%20Anwar%20Girls%E2%80%99%20College!5e0!3m2!1sen!2sbd!4v1661753885481!5m2!1sen!2sbd"
+                        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>',
             ],
 
             'homepage' => [

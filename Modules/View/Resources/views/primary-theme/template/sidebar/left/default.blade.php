@@ -4,7 +4,11 @@
     <!--Sidebar area start-->
     <div class="sidebar_area">
         <!-- left sidebar container -->
-        {!! getSidebarWithWidgets('home-left-sidebar') !!}
+        @if(getCurrentRouteName()=='home')
+            {!! getSidebarWithWidgets('home-left-sidebar') !!}
+        @else
+            {!! getSidebarWithWidgets('general-left-sidebar') !!}
+        @endif
     </div>
     <!--Sidebar area end-->
 
