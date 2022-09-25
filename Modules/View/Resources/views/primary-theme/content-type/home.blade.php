@@ -6,7 +6,7 @@
 
             <div class=" {{getContainerCssClasses() }} pr-6">
                 @if(getThemeSettingValue('_theme_setting_homepage_slider_visibility')=='yes')
-                    @include('view::'.getCurrentThemeId().'.template.slider.default')
+                    <x-slider-component/>
                 @endif
 
                 @if(getThemeSettingValue('_theme_setting_homepage_about_school_visibility') == 'yes')
