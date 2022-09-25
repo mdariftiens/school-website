@@ -12,10 +12,9 @@
             },
             extend: {
                 colors: {
-                    color: '#da373d',
-                    bgColor: '#5899b7',
-                    buttonBgColor: '#00ADEE',
-                    titleColor: '#3B5998'
+                    color: '{{ getThemeSettingValue('_theme_setting_color') }}',
+                    bgColor: '{{ getThemeSettingValue('_theme_setting_bgColor') }}',
+                    titleColor: '{{ getThemeSettingValue('_theme_setting_titleColor') }}'
                 },
                 fontFamily: {
                     'roboto': ['Roboto', 'sans-serif'],

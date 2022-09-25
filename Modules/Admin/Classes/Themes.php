@@ -62,6 +62,12 @@ class Themes
 
         return [
 
+            'theme'=>[
+                $prefix.'color' =>'#da373d',
+                $prefix.'bgColor' =>'#5899b7',
+                $prefix.'titleColor' =>'#3B5998',
+            ],
+
             'global' => [
                 $prefix . 'school_name' => "SHAHEED BIR UTTAM LT ANWAR GIRLS' COLLEGE",
                 $prefix . 'school_code_eiin' => "School Code : 1262 | College Code : 1000 | EIIN : 132143",
