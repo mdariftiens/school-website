@@ -35,8 +35,7 @@
 
 
     @if(getThemeSettingValue('_theme_setting_ticker_visibility')=='yes'
-        && getCurrentRouteName() == 'home'
-        && getThemeSettingValue('_theme_setting_ticker_visibility_only_homepage')=='yes')
+        && getThemeSettingValue('_theme_setting_ticker_visibility_only_homepage')=='no')
         @include('view::'.getCurrentThemeId().'.template.ticker.' . getThemeSettingValue('_theme_setting_ticker_template'))
     @endif
 
