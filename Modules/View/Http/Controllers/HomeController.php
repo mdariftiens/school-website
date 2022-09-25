@@ -14,7 +14,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('view::'.getCurrentThemeId().'.index');
+        return view('view::'.getCurrentThemeId().'.home');
     }
 
     /**
