@@ -36,7 +36,7 @@
                                 @endforeach
 
                             </div>
-                            <a href="{{ route('gallery.show',$row->id) }}">Detail</a>
+                            <a href="{{ route('galleries.show',$row->id) }}">Detail</a>
                         </div>
                     </div>
                 @endforeach
