@@ -8,7 +8,7 @@
 @section('content')
 
     @if( getCurrentRouteName() == 'home')
-        @include('view::primary-theme.home')
+        @include('view::primary-theme.content-type.home')
     @else
 
         @if(isset($rows) && $rows->count())
