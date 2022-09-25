@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/frontend-themes/primary/owl/owl.carousel.min.css') }}">
 
-    <title>@yield('title')</title>
+    <title>{{ getThemeSettingValue('_theme_setting_school_name') }} - Home</title>
 
     @include("view::primary-theme.layouts._partial.tailwind-scripts")
 
