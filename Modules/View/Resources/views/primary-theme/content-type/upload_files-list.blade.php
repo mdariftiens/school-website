@@ -1,12 +1,10 @@
-
-
 <section class="home-main-content-with-slider-and-sidebar mt-10">
     <div class="container mx-auto">
         <div class="flex sm:flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row">
 
             @include('view::'.getCurrentThemeId().'.template.sidebar.left.default')
 
-            <div class=" {{getContainerCssClasses() }} pr-6">
+            <div class=" {{getGeneralPageContainerCssClasses() }} pr-6">
                 @foreach($rows as $row)
 
                     <div class="notice_content flex border border-[#ddd] pt-2 pb-2">

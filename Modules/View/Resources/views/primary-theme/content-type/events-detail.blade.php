@@ -4,7 +4,7 @@
 
             @include('view::'.getCurrentThemeId().'.template.sidebar.left.default')
 
-            <div class=" {{getContainerCssClasses() }} pr-6">
+            <div class=" {{getGeneralPageContainerCssClasses() }} pr-6">
 
                 <div class="{{$row->getTable()}}_content flex border border-[#ddd] pt-2 pb-2">
 
