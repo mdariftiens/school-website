@@ -4,7 +4,7 @@
 
             @include('view::'.getCurrentThemeId().'.template.sidebar.left.default')
 
-            <div class=" {{getContainerCssClasses() }} pr-6">
+            <div class=" {{getHomepageContainerCssClasses() }} pr-6">
 
                 <!-- slider-component -->
                 @if(getThemeSettingValue('_theme_setting_homepage_slider_visibility')=='yes')

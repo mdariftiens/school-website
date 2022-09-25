@@ -143,7 +143,7 @@ function isHomepageLeftSidebarVisible(){
     return  false;
 }
 
-function getContainerCssClasses(){
+function getHomepageContainerCssClasses(){
     $fullWidthCssClass = "sm:w-full md:w-4/4 lg:w-1/1 xl:w-4/4 2xl:w-4/4 ";
 
     if( getThemeSettingValue('_theme_setting_homepage_layout')=='full-width')
