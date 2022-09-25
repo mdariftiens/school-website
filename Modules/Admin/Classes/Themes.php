@@ -87,7 +87,7 @@ In 1966 first high school building was inaugurated by the then GOC of erstwhile 
         Now this institution is established as a full fledged intermediate college and known as shaheed Bir Uttam Lt. Anwar girls’ college.',
             ],
 
-            'singlepage' => [
+            'generalpage' => [
                 $prefix . 'singlepage_layout' => 'full-width',
                 $prefix . 'singlepage_right_sidebar_visibility' => 'no',
                 $prefix . 'singlepage_left_sidebar_visibility' => 'no',
