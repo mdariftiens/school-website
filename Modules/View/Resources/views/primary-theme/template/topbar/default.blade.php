@@ -1,7 +1,7 @@
 <section class="header_top_area bg-bgColor pt-1 pb-1">
     <div class="container mx-auto">
         <div
-            class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 text-center justify-between text-white font-normal font-roboto">
+            class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 text-center justify-between text-white font-normal">
 
             <div
                 class="flex xs:flex-col sm:flex-row md:flex-row lg:flex-row xl:flex-row 2xl:flex-row sm:items-center bg-color-clifford">

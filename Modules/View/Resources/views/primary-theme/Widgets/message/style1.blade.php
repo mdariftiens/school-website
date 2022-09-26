@@ -5,7 +5,7 @@
 @endif
 
 <!--Second style of message-->
-<div class="message_area border border-[#00ADEE] font-lato mt-3">
+<div class="message_area border border-[#00ADEE] mt-3">
 
     <div
         class="notice_title text-titleColor flex justify-between shadow-[0px_2px_2px_2px_rgba(0,0,0,0.1)] items-center pl-2 pr-2 pt-1 pb-1">

@@ -1,4 +1,4 @@
-<div class="notice_area font-lato bg-[#fff] mt-5">
+<div class="notice_area bg-[#fff] mt-5">
     <div class="notice_content_area">
         <div
             class="notice_content border border-[#ddd] shadow-[0px_2px_2px_2px_rgba(0,0,0,0.1)] pb-2">
