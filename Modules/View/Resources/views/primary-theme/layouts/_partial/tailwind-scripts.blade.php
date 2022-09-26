@@ -16,10 +16,10 @@
                     bgColor: '{{ getThemeSettingValue('_theme_setting_bgColor') }}',
                     titleColor: '{{ getThemeSettingValue('_theme_setting_titleColor') }}'
                 },
-                fontFamily: {
-                    'roboto': ['Roboto', 'sans-serif'],
-                    'lato': ['Lato', 'sans-serif'],
-                },
+                // fontFamily: {
+                //     'roboto': ['Roboto', 'sans-serif'],
+                //     'lato': ['Lato', 'sans-serif'],
+                // },
                 boxShadow: {
                     '3xl': '0_35px_60px_-15px_rgba(0,0,0,0.3)',
                 },
