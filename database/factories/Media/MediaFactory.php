@@ -27,7 +27,7 @@ class MediaFactory extends Factory
             'extension' => $this->faker->fileExtension,
             'size' => random_int(1000,2000),
             'disk_location' => '',
-            'url' => $this->faker->imageUrl(),
+            'url' => 'https://dummyimage.com/600x400/'.str_replace("#",'', $this->faker->hexColor).'/' . str_replace("#",'', $this->faker->hexColor),
         ];
     }
 }

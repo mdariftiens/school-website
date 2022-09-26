@@ -2,7 +2,7 @@
     <div class="container mx-auto">
         <div class="flex sm:flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row justify-between items-center">
             <div
-                class="logo flex sm:flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row items-center font-roboto">
+                class="logo flex sm:flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row items-center">
                 <img class="sm:w-1/3 md:w-1/12 lg:w-1/12 xl:w-1/12 2xl:w-1/12 mr-4"
                      src="{{ asset('images/frontend-themes/primary/sagc.png') }}" alt="sagcTopLogo">
                 <div class="school_name">

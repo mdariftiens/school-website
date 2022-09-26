@@ -15,4 +15,9 @@ class FileUploadCategory extends Model
         'english_name',
         'bangla_name'
     ];
+
+    public function files()
+    {
+        return $this->hasMany(FileUpload::class,'category_id');
+    }
 }

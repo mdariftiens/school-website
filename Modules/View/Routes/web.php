@@ -17,4 +17,8 @@ Route::prefix('')->group(function() {
     Route::resource("messages", "\\".\Modules\View\Http\Controllers\MessageController::class);
     Route::resource("news", "\\".\Modules\View\Http\Controllers\NewsController::class);
     Route::resource("achievements", "\\".\Modules\View\Http\Controllers\AchievementController::class);
+    Route::resource("management-committees", "\\".\Modules\View\Http\Controllers\ManagementCommitteeController::class);
+    Route::resource("events", "\\".\Modules\View\Http\Controllers\EventController::class);
+    Route::resource("file-uploads", "\\".\Modules\View\Http\Controllers\FileUploadController::class);
+    Route::resource("galleries", "\\".\Modules\View\Http\Controllers\GalleryController::class);
 });

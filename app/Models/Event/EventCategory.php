@@ -14,4 +14,9 @@ class EventCategory extends Model
         'english_name',
         'bangla_name'
     ];
+
+    public function events()
+    {
+        return $this->hasMany(Event::class,'category_id', 'id');
+    }
 }

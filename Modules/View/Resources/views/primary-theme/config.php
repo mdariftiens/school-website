@@ -6,17 +6,17 @@ function getThemeConfig():array{
         'id'=>'primary-theme',
 
         'sidebars' =>[
+            'header-top-right-sidebar',
+
             'home-right-sidebar',
             'home-left-sidebar',
-            'header-top-right-sidebar',
             'home-footer-top-sidebar',
             'home-footer-middle-sidebar',
             'home-footer-bottom-sidebar',
 
-            'detail-page-right-sidebar',
-            'detail-page-left-sidebar',
-            'detail-page-header-top-right-sidebar',
-            'detail-page-footer-sidebar',
+            'general-right-sidebar',
+            'general-left-sidebar',
+            'general-footer-sidebar',
 
             'footer-left-sidebar',
             'footer-left-2nd-sidebar',

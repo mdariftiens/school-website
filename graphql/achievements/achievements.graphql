@@ -1,0 +1,17 @@
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+
+type Query {
+    achievements: [Achievements!]! @paginate
+    achievement( id:ID @eq): Achievements @find
+}
+
+type Achievements{
+    id: ID!
+    bangla_title: String!
+    english_title: String!
+    featured_image_link: String!
+    bangla_detail: String!
+    english_detail: String!
+    published_date: Date!
+}
+

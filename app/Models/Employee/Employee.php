@@ -4,6 +4,7 @@ namespace App\Models\Employee;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Employee extends Model
 {
@@ -32,5 +33,24 @@ class Employee extends Model
         'image',
     ];
 
+    function category(): BelongsTo
+    {
+        return $this->belongsTo(EmployeeCategory::class,'employee_category_id');
+    }
+
+    function department(): BelongsTo
+    {
+        return $this->belongsTo(EmployeeDepartment::class);
+    }
+
+    function designation(): BelongsTo
+    {
+        return $this->belongsTo(EmployeeDesignation::class);
+    }
+
+    function type(): BelongsTo
+    {
+        return $this->belongsTo(EmployeeType::class,'employee_type_id');
+    }
 
 }

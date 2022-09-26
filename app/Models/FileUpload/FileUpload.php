@@ -2,12 +2,17 @@
 
 namespace App\Models\FileUpload;
 
+use App\Traits\HasMedia;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class FileUpload extends Model
 {
     use HasFactory;
+    use HasMedia;
+
+    const PUBLISHED = 1;
 
     protected $table = 'upload_files';
 
@@ -17,4 +22,9 @@ class FileUpload extends Model
         'english_title',
         'is_publish'
     ];
+
+    function category(): BelongsTo
+    {
+        return $this->belongsTo(FileUploadCategory::class);
+    }
 }

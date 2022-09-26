@@ -1,0 +1,22 @@
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+extend type Query {
+    messages: [Message!]! @paginate
+    message( id:ID @eq): Message @find
+}
+
+type Message {
+    id: ID!
+    bangla_title: String!
+    bangla_title: String!
+    english_title: String!
+    english_designation: String!
+    bangla_designation: String!
+    english_name: String!
+    bangla_name: String!
+    english_message: String!
+    bangla_message: String!
+    image: String!
+    created_at: DateTime!
+    updated_at: DateTime!
+}

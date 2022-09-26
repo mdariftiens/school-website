@@ -1,6 +1,6 @@
 <section class="event_section mt-10">
     <div class="container mx-auto">
-        <div class="title text-center text-4xl font-semibold font-lato shadow-[0px_2px_2px_2px_rgba(0,0,0,0.1)] items-center pl-2 pr-2 pt-2 pb-2 mb-6">
+        <div class="title text-center text-4xl font-semibold shadow-[0px_2px_2px_2px_rgba(0,0,0,0.1)] items-center pl-2 pr-2 pt-2 pb-2 mb-6">
             <h2>{{$widgetWithWidgetDetail->bangla_title}}</h2>
         </div>
 
