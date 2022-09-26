@@ -1,5 +1,6 @@
 "A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
 scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 
 #type Query {
 #    user(
@@ -15,6 +16,9 @@ scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date
 
 type Query {
     messages: [Message!]! @paginate
+    message( id:ID @eq): Message @find
+    achievements: [Achievements!]! @paginate
+    achievement( id:ID @eq): Achievements @find
 }
 
 type User {
@@ -42,4 +46,13 @@ type Message {
     updated_at: DateTime!
 }
 
+type Achievements{
+    id: ID!
+    bangla_title: String!
+    english_title: String!
+    featured_image_link: String!
+    bangla_detail: String!
+    english_detail: String!
+    published_date: Date!
+}
 
