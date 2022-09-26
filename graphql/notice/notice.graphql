@@ -1,0 +1,32 @@
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+
+extend type Query {
+    notices: [Notice!]! @paginate
+    notice( id:ID @eq): Notice @find
+    noticeCategories: [NoticeCategory!]! @all
+    noticeCategory( id:ID @eq): NoticeCategory @find
+}
+
+type Notice {
+    id: ID!
+    category_id: String!
+    category: NoticeCategory @belongsTo
+    bangla_title: String!
+    english_title: String!
+    bangla_description: String!
+    english_description: String!
+    is_published: String!
+    published_date: Date
+    featured_image_link: String!
+    is_ticker: Boolean!
+    ticker_link: String!
+    is_featured: Boolean!
+}
+
+type NoticeCategory{
+    id: ID!
+    english_name: String!
+    bangla_name: String!
+    number_of_notice: Int!
+    notices:[Notice]! @hasMany
+}

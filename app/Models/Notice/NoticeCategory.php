@@ -15,4 +15,9 @@ class NoticeCategory extends Model
         'english_name',
         'bangla_name'
     ];
+
+    function notices()
+    {
+        return $this->hasMany(Notice::class,'category_id');
+    }
 }
