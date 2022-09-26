@@ -3,7 +3,7 @@
     @php
         $presentValue = getThemeSettingValue('_theme_setting_color');
     @endphp
-    <input type="color" value="{{$presentValue}}" name="_theme_setting_color" id="_theme_setting_color">
+    <input type="color" class="form-control" value="{{$presentValue}}" name="_theme_setting_color" id="_theme_setting_color">
 </div>
 
 
@@ -12,7 +12,7 @@
     @php
         $presentValue = getThemeSettingValue('_theme_setting_bgColor');
     @endphp
-    <input type="color" value="{{$presentValue}}" name="_theme_setting_bgColor" id="_theme_setting_bgColor">
+    <input type="color" class="form-control" value="{{$presentValue}}" name="_theme_setting_bgColor" id="_theme_setting_bgColor">
 </div>
 
 <div class="mb-3">
@@ -20,5 +20,5 @@
     @php
         $presentValue = getThemeSettingValue('_theme_setting_titleColor');
     @endphp
-    <input type="color" value="{{$presentValue}}" name="_theme_setting_titleColor" id="_theme_setting_titleColor">
+    <input type="color" class="form-control" value="{{$presentValue}}" name="_theme_setting_titleColor" id="_theme_setting_titleColor">
 </div>
