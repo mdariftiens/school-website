@@ -63,6 +63,8 @@ class Themes
         return [
 
             'theme'=>[
+                $prefix.'english_font' =>'Roboto',
+                $prefix.'bangla_font' =>'Cormorant+Garamond',
                 $prefix.'color' =>'#da373d',
                 $prefix.'bgColor' =>'#5899b7',
                 $prefix.'titleColor' =>'#3B5998',

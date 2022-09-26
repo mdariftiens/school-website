@@ -1,4 +1,31 @@
 <div class="mb-3">
+    <label class="form-label" for="_theme_setting_english_font">english_font</label>
+    @php
+        $presentValue = getThemeSettingValue('_theme_setting_english_font');
+
+    @endphp
+    <select class="form-control" name="_theme_setting_english_font" id="_theme_setting_english_font">
+        @foreach(config('fonts.english') as  $value)
+            <option @if($presentValue==$value) selected @endif value="{{$value}}">{{str_replace("+",' ',$value)}}</option>
+        @endforeach
+    </select>
+</div>
+
+<div class="mb-3">
+    <label class="form-label" for="_theme_setting_bangla_font">Bangla Font</label>
+    @php
+        $presentValue = getThemeSettingValue('_theme_setting_bangla_font');
+
+    @endphp
+    <select class="form-control" name="_theme_setting_bangla_font" id="_theme_setting_bangla_font">
+        @foreach(config('fonts.bangla') as  $value)
+            <option @if($presentValue==$value) selected @endif value="{{$value}}">{{str_replace("+",' ',$value)}}</option>
+        @endforeach
+    </select>
+</div>
+
+
+<div class="mb-3">
     <label class="form-label" for="_theme_setting_color">color</label>
     @php
         $presentValue = getThemeSettingValue('_theme_setting_color');
