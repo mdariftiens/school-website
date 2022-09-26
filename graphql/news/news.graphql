@@ -12,5 +12,5 @@ type News {
     featured_image_link: String!
     bangla_detail: String!
     english_detail: String!
-    published_date: Date!
+    published_date: Date
 }
