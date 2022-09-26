@@ -1,0 +1,16 @@
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+
+extend type Query {
+    news: [News!]! @paginate
+    singleNews( id:ID @eq): News @find
+}
+
+type News {
+    id: ID!
+    bangla_title: String!
+    english_title: String!
+    featured_image_link: String!
+    bangla_detail: String!
+    english_detail: String!
+    published_date: Date!
+}

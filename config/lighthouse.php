@@ -177,6 +177,7 @@ return [
             'App\\Models\\Event',
             'App\\Models\\FileUpload',
             'App\\Models\\ManagementCommittee',
+            'App\\Models\\News',
         ],
         'queries' => 'App\\GraphQL\\Queries',
         'mutations' => 'App\\GraphQL\\Mutations',
