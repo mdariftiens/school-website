@@ -169,7 +169,13 @@ return [
     */
 
     'namespaces' => [
-        'models' => ['App', 'App\\Models','App\\Models\\Message','App\\Models\\Achievements'],
+        'models' => [
+            'App',
+            'App\\Models',
+            'App\\Models\\Message',
+            'App\\Models\\Achievements',
+            'App\\Models\\Event',
+        ],
         'queries' => 'App\\GraphQL\\Queries',
         'mutations' => 'App\\GraphQL\\Mutations',
         'subscriptions' => 'App\\GraphQL\\Subscriptions',

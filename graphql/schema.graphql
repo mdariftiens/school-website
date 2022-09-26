@@ -13,3 +13,4 @@
 
 #import message/message.graphql
 #import achievements/achievements.graphql
+#import event/event.graphql
