@@ -15,3 +15,4 @@
 #import achievements/achievements.graphql
 #import event/event.graphql
 #import fileupload/fileupload.graphql
+#import management-committee/management-committee.graphql

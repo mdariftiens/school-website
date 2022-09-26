@@ -1,0 +1,18 @@
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+extend type Query {
+    ManagementCommitteeMembers: [ManagementCommittee!]! @paginate
+    ManagementCommitteeMember( id:ID @eq): ManagementCommittee @find
+}
+
+type ManagementCommittee {
+    id: ID!
+    english_name: String!
+    english_designation: String!
+    bangla_name: String!
+    bangla_designation: String!
+    contact_number: String!
+    email: String!
+    priority: String!
+    image: String!
+}
