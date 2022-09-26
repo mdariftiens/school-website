@@ -2,6 +2,7 @@
 
 namespace Modules\View\Http\Controllers;
 
+use App\Models\Menu\MenuItems;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -14,7 +15,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('view::'.getCurrentThemeId().'.index');
+        $data['menus'] = MenuItems::with('childs')->where('parent',0)->orderBy('label', 'asc')->get();;
+        return view('view::'.getCurrentThemeId().'.index', $data);
     }
 
     /**

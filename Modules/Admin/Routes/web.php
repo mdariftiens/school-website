@@ -76,4 +76,15 @@ Route::prefix('admin')->group(function() {
     Route::resource('employee-designation', '\\'. \Modules\Admin\Http\Controllers\Employee\EmployeeDesignationController::class);
     Route::resource('employee-list', '\\'. \Modules\Admin\Http\Controllers\Employee\EmployeeListController::class);
 
+    /*===============Menu routes=================*/
+    Route::get('/manage-menus', ['\\'. \Modules\Admin\Http\Controllers\Menu\MenuController::class,'index'])->name('manage-menus');
+    Route::post('/addcustommenu', ['\\'. \Modules\Admin\Http\Controllers\Menu\MenuController::class,'addcustommenu'])->name('haddcustommenu');
+    Route::post('/deleteitemmenu', ['\\'. \Modules\Admin\Http\Controllers\Menu\MenuController::class,'deleteitemmenu'])->name('hdeleteitemmenu');
+    Route::post('/deletemenug', ['\\'. \Modules\Admin\Http\Controllers\Menu\MenuController::class,'deletemenug'])->name('hdeletemenug');
+    Route::post('/createnewmenu', ['\\'. \Modules\Admin\Http\Controllers\Menu\MenuController::class,'createnewmenu'])->name('hcreatenewmenu');
+    Route::post('/generatemenucontrol', ['\\'. \Modules\Admin\Http\Controllers\Menu\MenuController::class,'generatemenucontrol'])->name('hgeneratemenucontrol');
+    Route::post('/updateitem', ['\\'. \Modules\Admin\Http\Controllers\Menu\MenuController::class,'updateitem'])->name('hupdateitem');
+
+    Route::get('/show-menu', ['\\'. \Modules\Admin\Http\Controllers\Menu\MenuController::class,'showMenu'])->name('show-menu');
+
 });

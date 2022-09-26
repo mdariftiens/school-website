@@ -13,16 +13,21 @@ class CreateMenuitemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('menuitems', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('name')->nullable();
-            $table->string('slug');
-            $table->string('type');
-            $table->tinyInteger('target')->nullable();
-            $table->integer('menu_id');
+        Schema::create('admin_menu_items', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('label');
+            $table->string('link');
+            $table->unsignedBigInteger('parent')->default(0);
+            $table->integer('sort')->default(0);
+            $table->string('class')->nullable();
+            $table->unsignedBigInteger('menu');
+            $table->integer('depth')->default(0);
             $table->timestamps();
             $table->softDeletes();
+
+            $table->foreign('menu')->references('id')->on('admin_menus')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 
@@ -33,6 +38,6 @@ class CreateMenuitemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('menuitems');
+        Schema::dropIfExists('admin_menu_items');
     }
 }
