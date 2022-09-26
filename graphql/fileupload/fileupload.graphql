@@ -1,0 +1,23 @@
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+extend type Query {
+    fileuploads: [FileUpload!]! @paginate
+    fileupload( id:ID @eq): FileUpload @find
+    fileuploadCategories: [FileUploadCategory!]! @all
+    fileuploadsCategory( id:ID @eq): FileUploadCategory @find
+}
+
+type FileUpload {
+    id: ID!
+    category_id: Int!
+    category: FileUploadCategory! @belongsTo
+    bangla_title: String!
+    english_title: String!
+}
+
+type FileUploadCategory{
+    id: ID!
+    english_name: String!
+    bangla_name: String!
+    files:[FileUpload]! @hasMany
+}
