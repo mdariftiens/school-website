@@ -1,7 +1,3 @@
-"A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
-scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
-scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
-
 #type Query {
 #    user(
 #      id: ID @eq @rules(apply: ["prohibits:email", "required_without:email"])
@@ -14,12 +10,6 @@ scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
 #}
 
 
-type Query {
-    messages: [Message!]! @paginate
-    message( id:ID @eq): Message @find
-    achievements: [Achievements!]! @paginate
-    achievement( id:ID @eq): Achievements @find
-}
 
-#import message\message.graphql
-#import achievements\achievements.graphql
+#import message/message.graphql
+#import achievements/achievements.graphql
