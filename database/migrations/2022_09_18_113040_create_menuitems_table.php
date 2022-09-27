@@ -14,7 +14,7 @@ class CreateMenuitemsTable extends Migration
     public function up()
     {
         Schema::create('admin_menu_items', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->string('label');
             $table->string('link');
             $table->unsignedBigInteger('parent')->default(0);
@@ -24,10 +24,6 @@ class CreateMenuitemsTable extends Migration
             $table->integer('depth')->default(0);
             $table->timestamps();
             $table->softDeletes();
-
-            $table->foreign('menu')->references('id')->on('admin_menus')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
         });
     }
 
