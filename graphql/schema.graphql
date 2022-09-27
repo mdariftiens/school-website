@@ -18,3 +18,4 @@
 #import management-committee/management-committee.graphql
 #import news/news.graphql
 #import notice/notice.graphql
+#import gallery/gallery.graphql
