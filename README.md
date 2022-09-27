@@ -360,3 +360,270 @@
    }
  }
 ```
+
+
+# Employee
+```
+{
+  employees(first:1){    
+    data{
+      english_name
+      bangla_name
+      employee_identification_number
+      designation_id
+      department_id
+      english_description
+      bangla_description
+      employee_category_id
+      employee_type
+      contact_number
+      email
+      date_of_birth
+      date_of_joining
+      blood_group
+      educational_qualification
+      major_subject
+      priority
+      image
+      category{
+        english_name
+        bangla_name
+      }
+      designation{
+        english_name
+        bangla_name
+      }
+      department{
+        english_name
+        bangla_name
+      }
+      
+    }
+    paginatorInfo{
+        perPage
+        firstItem
+        lastPage
+        currentPage
+        hasMorePages
+        total
+        count
+      }
+	}
+}
+
+
+{
+  employee(id : 1){
+    english_name
+    bangla_name
+      category{
+        english_name
+				bangla_name
+      }
+      designation{
+        english_name
+				bangla_name
+      }
+      department{
+         english_name
+				bangla_name
+      }
+  }
+}
+
+{
+  employeeCategories{
+    id
+    english_name
+    bangla_name
+    employees{
+      english_name
+      bangla_name
+      category{
+        english_name
+				bangla_name
+      }
+      designation{
+        english_name
+				bangla_name
+      }
+      department{
+         english_name
+				bangla_name
+      }
+    }
+  }
+}
+
+{
+  employeeCategory(id:1){
+    id
+    english_name
+    bangla_name
+    employees{
+      english_name
+      bangla_name
+      category{
+        english_name
+				bangla_name
+      }
+      designation{
+        english_name
+				bangla_name
+      }
+      department{
+         english_name
+				bangla_name
+      }
+    }
+  }
+}
+
+
+
+
+{
+  employeeDepartments{
+    id
+    english_name
+    bangla_name
+    employees{
+      english_name
+      bangla_name
+      category{
+        english_name
+				bangla_name
+      }
+      designation{
+        english_name
+				bangla_name
+      }
+      department{
+         english_name
+				bangla_name
+      }
+    }
+  }
+}
+
+
+{
+  employeeDepartment(id:1){
+    id
+    english_name
+    bangla_name
+    employees{
+      english_name
+      bangla_name
+      category{
+        english_name
+				bangla_name
+      }
+      designation{
+        english_name
+				bangla_name
+      }
+      department{
+         english_name
+				bangla_name
+      }
+    }
+  }
+}
+
+
+
+
+{
+  employeeDesignations{
+    id
+    english_name
+    bangla_name
+    employees{
+      english_name
+      bangla_name
+      category{
+        english_name
+				bangla_name
+      }
+      designation{
+        english_name
+				bangla_name
+      }
+      department{
+         english_name
+				bangla_name
+      }
+    }
+  }
+}
+
+
+{
+  employeeDesignation(id:3){
+    id
+    english_name
+    bangla_name
+    employees{
+      english_name
+      bangla_name
+      category{
+        english_name
+				bangla_name
+      }
+      designation{
+        english_name
+				bangla_name
+      }
+      department{
+         english_name
+				bangla_name
+      }
+    }
+  }
+}
+```
+
+# Gallery 
+```
+{
+  galleries(first: 10, page:1){
+     data{
+        id
+        bangla_title
+        english_title
+        english_description
+        bangla_description
+        gallery_type
+        priority
+        is_publish
+    }
+    paginatorInfo{
+      perPage
+      firstItem
+      lastPage
+      currentPage
+      hasMorePages
+      total
+      count
+    }
+  }
+}
+
+
+
+{
+  gallery(id: 10){
+        id
+        bangla_title
+        english_title
+        english_description
+        bangla_description
+        gallery_type
+        priority
+        is_publish
+  }
+}
+
+
+```
