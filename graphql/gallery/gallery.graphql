@@ -1,0 +1,15 @@
+extend type Query {
+    galleries: [Gallery!]! @paginate
+    gallery( id:ID @eq): Gallery @find
+}
+
+type Gallery {
+    id: ID!
+    bangla_title: String!
+    english_title: String!
+    english_description: String
+    bangla_description: String
+    gallery_type: String!
+    priority: String!
+    is_publish: String!
+}
