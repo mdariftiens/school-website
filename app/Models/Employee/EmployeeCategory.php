@@ -16,5 +16,9 @@ class EmployeeCategory extends Model
         'bangla_name',
     ];
 
+    public function employees()
+    {
+        return $this->hasMany(Employee::class);
+    }
 
 }

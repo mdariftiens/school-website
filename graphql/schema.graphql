@@ -19,3 +19,4 @@
 #import news/news.graphql
 #import notice/notice.graphql
 #import gallery/gallery.graphql
+#import employee/employee.graphql

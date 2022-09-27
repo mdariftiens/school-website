@@ -1,0 +1,62 @@
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+
+extend type Query {
+    employees: [Employee!]! @paginate
+    employee( id:ID @eq): Employee @find
+    employeeCategories: [EmployeeCategory!]! @all
+    employeeCategory( id:ID @eq): EmployeeCategory @find
+
+    employeeDepartments: [EmployeeDepartment!]! @all
+    employeeDepartment( id:ID @eq): EmployeeDepartment @find
+
+    employeeDesignations: [EmployeeDesignation!]! @all
+    employeeDesignation( id:ID @eq): EmployeeDesignation @find
+}
+
+type Employee {
+    id: ID!
+    employee_category_id: String!
+    category: EmployeeCategory @belongsTo
+    english_name: String,
+    bangla_name: String,
+    employee_identification_number: String,
+    designation_id: String,
+    designation: EmployeeDesignation @belongsTo
+
+    department_id: String,
+    department: EmployeeDepartment @belongsTo
+
+    english_description: String,
+    bangla_description: String,
+    employee_type: String,
+    contact_number: String,
+    email: String,
+    date_of_birth: Date,
+    date_of_joining: Date,
+    blood_group: String,
+    educational_qualification: String,
+    major_subject: String,
+    priority: String,
+    image: String,
+}
+
+type EmployeeCategory{
+    id: ID!
+    english_name: String!
+    bangla_name: String!
+    employees:[Employee]! @hasMany
+}
+
+type EmployeeDepartment{
+    id: ID!
+    english_name: String!
+    bangla_name: String!
+    employees:[Employee]! @hasMany
+}
+
+type EmployeeDesignation{
+    id: ID!
+    english_name: String!
+    bangla_name: String!
+    employees:[Employee]! @hasMany
+}

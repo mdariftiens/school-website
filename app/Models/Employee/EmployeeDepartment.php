@@ -16,5 +16,8 @@ class EmployeeDepartment extends Model
         'bangla_name',
     ];
 
-
+    public function employees()
+    {
+        return $this->hasMany(Employee::class,'department_id');
+    }
 }
