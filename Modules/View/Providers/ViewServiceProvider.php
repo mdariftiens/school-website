@@ -5,6 +5,7 @@ namespace Modules\View\Providers;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\View\View\Components\MenuComponent;
 use Modules\View\View\Components\SliderComponent;
 use Modules\View\View\Components\TickerComponent;
 
@@ -34,6 +35,7 @@ class ViewServiceProvider extends ServiceProvider
 
         Blade::component('ticker-component', TickerComponent::class);
         Blade::component('slider-component', SliderComponent::class);
+        Blade::component('menu-component', MenuComponent::class);
 
     }
 
