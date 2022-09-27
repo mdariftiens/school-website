@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data['menus'] = MenuItems::with('childs')->where('parent',0)->orderBy('label', 'asc')->get();;
+        $data['menus'] = MenuItems::with('childs')->where('parent',0)->orderBy('label', 'asc')->get();
         return view('view::'.getCurrentThemeId().'.home', $data);
     }
 

@@ -4,6 +4,13 @@
             <img class=" col-span-1 sm:w-1/1 md:w-3/4 lg:w-3/4 xl:w-3/4 2xl:w-3/4 mr-4"
                  src="{{ asset('images/frontend-themes/primary/sagc.png') }}" alt="sagcTopLogo">
             <nav class="col-span-11">
+                @if(isset($menus))
+                    <ul class="dropdown flex justify-between items-center text-lg">
+                        @foreach($menus as $menu)
+                            @include('view::primary-theme.template.menu.child',['menu' => $menu])
+                        @endforeach
+                    </ul>
+                @endif
                 <ul class="dropdown flex justify-between items-center text-lg">
                     <li class="text-lg"><a href="#">Menu one</a>
                         <ul>
