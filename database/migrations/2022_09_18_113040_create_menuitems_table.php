@@ -20,7 +20,7 @@ class CreateMenuitemsTable extends Migration
             $table->unsignedBigInteger('parent')->default(0);
             $table->integer('sort')->default(0);
             $table->string('class')->nullable();
-            $table->unsignedBigInteger('menu');
+            $table->unsignedBigInteger('menu_id');
             $table->integer('depth')->default(0);
             $table->timestamps();
             $table->softDeletes();

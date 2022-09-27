@@ -11,7 +11,8 @@ class MenuComponent extends Component
     {
         $this->menus = MenuItems::with('childs')
             ->where('parent',0)
-            ->orderBy('label', 'asc')
+            ->where('menu_id',getThemeSettingValue('_theme_setting_web_menu'))
+            ->orderBy('sort')
             ->get();
     }
 
