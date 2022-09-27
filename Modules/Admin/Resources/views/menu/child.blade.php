@@ -1,4 +1,4 @@
-<li>{{ $menu->label  }}</li>
+<li>{{ $menu->label  }} </li>
 
 @if($menu->childs->count() > 0)
     <ul>
