@@ -16,7 +16,7 @@ class ContactusController extends Controller
      */
     public function index()
     {
-        return view('view::'.getCurrentThemeId().'.contactus');
+        return viewWithCache('view::'.getCurrentThemeId().'.contactus');
     }
 
     public function store(ContactUsRequest $request)
