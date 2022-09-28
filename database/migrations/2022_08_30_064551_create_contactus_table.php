@@ -17,7 +17,7 @@ class CreateContactusTable extends Migration
             $table->id();
             $table->string('name', 100);
             $table->string('email', 50)->nullable();
-            $table->string('phone');
+            $table->string('phone')->nullable();
             $table->string('subject');
             $table->text('message')->nullable();
             $table->timestamps();
