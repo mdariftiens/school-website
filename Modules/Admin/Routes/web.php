@@ -14,6 +14,8 @@
 Route::prefix('admin')->group(function() {
     Route::get('/', 'AdminController@index')->name('dashboard');
 
+    Route::get('/clear-cache', ['\\' . \Modules\Admin\Http\Controllers\Cache\CacheController::class,'clear'])->name('clear-cache');
+
     Route::resource('settings', 'SettingsController');
 
     Route::get('/manage-sidebar-widgets', '\Modules\Admin\Http\Controllers\Sidebar\SidebarController@index')->name('manageSidebarWidgets');

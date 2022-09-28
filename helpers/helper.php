@@ -220,3 +220,19 @@ function getGeneralPageContainerCssClasses(){
     return "sm:w-full md:w-3/4 lg:w-3/4 xl:w-3/4 2xl:w-3/4 ";
 
 }
+
+
+function viewWithCache($viewPath,$data=[]){
+    $cacheService = new \App\Services\CacheService();
+    $local = \Illuminate\Support\Facades\App::getLocale();
+    $url = request()->fullUrl();
+    $key = $local.'_'.$url;
+
+    if($cacheService->has($key))
+    {
+        return $cacheService->get($key);
+    }
+    $generatedView = view($viewPath, $data)->render();
+    $cacheService->set($key, $generatedView);
+    return $generatedView;
+}
