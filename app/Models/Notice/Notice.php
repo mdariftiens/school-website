@@ -3,13 +3,11 @@
 namespace App\Models\Notice;
 
 use App\Traits\HasMedia;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Abstracts\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Notice extends Model
 {
-    use HasFactory;
     use HasMedia;
 
     const IS_TICKER = 1;

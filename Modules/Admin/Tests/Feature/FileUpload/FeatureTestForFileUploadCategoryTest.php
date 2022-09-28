@@ -78,10 +78,10 @@ class FeatureTestForFileUploadCategoryTest extends TestCase
 
     public function testDeletedSuccessfully()
     {
-        $notice = FileUploadCategory::factory()->create();
-        $this->delete(route('file-upload-category.destroy', $notice->id))
+        $item = FileUploadCategory::factory()->create();
+        $this->delete(route('file-upload-category.destroy', $item->id))
             ->assertSessionHas('message');
-        $this->assertDatabaseMissing('upload_file_category', $notice->toArray());
+        $this->assertNotNull(FileUploadCategory::withTrashed()->find($item->id)->deleted_at);
     }
 
 

@@ -1,7 +1,6 @@
 <?php
 
-namespace Modules\View\Services;
-
+namespace App\Services;
 
 use Illuminate\Support\Facades\Cache;
 use Psr\SimpleCache\CacheInterface;
@@ -20,18 +19,24 @@ class CacheService implements CacheInterface
 
     public function __construct()
     {
-        $ttl = env("CACHE_TTL");
-        $this->cacheEnable = (bool)env("CACHE_ENABLE");
+
+        $ttl = getThemeSettingValue('_theme_setting_ttl');
+
+        if (request()->hasAny(['_theme_setting_ttl','_theme_setting_is_enable'])){
+            $ttl = 3600;
+        }
+
+        $this->cacheEnable = getThemeSettingValue('_theme_setting_is_enable') == 'yes';
 
         if (!$ttl) {
-            throw new \Exception("CACHE_TTL not found in .env");
+            throw new \Exception("_theme_setting_ttl not found in theme config");
         }
 
-        if (is_numeric((int)$this->ttl)) {
-            throw new \Exception("CACHE_TTL not int value");
+        if (!is_numeric((int)$this->ttl)) {
+            throw new \Exception("_theme_setting_ttl must in int");
         }
 
-        $this->ttl = env("CACHE_TTL");
+        $this->ttl = $ttl;
     }
 
     public function getTTL()
@@ -44,7 +49,7 @@ class CacheService implements CacheInterface
         return $this->cacheEnable === false;
     }
 
-    public function get($key, $default = null):mixed
+    public function get($key, $default = null)
     {
         if ($this->isCacheDisable()) {
             return false;
@@ -53,7 +58,7 @@ class CacheService implements CacheInterface
         return Cache::get($key, $default);
     }
 
-    public function set($key, $value, $ttl = null):bool
+    public function set($key, $value, $ttl = null)
     {
         if ($this->isCacheDisable()) {
             return false;
@@ -71,14 +76,14 @@ class CacheService implements CacheInterface
 
         $ttl = $ttl ?? $this->getTTL();
 
-        if ($this->has($key)) {
+        if ($this->has()) {
             Cache::put($key, $value,$ttl);
             return true;
         }
         return false;
     }
 
-    public function delete($key):bool
+    public function delete($key)
     {
         if ($this->isCacheDisable()) {
             return false;
@@ -90,7 +95,7 @@ class CacheService implements CacheInterface
         return false;
     }
 
-    public function clear():bool
+    public function clear()
     {
         if ($this->isCacheDisable()) {
             return false;
@@ -100,21 +105,25 @@ class CacheService implements CacheInterface
         return true;
     }
 
-    public function getMultiple($keys, $default = null):iterable
+    public function getMultiple($keys, $default = null)
     {
+        if ($this->isCacheDisable()) {
+            return false;
+        }
+
         $values = [];
         foreach ($keys as $key) {
             $values[$key] = $this->get($key, $default);
         }
 
-        return (array)$values;
+        return $values;
     }
 
     /**
      * @param  $keyValueAssocArray
      * @param  null  $ttl
      */
-    public function setMultiple($keyValueAssocArray, $ttl = null):bool
+    public function setMultiple($keyValueAssocArray, $ttl = null)
     {
         if ($this->isCacheDisable()) {
             return false;
@@ -126,7 +135,7 @@ class CacheService implements CacheInterface
         return true;
     }
 
-    public function deleteMultiple($keys):bool
+    public function deleteMultiple($keys)
     {
         if ($this->isCacheDisable()) {
             return false;
@@ -140,8 +149,11 @@ class CacheService implements CacheInterface
         return true;
     }
 
-    public function has($key):bool
+    public function has($key)
     {
+        if ($this->isCacheDisable()) {
+            return false;
+        }
         return Cache::has($key);
     }
 

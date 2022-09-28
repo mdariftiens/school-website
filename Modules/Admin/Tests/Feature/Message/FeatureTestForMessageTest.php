@@ -79,7 +79,7 @@ class FeatureTestForMessageTest extends TestCase
         $item = Message::factory()->create();
         $this->delete(route('message.destroy', $item->id))
             ->assertSessionHas('message');
-        $this->assertDatabaseMissing('messages', $item->toArray());
+        $this->assertNotNull(Message::withTrashed()->find($item->id)->deleted_at);
     }
 
 

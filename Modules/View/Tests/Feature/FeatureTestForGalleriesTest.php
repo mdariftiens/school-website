@@ -16,8 +16,8 @@ class FeatureTestForGalleriesTest extends TestCase
 
     public function testDetail()
     {
-        $event = Gallery::first();
-        $this->get(route('galleries.show', $event->id))
+        $gallery = Gallery::factory()->create(['is_publish' => 1]);
+        $this->get(route('galleries.show', $gallery->id))
             ->assertOk();
     }
 

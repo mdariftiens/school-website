@@ -138,10 +138,10 @@ class FeatureTestForFileUploadTest extends TestCase
 
     public function testDeletedSuccessfully()
     {
-        $notice = FileUpload::factory()->create();
-        $this->delete(route('file-upload.destroy', $notice->id))
+        $item = FileUpload::factory()->create();
+        $this->delete(route('file-upload.destroy', $item->id))
             ->assertSessionHas('message');
-        $this->assertDatabaseMissing('upload_files', $notice->toArray());
+        $this->assertNotNull(FileUpload::withTrashed()->find($item->id)->deleted_at);
     }
 
 

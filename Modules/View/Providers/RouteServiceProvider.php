@@ -4,6 +4,7 @@ namespace Modules\View\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Modules\View\Http\Middleware\CacheMiddleware;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -24,6 +25,9 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         parent::boot();
+
+        app()->make('router')->aliasMiddleware('cache', CacheMiddleware::class);
+
     }
 
     /**

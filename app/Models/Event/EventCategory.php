@@ -2,12 +2,10 @@
 
 namespace App\Models\Event;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Abstracts\Model;
 
 class EventCategory extends Model
 {
-    use HasFactory;
     protected $table = 'event_categories';
 
     protected $fillable = [

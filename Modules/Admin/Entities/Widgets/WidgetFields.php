@@ -2,14 +2,11 @@
 
 namespace Modules\Admin\Entities\Widgets;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Modules\Admin\Abstracts\AdminModel;
+use App\Abstracts\Model;
 
-class WidgetFields extends AdminModel
+class WidgetFields extends Model
 {
     protected $table = 'widget_fields';
-
-    use HasFactory;
 
     protected $fillable = [
         'widget_id',

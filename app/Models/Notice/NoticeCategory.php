@@ -2,12 +2,10 @@
 
 namespace App\Models\Notice;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Abstracts\Model;
 
 class NoticeCategory extends Model
 {
-    use HasFactory;
 
     protected $table = 'notice_categories';
 

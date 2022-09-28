@@ -85,7 +85,7 @@ class FeatureTestForEventCategoryTest extends TestCase
         $event = EventCategory::factory()->create();
         $this->delete(route('event-category.destroy', $event->id))
             ->assertSessionHas('message');
-        $this->assertDatabaseMissing('event_categories', $event->toArray());
+        $this->assertNotNull(EventCategory::withTrashed()->find($event->id)->deleted_at);
     }
 
 

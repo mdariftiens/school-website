@@ -13,12 +13,12 @@ abstract class Controller extends BaseController
     public function index(Request $request)
     {
         $data['rows'] = $this->getDataRows();
-        return view('view::'.getCurrentThemeId().'.index', $data);
+        return viewWithCache('view::'.getCurrentThemeId().'.index', $data);
     }
 
     public function show($id)
     {
         $data['row'] = $this->getDataRow($id);
-        return view('view::'.getCurrentThemeId().'.show',$data);
+        return viewWithCache('view::'.getCurrentThemeId().'.show',$data);
     }
 }

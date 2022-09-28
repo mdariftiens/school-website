@@ -131,7 +131,7 @@ class FeatureTestForGalleryTest extends TestCase
         $gallery = Gallery::factory()->create();
         $this->delete(route('gallery.destroy', $gallery->id))
             ->assertSessionHas('message');
-        $this->assertDatabaseMissing('gallery', $gallery->toArray());
+        $this->assertNotNull(Gallery::withTrashed()->find($gallery->id)->deleted_at);
     }
 
 }

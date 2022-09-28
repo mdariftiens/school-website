@@ -70,6 +70,12 @@ class Themes
                 $prefix.'titleColor' =>'#3B5998',
             ],
 
+            'cache'=>[
+                $prefix.'is_enable' =>'no',
+                $prefix.'ttl' =>'3600', //in second
+                $prefix.'clear_cache_action' =>'',
+            ],
+
             'global' => [
                 $prefix . 'web_menu' => "1",
                 $prefix . 'mobile_menu' => "1",
