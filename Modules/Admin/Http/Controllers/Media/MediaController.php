@@ -39,9 +39,9 @@ class MediaController extends Controller
         return response()->json($this->mediaRepository->uploadMedia($request));
     }
 
-    public function show($id)
+    public function show(int $id)
     {
-
+        return $this->mediaRepository->getOne($id);
     }
 
     public function edit($widgetId)
