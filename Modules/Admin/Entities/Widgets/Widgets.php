@@ -2,13 +2,11 @@
 
 namespace Modules\Admin\Entities\Widgets;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Abstracts\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Modules\Admin\Abstracts\AdminModel;
 
-class Widgets extends AdminModel
+class Widgets extends Model
 {
-    use HasFactory;
 
     protected $fillable = [
         'type',
