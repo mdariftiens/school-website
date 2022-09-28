@@ -235,3 +235,11 @@ function generateCacheKey(){
     $key = $local.'_'.$url;
     return $key;
 }
+
+function cacheViewClear(){
+    if(!app()->runningInConsole())
+    {
+        $cacheService = new \App\Services\CacheService();
+        $cacheService->clear();
+    }
+}
