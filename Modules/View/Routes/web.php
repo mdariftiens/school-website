@@ -21,4 +21,5 @@ Route::middleware(['cache'])->group(function() {
     Route::resource("events", "\\".\Modules\View\Http\Controllers\EventController::class);
     Route::resource("file-uploads", "\\".\Modules\View\Http\Controllers\FileUploadController::class);
     Route::resource("galleries", "\\".\Modules\View\Http\Controllers\GalleryController::class);
+    Route::resource("contact-us", "\\".\Modules\View\Http\Controllers\ContactusController::class)->only(['index','store']);
 });
