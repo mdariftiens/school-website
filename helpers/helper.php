@@ -224,15 +224,14 @@ function getGeneralPageContainerCssClasses(){
 
 function viewWithCache($viewPath,$data=[]){
     $cacheService = new \App\Services\CacheService();
+    $generatedView = view($viewPath, $data)->render();
+    $cacheService->set(generateCacheKey(), $generatedView);
+    return $generatedView;
+}
+
+function generateCacheKey(){
     $local = \Illuminate\Support\Facades\App::getLocale();
     $url = request()->fullUrl();
     $key = $local.'_'.$url;
-
-    if($cacheService->has($key))
-    {
-        return $cacheService->get($key);
-    }
-    $generatedView = view($viewPath, $data)->render();
-    $cacheService->set($key, $generatedView);
-    return $generatedView;
+    return $key;
 }
