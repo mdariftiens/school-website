@@ -2,7 +2,7 @@
 
 namespace App\Models\Menu;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Abstracts\Model;
 
 class MenuItems extends Model
 {

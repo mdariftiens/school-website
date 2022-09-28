@@ -2,14 +2,11 @@
 
 namespace App\Models\Employee;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Abstracts\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Employee extends Model
 {
-    use HasFactory;
-
     protected $table = 'employees';
 
     protected $fillable = [

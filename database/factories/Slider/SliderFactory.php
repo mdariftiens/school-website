@@ -23,6 +23,7 @@ class SliderFactory extends Factory
             'english_description' => $this->faker->text,
             'bangla_description' =>  $this->faker->text,
             'is_published' => random_int(0,1),
+            'priority' => random_int(1,100),
         ];
     }
 }

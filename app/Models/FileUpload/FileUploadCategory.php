@@ -2,12 +2,10 @@
 
 namespace App\Models\FileUpload;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use App\Abstracts\Model;
 
 class FileUploadCategory extends Model
 {
-    use HasFactory;
 
     protected $table = 'upload_file_category';
 

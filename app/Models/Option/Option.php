@@ -2,7 +2,7 @@
 
 namespace App\Models\Option;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Abstracts\Model;
 
 class Option extends Model
 {
