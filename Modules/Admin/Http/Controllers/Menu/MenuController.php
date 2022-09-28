@@ -101,7 +101,7 @@ class MenuController extends Controller
         if (config('menu.use_roles')) {
             $menuitem->role_id = request()->input("rolemenu") ? request()->input("rolemenu") : 0;
         }
-        $menuitem->menu = request()->input("idmenu");
+        $menuitem->menu_id = request()->input("idmenu");
         $menuitem->sort = MenuItems::getNextSortRoot(request()->input("idmenu"));
         $menuitem->save();
     }

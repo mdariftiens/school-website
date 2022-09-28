@@ -2,6 +2,7 @@
 
 namespace Modules\Admin\Http\Controllers;
 
+use App\Models\Menu\Menus;
 use App\Models\Option\Option;
 use App\Models\Slider\Slider;
 use Illuminate\Http\Request;
@@ -19,6 +20,11 @@ class SettingsController extends Controller
         if ($type == 'slider')
         {
             $data ['sliders'] = Slider::get(['id','english_title','bangla_title']);
+        }
+
+        if ($type == 'global')
+        {
+            $data ['menus'] = Menus::get();
         }
 
         return view('admin::settings.create', $data);

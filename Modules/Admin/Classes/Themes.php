@@ -71,6 +71,10 @@ class Themes
             ],
 
             'global' => [
+                $prefix . 'web_menu' => "1",
+                $prefix . 'mobile_menu' => "1",
+                $prefix . 'display_menu_logo' => "no",
+                $prefix . 'menu_logo_url' => "https://sagc.edu.bd/wp-content/themes/sagc/sagc/logo-icon/sagc.png",
                 $prefix . 'school_name' => "SHAHEED BIR UTTAM LT ANWAR GIRLS' COLLEGE",
                 $prefix . 'school_code_eiin' => "School Code : 1262 | College Code : 1000 | EIIN : 132143",
                 $prefix . 'google_map' => '<iframe

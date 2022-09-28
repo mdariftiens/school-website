@@ -9,7 +9,7 @@ class MenuItems extends Model
 
     protected $table = null;
 
-    protected $fillable = ['label', 'link', 'parent', 'sort', 'class', 'menu', 'depth', 'role_id'];
+    protected $fillable = ['label', 'link', 'parent', 'sort', 'class', 'menu_id', 'depth', 'role_id'];
 
     public function __construct(array $attributes = [])
     {
@@ -23,17 +23,17 @@ class MenuItems extends Model
     }
     public function getall($id)
     {
-        return $this->where("menu", $id)->orderBy("sort", "asc")->get();
+        return $this->where("menu_id", $id)->orderBy("sort", "asc")->get();
     }
 
     public static function getNextSortRoot($menu)
     {
-        return self::where('menu', $menu)->max('sort') + 1;
+        return self::where('menu_id', $menu)->max('sort') + 1;
     }
 
     public function parent_menu()
     {
-        return $this->belongsTo(Menus::class, 'menu');
+        return $this->belongsTo(Menus::class, 'menu_id');
     }
 
     public function childs()

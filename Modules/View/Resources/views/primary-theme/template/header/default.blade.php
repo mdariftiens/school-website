@@ -4,7 +4,7 @@
             <div
                 class="logo flex sm:flex-col md:flex-row lg:flex-row xl:flex-row 2xl:flex-row items-center">
                 <img class="sm:w-1/3 md:w-1/12 lg:w-1/12 xl:w-1/12 2xl:w-1/12 mr-4"
-                     src="{{ asset('images/frontend-themes/primary/sagc.png') }}" alt="sagcTopLogo">
+                     src="{{ getThemeSettingValue('_theme_setting_menu_logo_url') }}" alt="{{ getThemeSettingValue('_theme_setting_school_name') }}">
                 <div class="school_name">
                     <h1 class="font-middle text-3xl font-medium text-[#3B5998]">{{ getThemeSettingValue('_theme_setting_school_name') }}</h1>
                     <p class="font-medium text-lg text-red-">{{ getThemeSettingValue('_theme_setting_school_code_eiin') }}</p>
