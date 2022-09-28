@@ -90,7 +90,7 @@ class FeatureTestForEventTest extends TestCase
         $event = Event::factory()->create();
         $this->delete(route('event.destroy', $event->id))
             ->assertSessionHas('message');
-        $this->assertDatabaseMissing('events', $event->toArray());
+        $this->assertNotNull(Event::withTrashed()->find($event->id)->deleted_at);
     }
 
 

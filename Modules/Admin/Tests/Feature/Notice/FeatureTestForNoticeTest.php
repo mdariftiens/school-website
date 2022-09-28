@@ -137,7 +137,8 @@ class FeatureTestForNoticeTest extends TestCase
         $notice = Notice::factory()->create();
         $this->delete(route('notice.destroy', $notice->id))
             ->assertSessionHas('message');
-        $this->assertDatabaseMissing('notice', $notice->toArray());
+        $this->assertNotNull(Notice::withTrashed()->find($notice->id)->deleted_at);
+
     }
 
 

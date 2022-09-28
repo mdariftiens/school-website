@@ -132,7 +132,7 @@ class FeatureTestForSliderTest extends TestCase
         $this->delete(route('slider.destroy', $slider->id))
             ->assertSessionHas('message');
 
-        $this->assertDatabaseHas('slider', $slider->toArray());
+        $this->assertNotNull(Slider::withTrashed()->find($slider->id)->deleted_at);
     }
 
 }

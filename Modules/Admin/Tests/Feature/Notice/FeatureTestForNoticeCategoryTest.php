@@ -81,7 +81,8 @@ class FeatureTestForNoticeCategoryTest extends TestCase
         $notice = NoticeCategory::factory()->create();
         $this->delete(route('notice-category.destroy', $notice->id))
             ->assertSessionHas('message');
-        $this->assertDatabaseMissing('notice_categories', $notice->toArray());
+
+        $this->assertNotNull(NoticeCategory::withTrashed()->find($notice->id)->deleted_at);
     }
 
 
