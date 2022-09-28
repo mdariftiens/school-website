@@ -66,4 +66,9 @@ class MediaRepository extends Repository
         }
     }
 
+    public function getOne(int $id)
+    {
+        return Media::findOrFail($id);
+    }
+
 }
