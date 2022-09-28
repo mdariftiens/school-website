@@ -19,10 +19,13 @@ class CacheService implements CacheInterface
 
     public function __construct()
     {
+
+        $ttl = getThemeSettingValue('_theme_setting_ttl');
+
         if (request()->hasAny(['_theme_setting_ttl','_theme_setting_is_enable'])){
             $ttl = 3600;
         }
-        $ttl = getThemeSettingValue('_theme_setting_ttl');
+
         $this->cacheEnable = getThemeSettingValue('_theme_setting_is_enable') == 'yes';
 
         if (!$ttl) {
