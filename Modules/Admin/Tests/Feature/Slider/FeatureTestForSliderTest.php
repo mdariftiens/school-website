@@ -128,10 +128,11 @@ class FeatureTestForSliderTest extends TestCase
 
     public function testDeletedSuccessfully()
     {
-        $gallery = Slider::factory()->create();
-        $this->delete(route('slider.destroy', $gallery->id))
+        $slider = Slider::factory()->create();
+        $this->delete(route('slider.destroy', $slider->id))
             ->assertSessionHas('message');
-        $this->assertDatabaseMissing('slider', $gallery->toArray());
+
+        $this->assertDatabaseHas('slider', $slider->toArray());
     }
 
 }
