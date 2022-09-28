@@ -34,7 +34,9 @@ function getThemeConfig():array{
             ],
 
             'notice' => [
-                'default' => 'Default'
+                'default' => 'Default',
+                'style1' => 'Style 1',
+                'style2' => 'Style 2',
             ],
 
             'event' => [
