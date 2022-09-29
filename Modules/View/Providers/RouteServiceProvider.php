@@ -25,7 +25,7 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         parent::boot();
-
+        app()->setLocale('en');
         app()->make('router')->aliasMiddleware('cache', CacheMiddleware::class);
 
     }

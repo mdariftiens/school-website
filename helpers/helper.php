@@ -243,3 +243,12 @@ function cacheViewClear(){
         $cacheService->clear();
     }
 }
+
+
+function getLanguage(){
+    $language = [
+        'en' => 'english',
+        'bn' => 'bangla',
+    ];
+    return $language[app()->getLocale()];
+}

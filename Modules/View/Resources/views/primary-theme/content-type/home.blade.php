@@ -14,11 +14,11 @@
                 @if(getThemeSettingValue('_theme_setting_homepage_about_school_visibility') == 'yes')
                     <div class="about_school_area mt-5 font-lato">
                         <h1 class="text-2xl shadow-[0px_2px_2px_2px_rgba(0,0,0,0.1)] py-2 px-2 mb-4">
-                            Welcome to {{ getThemeSettingValue('_theme_setting_homepage_about_school_title') }}
+                            Welcome to {{ getThemeSettingValue('_theme_setting_homepage_'. getLanguage().'_about_school_title') }}
                         </h1>
                         <div
                             class="about_school_content text-lg text-justify shadow-[0px_2px_2px_2px_rgba(0,0,0,0.1)] px-2 py-3">
-                            {!! getThemeSettingValue('_theme_setting_homepage_about_school_detail') !!}
+                            {!! getThemeSettingValue('_theme_setting_homepage_'. getLanguage().'_about_school_detail') !!}
                         </div>
                     </div>
                 @endif
