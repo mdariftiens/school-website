@@ -253,6 +253,3 @@ function getLanguage(){
     return $language[app()->getLocale()];
 }
 
-function changeLocalSession(){
-
-}
