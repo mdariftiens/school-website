@@ -7,7 +7,7 @@
                 class="flex xs:flex-col sm:flex-row md:flex-row lg:flex-row xl:flex-row 2xl:flex-row sm:items-center bg-color-clifford">
                 <div class="flex mr-5 align-middle">
                     <i class="fa fa-phone mt-1 mr-2"></i>
-                    <p><strong>Phone</strong> {{ getThemeSettingValue('_theme_setting_top_bar_phone_number') }}</p>
+                    <p><strong>{{ __('phone') }}</strong> {{ getThemeSettingValue('_theme_setting_top_bar_phone_number') }}</p>
                 </div>
 
                 <div class="flex text-base">
