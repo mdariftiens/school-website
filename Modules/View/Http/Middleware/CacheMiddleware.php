@@ -4,6 +4,7 @@ namespace Modules\View\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class CacheMiddleware
 {
@@ -16,6 +17,15 @@ class CacheMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+
+        if (!session()->has('lang'))
+        {
+            session(['lang'=>'bn']);
+            session()->save();
+        }
+
+        app()->setLocale(session()->get('lang'));
+
         $cacheService = new \App\Services\CacheService();
 
         $key = generateCacheKey();

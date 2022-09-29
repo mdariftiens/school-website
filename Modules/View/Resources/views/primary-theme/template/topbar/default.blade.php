@@ -18,7 +18,7 @@
 
             <div class="grid grid-cols-4 font-semibold items-center">
                 <p class="col-span-3">{{ getThemeSettingValue('_theme_setting_top_bar_rightside_content') }}</p>
-                <div class="grid grid-cols-4 top_social_link">
+                <div class="grid grid-cols-5 top_social_link">
                     <a href="{{ getThemeSettingValue('_theme_setting_top_bar_top_bar_fb_link') }}">
                         <i class="fab fa-facebook px-2 py-2 hover:bg-[#EC1C24] rounded-lg"></i>
                     </a>
@@ -31,6 +31,14 @@
                     <a href="{{ getThemeSettingValue('_theme_setting_top_bar_top_bar_yt_link') }}">
                         <i class="fab fa-youtube-square px-2 py-2 hover:bg-[#EC1C24] rounded-lg"></i>
                     </a>
+
+                    <a href="{{ route('change-language') }}">
+                        @php
+                            $local = app()->getLocale();
+                        @endphp
+                        {{ $local=='en'?'Bangla':'English' }}
+                    </a>
+
                 </div>
             </div>
 
