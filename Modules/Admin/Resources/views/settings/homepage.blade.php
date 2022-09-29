@@ -87,11 +87,21 @@
 </div>
 
 <div class="mb-3">
-    <label class="form-label" for="_theme_setting_homepage_about_school_title">About School Title</label>
-    <input  class="form-control" type="text" name="_theme_setting_homepage_about_school_title" id="_theme_setting_homepage_about_school_title" value="{{ getThemeSettingValue('_theme_setting_homepage_about_school_title') }}">
+    <label class="form-label" for="_theme_setting_homepage_bangla_about_school_title">About School Title(Bangla)</label>
+    <input  class="form-control" type="text" name="_theme_setting_homepage_bangla_about_school_title" id="_theme_setting_homepage_bangla_about_school_title" value="{{ getThemeSettingValue('_theme_setting_homepage_bangla_about_school_title') }}">
 </div>
 
 <div class="mb-3">
-    <label class="form-label" for="_theme_setting_homepage_about_school_detail">About School Detail</label>
-    <textarea class="form-control" name="_theme_setting_homepage_about_school_detail" id="_theme_setting_homepage_about_school_detail" cols="30" rows="10">{{ getThemeSettingValue('_theme_setting_homepage_about_school_detail') }}</textarea>
+    <label class="form-label" for="_theme_setting_homepage_bangla_about_school_detail">About School Detail(Bangla)</label>
+    <textarea class="form-control" name="_theme_setting_homepage_bangla_about_school_detail" id="_theme_setting_homepage_bangla_about_school_detail" cols="30" rows="10">{{ getThemeSettingValue('_theme_setting_homepage_bangla_about_school_detail') }}</textarea>
+</div>
+
+<div class="mb-3">
+    <label class="form-label" for="_theme_setting_homepage_english_about_school_title">About School Title(English)</label>
+    <input  class="form-control" type="text" name="_theme_setting_homepage_english_about_school_title" id="_theme_setting_homepage_english_about_school_title" value="{{ getThemeSettingValue('_theme_setting_homepage_english_about_school_title') }}">
+</div>
+
+<div class="mb-3">
+    <label class="form-label" for="_theme_setting_homepage_english_about_school_detail">About School Detail(English)</label>
+    <textarea class="form-control" name="_theme_setting_homepage_english_about_school_detail" id="_theme_setting_homepage_english_about_school_detail" cols="30" rows="10">{{ getThemeSettingValue('_theme_setting_homepage_english_about_school_detail') }}</textarea>
 </div>
