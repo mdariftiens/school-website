@@ -15,8 +15,8 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('bangla_title');
-            $table->string('english_title');
+            $table->string('bangla_title')->unique();
+            $table->string('english_title')->unique();
             $table->enum('status',['draft','published']);
             $table->timestamps();
             $table->softDeletes();
