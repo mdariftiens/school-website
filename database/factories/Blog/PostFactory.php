@@ -14,7 +14,7 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'featured_image_link' => $this->faker->text(),
+            'featured_image_link' => 'https://dummyimage.com/800x400/000/fff',
             'bangla_title' => $this->faker->text(),
             'english_title' => $this->faker->text(),
             'slug' => Str::slug($this->faker->text()),
