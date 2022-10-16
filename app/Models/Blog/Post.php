@@ -4,7 +4,9 @@ namespace App\Models\Blog;
 
 use App\Traits\HasMedia;
 use App\Abstracts\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Post extends Model
 {
@@ -36,8 +38,8 @@ class Post extends Model
         return $q->where('status', self::DRAFT);
     }
 
-    public function categories(): HasMany
+    public function categories(): BelongsToMany
     {
-        return $this->hasMany(Category::class);
+        return $this->belongsToMany(Category::class, PostCategory::class);
     }
 }
