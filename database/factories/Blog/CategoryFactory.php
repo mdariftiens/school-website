@@ -15,7 +15,7 @@ class CategoryFactory extends Factory
         return [
             'bangla_title' => $this->faker->text,
             'english_title' => $this->faker->text(),
-            'status' => $this->faker->en
+            'status' => array_rand(['draft','published'],1)+1
         ];
     }
 }

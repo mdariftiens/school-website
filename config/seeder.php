@@ -21,4 +21,7 @@ return [
     'employee' => 100,
     'news' => 100,
     'achievement' => 100,
+    'blog_category' => 50,
+    'blog_post' => 50,
+    'blog_post_category' => 50,
 ];

@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
             AchievementSeeder::class,
             ThemeSettingSeeder::class,
             MediaableTableSeeder::class,
+            BlogSeeder::class,
         ]);
     }
 }
