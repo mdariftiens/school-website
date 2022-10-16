@@ -4,10 +4,14 @@ namespace App\Models\Blog;
 
 use App\Traits\HasMedia;
 use App\Abstracts\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Post extends Model
 {
     use HasMedia;
+
+    const DRAFT = 'draft';
+    const PUBLISHED = 'published';
 
     protected $table = 'posts';
 
@@ -20,4 +24,20 @@ class Post extends Model
         'english_description',
         'status',
     ];
+
+
+    public function scopePublished($q)
+    {
+        return $q->where('status', self::PUBLISHED);
+    }
+
+    public function scopeDraft($q)
+    {
+        return $q->where('status', self::DRAFT);
+    }
+
+    public function categories(): HasMany
+    {
+        return $this->hasMany(Category::class);
+    }
 }
