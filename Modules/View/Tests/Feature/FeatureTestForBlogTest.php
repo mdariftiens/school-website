@@ -3,8 +3,6 @@
 namespace Modules\View\Tests\Feature;
 
 use App\Models\Blog\Post;
-use App\Models\Event\Event;
-use App\Models\Notice\Notice;
 use Tests\TestCase;
 
 class FeatureTestForBlogTest extends TestCase
