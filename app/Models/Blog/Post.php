@@ -34,7 +34,7 @@ class Post extends Model
 
     public function scopeType($q, $type='post')
     {
-        return $q->where('status', $type);
+        return $q->where('type', $type);
     }
 
     public function scopePublished($q)

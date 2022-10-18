@@ -11,6 +11,7 @@ class PostController extends Controller
     public function getDataRows()
     {
         return Post::with(['categories'])
+            ->type(Post::TYPE_POST)
             ->published()
             ->latest()
             ->paginate();

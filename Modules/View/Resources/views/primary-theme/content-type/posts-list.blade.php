@@ -5,6 +5,7 @@
             @include('view::'.getCurrentThemeId().'.template.sidebar.left.default')
 
             <div class=" {{getGeneralPageContainerCssClasses() }} pr-6">
+                @dd($rows)
                 @foreach($rows as $row)
 
                     <div class="notice_content flex border border-[#ddd] pt-2 pb-2">
