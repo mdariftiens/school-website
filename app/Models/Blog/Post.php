@@ -15,6 +15,9 @@ class Post extends Model
     const DRAFT = 'draft';
     const PUBLISHED = 'published';
 
+    const TYPE_POST = 'post';
+    const TYPE_PAGE = 'page';
+
     protected $table = 'posts';
 
     protected $fillable = [
@@ -25,8 +28,14 @@ class Post extends Model
         'bangla_description',
         'english_description',
         'status',
+        'type',
     ];
 
+
+    public function scopeType($q, $type='post')
+    {
+        return $q->where('status', $type);
+    }
 
     public function scopePublished($q)
     {
