@@ -3,6 +3,7 @@
 namespace Modules\View\Http\Controllers;
 
 use App\Models\Contactus\Contactus;
+use App\Models\Option\Option;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;

@@ -11,49 +11,53 @@
                 <div class=" {{getGeneralPageContainerCssClasses() }} pr-6">
 
                     <div class="contactus_content flex border border-[#ddd] pt-2 pb-2">
-                        <div class="w-full text-center ml-2 mr-2">
-                            <h2 class="bg-bgColor text-lg font-semibold text-white pt-1 pb-1">
+                        <div class="w-full ml-2 mr-2">
+                            <h2 class="bg-bgColor text-center text-lg font-semibold text-white pt-1 pb-1 mb-5">
                                 Contact Us
                             </h2>
-                            @if(session()->has('message'))
-                                {{ session()->get('message') }}
-                            @endif
+                            <div class="grid grid-cols-2 gap-5 sm:grid-cols-1 md:grid-cols-2">
+                                {!! getThemeSettingValue('_theme_setting_google_map') !!}
+                                <div class="form_area">
+                                    @if(session()->has('message'))
+                                        {{ session()->get('message') }}
+                                    @endif
 
-                            @if($errors->count())
-                                @foreach ($errors->all() as $error)
-                                    <div>{{ $error }}</div>
-                                @endforeach
-                            @endif
+                                    @if($errors->count())
+                                        @foreach ($errors->all() as $error)
+                                            <div>{{ $error }}</div>
+                                        @endforeach
+                                    @endif
+                                    <form action="{{ route('contact-us.store') }}" method="post">
+                                            @csrf
 
-                            <form action="{{ route('contact-us.store') }}" method="post">
-                                @csrf
+                                            <div class="mb-6">
+                                                <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Name *</label>
+                                                <input type="text" name="name" id="name" placeholder="Name" value="{{ old('name') }}" required="" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
+                                            </div>
 
-                                <div class="mb-3">
-                                    <label class="form-label" for="basic-default-name">Name *</label>
-                                    <input type="text" class="form-control" id="name" name="name" required value="{{ old('name') }}">
+                                            <div class="mb-3">
+                                                <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email</label>
+                                                <input type="email" id="email" name="email" placeholder="Email" value="{{ old('email') }}" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-400" for="phone">phone</label>
+                                                <input type="text" id="phone" name="phone" placeholder="Phone" value="{{ old('phone') }}" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-400" for="subject">Subject *</label>
+                                                <input type="text" id="subject" name="subject" placeholder="Subject" required value="{{ old('subject') }}" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label class="block mb-2 text-sm text-gray-600 dark:text-gray-400" for="message">Message</label> <br>
+                                                <textarea name="message" id="message" cols="30" rows="10" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">{{ old('message') }}</textarea>
+                                            </div>
+                                            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Submit</button>
+                                        </form>
                                 </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label" for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" name="email" value="{{ old('email') }}">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label" for="phone">phone</label>
-                                    <input type="text" class="form-control" id="phone" name="phone" value="{{ old('phone') }}">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label" for="subject">Subject *</label>
-                                    <input type="text" class="form-control" id="subject" name="subject" required value="{{ old('subject') }}">
-                                </div>
-
-                                <div class="mb-3">
-                                    <label class="form-label" for="message">Message</label> <br>
-                                    <textarea class="form-control" name="message" id="message" cols="30" rows="10" required>{{ old('message') }}</textarea>
-                                </div>
-                                <button class="color">Submit</button>
-                            </form>
+                            </div>
                         </div>
 
                     </div>
