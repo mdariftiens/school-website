@@ -25,4 +25,16 @@ class FeatureTestForBlogTest extends TestCase
             ->assertOk();
     }
 
+    public function testPageDetail()
+    {
+        $post = Post::with(['categories'])
+            ->published()
+            ->visibility(Post::VISIBILITY_PUBLIC)
+            ->type(Post::TYPE_PAGE)
+            ->first();
+
+        $this->get(route('blog.pageshow', $post->slug))
+            ->assertOk();
+    }
+
 }
