@@ -44,8 +44,8 @@ function addcustommenu() {
   $.ajax({
     data: {
       labelmenu: $('#custom-menu-item-name').val(),
+      labelmenubangla: $('#custom-menu-item-bangla').val(),
       linkmenu: $('#custom-menu-item-url').val(),
-      rolemenu: $('#custom-menu-item-role').val(),
       idmenu: $('#idmenu').val()
     },
 
@@ -63,6 +63,7 @@ function addcustommenu() {
 function updateitem(id = 0) {
   if (id) {
     var label = $('#idlabelmenu_' + id).val();
+    var label_bangla = $('#idlabelmenubangla_' + id).val();
     var clases = $('#clases_menu_' + id).val();
     var url = $('#url_menu_' + id).val();
     var role_id = 0;
@@ -72,11 +73,13 @@ function updateitem(id = 0) {
 
     var data = {
       label: label,
+      label_bangla: label_bangla,
       clases: clases,
       url: url,
       role_id: role_id,
       id: id
     };
+    console.log(data);
   } else {
     var arr_data = [];
     $('.menu-item-settings').each(function(k, v) {
@@ -86,6 +89,9 @@ function updateitem(id = 0) {
       var label = $(this)
         .find('.edit-menu-item-title')
         .val();
+      var label_bangla = $(this)
+            .find('.edit-menu-item-title-bangla')
+            .val();
       var clases = $(this)
         .find('.edit-menu-item-classes')
         .val();
@@ -98,6 +104,7 @@ function updateitem(id = 0) {
       arr_data.push({
         id: id,
         label: label,
+        label_bangla: label_bangla,
         class: clases,
         link: url,
         role_id: role

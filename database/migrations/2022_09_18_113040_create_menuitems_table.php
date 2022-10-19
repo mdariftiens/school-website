@@ -15,7 +15,8 @@ class CreateMenuitemsTable extends Migration
     {
         Schema::create('admin_menu_items', function (Blueprint $table) {
             $table->id();
-            $table->string('label');
+            $table->string('english_label');
+            $table->string('bangla_label')->nullable();
             $table->string('link');
             $table->unsignedBigInteger('parent')->default(0);
             $table->integer('sort')->default(0);

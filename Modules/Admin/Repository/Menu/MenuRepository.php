@@ -58,14 +58,15 @@ class MenuRepository
         if (is_array($arraydata)) {
             foreach ($arraydata as $value) {
                 $menuitem = MenuItems::find($value['id']);
-                $menuitem->label = $value['label'];
+                $menuitem->english_label = $value['label'];
+                $menuitem->bangla_label = $value['label_bangla'];
                 $menuitem->link = $value['link'];
                 $menuitem->class = $value['class'];
                 $menuitem->save();
             }
         } else {
             $menuitem = MenuItems::find(request()->input("id"));
-            $menuitem->label = request()->input("label");
+            $menuitem->label_english = request()->input("label");
             $menuitem->link = request()->input("url");
             $menuitem->class = request()->input("clases");
             $menuitem->save();
@@ -74,7 +75,8 @@ class MenuRepository
 
     public function add_custom_menu_item(){
         $menuitem = new MenuItems();
-        $menuitem->label = request()->input("labelmenu");
+        $menuitem->english_label = request()->input("labelmenu");
+        $menuitem->bangla_label = request()->input("labelmenubangla");
         $menuitem->link = request()->input("linkmenu");
         $menuitem->menu_id = request()->input("idmenu");
         $menuitem->sort = MenuItems::getNextSortRoot(request()->input("idmenu"));

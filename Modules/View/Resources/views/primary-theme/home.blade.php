@@ -3,6 +3,6 @@
 
 @section('content')
 
-    @include('view::primary-theme.content-type.home')
+    @include('view::'. getCurrentThemeId() .'.content-type.home')
 
 @endsection
