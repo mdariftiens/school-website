@@ -86,22 +86,21 @@
     </select>
 </div>
 
-<div class="mb-3">
-    <label class="form-label" for="_theme_setting_homepage_bangla_about_school_title">About School Title(Bangla)</label>
-    <input  class="form-control" type="text" name="_theme_setting_homepage_bangla_about_school_title" id="_theme_setting_homepage_bangla_about_school_title" value="{{ getThemeSettingValue('_theme_setting_homepage_bangla_about_school_title') }}">
-</div>
+
+
 
 <div class="mb-3">
-    <label class="form-label" for="_theme_setting_homepage_bangla_about_school_detail">About School Detail(Bangla)</label>
-    <textarea class="form-control" name="_theme_setting_homepage_bangla_about_school_detail" id="_theme_setting_homepage_bangla_about_school_detail" cols="30" rows="10">{{ getThemeSettingValue('_theme_setting_homepage_bangla_about_school_detail') }}</textarea>
+    <label class="form-label" for="_theme_setting_homepage_homepage_set_page_id">
+        Set Page to Show in Homepage
+        <b>Note:</b> Showing only Private Published Page.
+    </label>
+    @php
+        $presentValue = getThemeSettingValue('_theme_setting_homepage_homepage_set_page_id');
+    @endphp
+    <select class="form-control" name="_theme_setting_homepage_homepage_set_page_id" id="_theme_setting_homepage_homepage_set_page_id">
+        @foreach($pages as $page)
+            <option @if($presentValue==$page->id) selected @endif value="{{$page->id}}">{{$page->english_title}} | {{$page->bangla_title}}</option>
+        @endforeach
+    </select>
 </div>
 
-<div class="mb-3">
-    <label class="form-label" for="_theme_setting_homepage_english_about_school_title">About School Title(English)</label>
-    <input  class="form-control" type="text" name="_theme_setting_homepage_english_about_school_title" id="_theme_setting_homepage_english_about_school_title" value="{{ getThemeSettingValue('_theme_setting_homepage_english_about_school_title') }}">
-</div>
-
-<div class="mb-3">
-    <label class="form-label" for="_theme_setting_homepage_english_about_school_detail">About School Detail(English)</label>
-    <textarea class="form-control" name="_theme_setting_homepage_english_about_school_detail" id="_theme_setting_homepage_english_about_school_detail" cols="30" rows="10">{{ getThemeSettingValue('_theme_setting_homepage_english_about_school_detail') }}</textarea>
-</div>

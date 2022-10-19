@@ -2,6 +2,7 @@
 
 namespace Modules\Admin\Http\Controllers;
 
+use App\Models\Blog\Post;
 use App\Models\Menu\Menus;
 use App\Models\Option\Option;
 use App\Models\Slider\Slider;
@@ -26,6 +27,12 @@ class SettingsController extends Controller
         {
             $data ['menus'] = Menus::get();
         }
+
+        if ($type == 'homepage')
+        {
+            $data ['pages'] = getPublishedPrivatePages();
+        }
+
 
         return view('admin::settings.create', $data);
     }

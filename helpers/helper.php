@@ -253,3 +253,15 @@ function getLanguage(){
     return $language[app()->getLocale()];
 }
 
+function getPublishedPrivatePages(){
+    return \App\Models\Blog\Post::select(['id','bangla_title','english_title'])
+        ->published()
+        ->type(\App\Models\Blog\Post::TYPE_PAGE)
+        ->Visibility(\App\Models\Blog\Post::VISIBILITY_PRIVATE)
+        ->get();
+}
+
+function getHomePageContent(){
+    $pageId = (int) getThemeSettingValue('_theme_setting_homepage_homepage_set_page_id');
+    return \App\Models\Blog\Post::find($pageId);
+}

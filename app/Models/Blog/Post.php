@@ -36,6 +36,11 @@ class Post extends Model
     ];
 
 
+    public function scopeVisibility($q, $type='private')
+    {
+        return $q->where('visibility', $type);
+    }
+
     public function scopeType($q, $type='post')
     {
         return $q->where('type', $type);
