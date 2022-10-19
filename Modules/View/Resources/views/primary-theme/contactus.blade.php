@@ -19,12 +19,16 @@
                                 {!! getThemeSettingValue('_theme_setting_google_map') !!}
                                 <div class="form_area">
                                     @if(session()->has('message'))
-                                        {{ session()->get('message') }}
+                                        <div class="bg-green-100 text-white-700 px-4 py-2 rounded relative mb-5">
+                                            <span class="block sm:inline">{{ session()->get('message') }}</span>
+                                        </div>
                                     @endif
 
                                     @if($errors->count())
                                         @foreach ($errors->all() as $error)
-                                            <div>{{ $error }}</div>
+                                            <div class="bg-red-100 text-red-700 px-4 py-2 rounded relative mb-5">
+                                                <span class="block sm:inline">{{ $error }}</span>
+                                            </div>
                                         @endforeach
                                     @endif
                                     <form action="{{ route('contact-us.store') }}" method="post">
@@ -32,27 +36,27 @@
 
                                             <div class="mb-6">
                                                 <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Name *</label>
-                                                <input type="text" name="name" id="name" placeholder="Name" value="{{ old('name') }}" required="" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
+                                                <input type="text" name="name" id="name" placeholder="Name" value="{{ old('name') }}" required="" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-300 dark:text-white dark:border-gray-600">
                                             </div>
 
                                             <div class="mb-3">
                                                 <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email</label>
-                                                <input type="email" id="email" name="email" placeholder="Email" value="{{ old('email') }}" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
+                                                <input type="email" id="email" name="email" placeholder="Email" value="{{ old('email') }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-300 dark:text-white dark:border-gray-600">
                                             </div>
 
                                             <div class="mb-3">
                                                 <label class="block mb-2 text-sm text-gray-600 dark:text-gray-400" for="phone">phone</label>
-                                                <input type="text" id="phone" name="phone" placeholder="Phone" value="{{ old('phone') }}" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
+                                                <input type="text" id="phone" name="phone" placeholder="Phone" value="{{ old('phone') }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-300 dark:text-white dark:border-gray-600">
                                             </div>
 
                                             <div class="mb-3">
                                                 <label class="block mb-2 text-sm text-gray-600 dark:text-gray-400" for="subject">Subject *</label>
-                                                <input type="text" id="subject" name="subject" placeholder="Subject" required value="{{ old('subject') }}" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">
+                                                <input type="text" id="subject" name="subject" placeholder="Subject" required value="{{ old('subject') }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-300 dark:text-white dark:border-gray-600">
                                             </div>
 
                                             <div class="mb-3">
                                                 <label class="block mb-2 text-sm text-gray-600 dark:text-gray-400" for="message">Message</label> <br>
-                                                <textarea name="message" id="message" cols="30" rows="10" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500">{{ old('message') }}</textarea>
+                                                <textarea name="message" id="message" cols="30" rows="10" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-300 dark:text-white dark:border-gray-600">{{ old('message') }}</textarea>
                                             </div>
                                             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Submit</button>
                                         </form>
