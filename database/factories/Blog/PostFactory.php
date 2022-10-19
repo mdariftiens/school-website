@@ -20,7 +20,9 @@ class PostFactory extends Factory
             'slug' => Str::slug($this->faker->text()),
             'bangla_description' => $this->faker->text(),
             'english_description' => $this->faker->text(),
-            'status' => array_rand(['draft','published'],1)+1
+            'status' => array_rand(['draft','published'],1)+1,
+            'type' => array_rand(['post','page'],1)+1,
+            'visibility' => array_rand(['public','private'],1)+1,
         ];
     }
 }

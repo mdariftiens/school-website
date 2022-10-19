@@ -22,6 +22,8 @@ class CreatePostsTable extends Migration
             $table->text('bangla_description');
             $table->text('english_description');
             $table->enum('status',['draft','published']);
+            $table->enum('type',['post','page']);
+            $table->enum('visibility',['public','private']);
             $table->timestamps();
             $table->softDeletes();
         });

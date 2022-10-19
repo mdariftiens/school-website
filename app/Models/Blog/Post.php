@@ -15,6 +15,12 @@ class Post extends Model
     const DRAFT = 'draft';
     const PUBLISHED = 'published';
 
+    const TYPE_POST = 'post';
+    const TYPE_PAGE = 'page';
+
+    const VISIBILITY_PUBLIC = 'public';
+    const VISIBILITY_PRIVATE = 'private';
+
     protected $table = 'posts';
 
     protected $fillable = [
@@ -25,8 +31,20 @@ class Post extends Model
         'bangla_description',
         'english_description',
         'status',
+        'type',
+        'visibility',
     ];
 
+
+    public function scopeVisibility($q, $type='private')
+    {
+        return $q->where('visibility', $type);
+    }
+
+    public function scopeType($q, $type='post')
+    {
+        return $q->where('type', $type);
+    }
 
     public function scopePublished($q)
     {

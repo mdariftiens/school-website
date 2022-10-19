@@ -23,6 +23,7 @@ Route::middleware(['cache'])->group(function() {
     Route::resource("galleries", "\\".\Modules\View\Http\Controllers\GalleryController::class);
     Route::resource("contact-us", "\\".\Modules\View\Http\Controllers\ContactusController::class)->only(['index','store']);
     Route::get("blog", ["\\".\Modules\View\Http\Controllers\PostController::class,'index'])->name('blog.index');
+    Route::get("blog/page/{slug}", ["\\".\Modules\View\Http\Controllers\PageController::class,'show'])->name('blog.pageshow');
     Route::get("blog/{slug}", ["\\".\Modules\View\Http\Controllers\PostController::class,'show'])->name('blog.show');
     Route::get("change-language", ["\\".\Modules\View\Http\Controllers\LangController::class,'update'])->name('change-language');
 });
