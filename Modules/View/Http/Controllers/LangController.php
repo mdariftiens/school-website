@@ -23,6 +23,6 @@ class LangController extends Controller
 
         Session::save();
 
-        return redirect()->route('home');
+        return back();
     }
 }
