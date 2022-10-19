@@ -18,6 +18,9 @@ class Post extends Model
     const TYPE_POST = 'post';
     const TYPE_PAGE = 'page';
 
+    const VISIBILITY_PUBLIC = 'public';
+    const VISIBILITY_PRIVATE = 'private';
+
     protected $table = 'posts';
 
     protected $fillable = [
