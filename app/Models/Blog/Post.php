@@ -29,6 +29,7 @@ class Post extends Model
         'english_description',
         'status',
         'type',
+        'visibility',
     ];
 
 
