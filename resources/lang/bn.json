@@ -1,3 +1,14 @@
 {
-    "phone": "ফোন"
+    "Contact Us": "যোগাযোগ করুন",
+    "name": "নাম",
+    "email": "ইমেইল",
+    "phone": "ফোন",
+    "subject": "বিষয়",
+    "message": "বার্তা",
+    "submit": "জমা দিন",
+    "your name": "নাম",
+    "enter email": "ইমেইল প্রবেশ করাও",
+    "enter phone": "ফোন নম্বর লিখুন",
+    "enter subject": "বিষয় প্রবেশ করাও",
+    "enter message": "বার্তা প্রবেশ করাও"
 }

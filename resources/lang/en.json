@@ -1,3 +1,13 @@
 {
-    "phone": "Phone"
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "subject": "Subject",
+    "message": "Message",
+    "submit": "Submit",
+    "your name": "Enter Name",
+    "enter email": "Enter Email",
+    "enter phone": "Enter Phone",
+    "enter subject": "Enter Subject",
+    "enter message": "Enter Message"
 }
