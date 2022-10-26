@@ -57,13 +57,16 @@ class NoticeRepository
 
     public function destroy($id)
     {
+        $notice = Notice::findOrFail($id);
+        $noticeCategory = NoticeCategory::find($notice->category_id);
+
         DB::beginTransaction();
+
         try {
-            $notice = Notice::findOrFail($id);
-            $noticeCategory = NoticeCategory::find($notice->category_id);
             if ($noticeCategory && $noticeCategory->number_of_notice > 0){
                 $noticeCategory->decrement('number_of_notice');
             }
+
             $delete = $notice->delete();
 
             $this->removeMedia($id, Notice::class);
