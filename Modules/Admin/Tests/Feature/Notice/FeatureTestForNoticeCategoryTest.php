@@ -3,9 +3,9 @@
 namespace Modules\Admin\Tests\Feature\Notice;
 
 use App\Models\Notice\NoticeCategory;
-use Tests\TestCase;
+use Tests\BaseTestCase;
 
-class FeatureTestForNoticeCategoryTest extends TestCase
+class FeatureTestForNoticeCategoryTest extends BaseTestCase
 {
 
 

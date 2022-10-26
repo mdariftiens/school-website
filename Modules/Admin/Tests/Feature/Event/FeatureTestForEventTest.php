@@ -4,9 +4,9 @@ namespace Modules\Admin\Tests\Feature\Event;
 
 use App\Models\Event\Event;
 use App\Models\Event\EventCategory;
-use Tests\TestCase;
+use Tests\BaseTestCase;
 
-class FeatureTestForEventTest extends TestCase
+class FeatureTestForEventTest extends BaseTestCase
 {
 
 
@@ -56,11 +56,15 @@ class FeatureTestForEventTest extends TestCase
     {
         $eventWillUpdateArray = Event::factory()->create()->toArray();
         $eventWillUpdateArray['bangla_title'] = 'bangla_title' . time();
+
         $this->put(route('event.update', $eventWillUpdateArray['id']),
             $eventWillUpdateArray
         )
             ->assertSessionHas('message');
         unset($eventWillUpdateArray['updated_at']);
+        unset($eventWillUpdateArray['created_at']);
+        unset($eventWillUpdateArray['from_datetime']);
+        unset($eventWillUpdateArray['to_datetime']);
         $this->assertDatabaseHas('events', $eventWillUpdateArray);
 
     }

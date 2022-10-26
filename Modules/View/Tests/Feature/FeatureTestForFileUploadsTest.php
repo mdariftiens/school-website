@@ -3,9 +3,9 @@
 namespace Modules\View\Tests\Feature;
 
 use App\Models\FileUpload\FileUpload;
-use Tests\TestCase;
+use Tests\BaseTestCase;
 
-class FeatureTestForFileUploadsTest extends TestCase
+class FeatureTestForFileUploadsTest extends BaseTestCase
 {
 
     public function testList()

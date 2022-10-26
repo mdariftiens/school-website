@@ -3,9 +3,9 @@
 namespace Modules\View\Tests\Feature;
 
 use App\Models\Achievements\Achievements;
-use Tests\TestCase;
+use Tests\BaseTestCase;
 
-class FeatureTestForAchievementsTest extends TestCase
+class FeatureTestForAchievementsTest extends BaseTestCase
 {
 
 

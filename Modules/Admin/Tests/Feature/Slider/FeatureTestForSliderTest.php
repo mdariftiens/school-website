@@ -3,9 +3,9 @@
 namespace Modules\Admin\Tests\Feature\Slider;
 
 use App\Models\Slider\Slider;
-use Tests\TestCase;
+use Tests\BaseTestCase;
 
-class FeatureTestForSliderTest extends TestCase
+class FeatureTestForSliderTest extends BaseTestCase
 {
 
 

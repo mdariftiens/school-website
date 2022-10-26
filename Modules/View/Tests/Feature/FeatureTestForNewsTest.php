@@ -2,13 +2,10 @@
 
 namespace Modules\View\Tests\Feature;
 
-use App\Models\Event\Event;
-use App\Models\Message\Message;
 use App\Models\News\News;
-use App\Models\Notice\Notice;
-use Tests\TestCase;
+use Tests\BaseTestCase;
 
-class FeatureTestForNewsTest extends TestCase
+class FeatureTestForNewsTest extends BaseTestCase
 {
 
 

@@ -2,13 +2,10 @@
 
 namespace Modules\Admin\Tests\Feature\Event;
 
-use App\Models\Event\Event;
 use App\Models\Event\EventCategory;
-use Illuminate\Http\Response;
-use Modules\Admin\Http\Requests\EventRequest;
-use Tests\TestCase;
+use Tests\BaseTestCase;
 
-class FeatureTestForEventCategoryTest extends TestCase
+class FeatureTestForEventCategoryTest extends BaseTestCase
 {
 
     public function testCanVisitCreatePage()
@@ -55,6 +52,7 @@ class FeatureTestForEventCategoryTest extends TestCase
             $eventWillUpdateArray
         )
             ->assertSessionHas('message');
+        unset($eventWillUpdateArray['created_at']);
         unset($eventWillUpdateArray['updated_at']);
         $this->assertDatabaseHas('event_categories', $eventWillUpdateArray);
 

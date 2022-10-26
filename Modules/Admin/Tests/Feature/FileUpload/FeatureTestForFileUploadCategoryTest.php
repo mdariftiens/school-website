@@ -3,9 +3,9 @@
 namespace Modules\Admin\Tests\Feature\FileUpload;
 
 use App\Models\FileUpload\FileUploadCategory;
-use Tests\TestCase;
+use Tests\BaseTestCase;
 
-class FeatureTestForFileUploadCategoryTest extends TestCase
+class FeatureTestForFileUploadCategoryTest extends BaseTestCase
 {
 
 

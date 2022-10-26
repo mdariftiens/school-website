@@ -3,9 +3,9 @@
 namespace Modules\View\Tests\Feature;
 
 use App\Models\Gallery\Gallery;
-use Tests\TestCase;
+use Tests\BaseTestCase;
 
-class FeatureTestForGalleriesTest extends TestCase
+class FeatureTestForGalleriesTest extends BaseTestCase
 {
 
     public function testList()

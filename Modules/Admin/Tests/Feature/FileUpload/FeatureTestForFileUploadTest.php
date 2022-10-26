@@ -2,15 +2,11 @@
 
 namespace Modules\Admin\Tests\Feature\FileUpload;
 
-use App\Models\Event\Event;
-use App\Models\Event\EventCategory;
 use App\Models\FileUpload\FileUpload;
 use App\Models\FileUpload\FileUploadCategory;
-use App\Models\Notice\Notice;
-use App\Models\Notice\NoticeCategory;
-use Tests\TestCase;
+use Tests\BaseTestCase;
 
-class FeatureTestForFileUploadTest extends TestCase
+class FeatureTestForFileUploadTest extends BaseTestCase
 {
 
 

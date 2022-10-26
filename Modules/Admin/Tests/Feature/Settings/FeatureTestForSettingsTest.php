@@ -3,9 +3,9 @@
 namespace Modules\Admin\Tests\Feature\Settings;
 
 use Modules\Admin\Classes\Themes;
-use Tests\TestCase;
+use Tests\BaseTestCase;
 
-class FeatureTestForSettingsTest extends TestCase
+class FeatureTestForSettingsTest extends BaseTestCase
 {
     public function testHasListingPage()
     {

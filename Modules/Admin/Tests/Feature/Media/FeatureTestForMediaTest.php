@@ -5,9 +5,9 @@ namespace Modules\Admin\Tests\Feature\Media;
 use App\Models\Media\Media;
 use Illuminate\Http\Response;
 use Illuminate\Http\UploadedFile;
-use Tests\TestCase;
+use Tests\BaseTestCase;
 
-class FeatureTestForMediaTest extends TestCase
+class FeatureTestForMediaTest extends BaseTestCase
 {
 
     /**
@@ -16,7 +16,7 @@ class FeatureTestForMediaTest extends TestCase
     public $media;
 
     private $headers = [
-        'contentType' => "application/json; charset=utf-8"
+        'CONTENT_TYPE' => "application/json"
     ];
 
     protected function setUp(): void
@@ -44,8 +44,8 @@ class FeatureTestForMediaTest extends TestCase
 
     public function testMediaListIsResponseAsJson()
     {
-        $this->get(route('media.index'),$this->headers)
-            ->assertSee($this->media->english_title);
+        $this->json('get',route('media.index'))
+            ->assertOk();
     }
 
 

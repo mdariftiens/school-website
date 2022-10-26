@@ -2,12 +2,11 @@
 
 namespace Modules\Admin\Tests\Feature\Slider;
 
-use App\Models\Slider\Slider;
 use Modules\Admin\Entities\Widgets\Widgets;
 use Modules\Admin\Repository\Widgets\WidgetsRepository;
-use Tests\TestCase;
+use Tests\BaseTestCase;
 
-class FeatureTestForWidgetTest extends TestCase
+class FeatureTestForWidgetTest extends BaseTestCase
 {
 
 

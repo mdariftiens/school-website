@@ -3,9 +3,9 @@
 namespace Modules\View\Tests\Feature;
 
 use App\Models\Blog\Post;
-use Tests\TestCase;
+use Tests\BaseTestCase;
 
-class FeatureTestForBlogTest extends TestCase
+class FeatureTestForBlogTest extends BaseTestCase
 {
 
 

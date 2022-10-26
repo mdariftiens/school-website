@@ -3,9 +3,9 @@
 namespace Modules\Admin\Tests\Feature\Message;
 
 use App\Models\Message\Message;
-use Tests\TestCase;
+use Tests\BaseTestCase;
 
-class FeatureTestForMessageTest extends TestCase
+class FeatureTestForMessageTest extends BaseTestCase
 {
 
 

@@ -3,9 +3,9 @@
 namespace Modules\Admin\Tests\Feature;
 
 use Modules\Admin\Entities\Widgets\Widgets;
-use Tests\TestCase;
+use Tests\BaseTestCase;
 
-class FeatureTestForManageSidebarWidgetsTest extends TestCase
+class FeatureTestForManageSidebarWidgetsTest extends BaseTestCase
 {
 
     public function testCanShow()

@@ -3,9 +3,9 @@
 namespace Modules\View\Tests\Feature;
 
 use App\Models\Event\Event;
-use Tests\TestCase;
+use Tests\BaseTestCase;
 
-class FeatureTestForEventTest extends TestCase
+class FeatureTestForEventTest extends BaseTestCase
 {
 
 

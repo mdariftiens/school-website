@@ -21,7 +21,7 @@ class MediaController extends Controller
         $data['list'] = $this->mediaRepository->getMediaList();
         $data['mediaTypeList'] = $this->mediaRepository->getMediaType();
 
-       if($request->ajax()){
+       if($request->isJson()){
             return $data['list'];
         }
 

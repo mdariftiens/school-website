@@ -3,9 +3,9 @@
 namespace Modules\View\Tests\Feature;
 
 use App\Models\ManagementCommittee\ManagementCommittee;
-use Tests\TestCase;
+use Tests\BaseTestCase;
 
-class FeatureTestForManagementCommitteesTest extends TestCase
+class FeatureTestForManagementCommitteesTest extends BaseTestCase
 {
 
 
