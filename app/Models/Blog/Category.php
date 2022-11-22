@@ -20,7 +20,9 @@ class Category extends Model
     protected $fillable = [
         'bangla_title',
         'english_title',
-        'status',
+        'bangla_detail',
+        'english_detail',
+
     ];
 
     public function scopePublished($q)

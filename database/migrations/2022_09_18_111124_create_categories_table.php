@@ -17,7 +17,8 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('bangla_title')->unique();
             $table->string('english_title')->unique();
-            $table->enum('status',['draft','published']);
+            $table->string('bangla_detail')->unique();
+            $table->string('english_detail')->unique();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -80,6 +80,20 @@
       <li class="menu-item" style="">
           <a href="javascript:void(0);" class="menu-link menu-toggle">
               <i class="menu-icon tf-icons bx "></i>
+              <div>Blog</div>
+          </a>
+          <ul class="menu-sub">
+              <li class="menu-item ">
+                  <a href="{{ route('blog.category.index') }}" class="menu-link">
+                      <div>Category</div>
+                  </a>
+              </li>
+          </ul>
+      </li>
+
+      <li class="menu-item" style="">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx "></i>
               <div>Events</div>
           </a>
           <ul class="menu-sub">

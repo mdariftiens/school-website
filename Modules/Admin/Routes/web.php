@@ -89,4 +89,8 @@ Route::prefix('admin')->group(function() {
 
     Route::get('/show-menu', ['\\'. \Modules\Admin\Http\Controllers\Menu\MenuController::class,'showMenu'])->name('show-menu');
 
+
+    Route::prefix('blog')->name('blog.')->group(function() {
+        Route::resource('category', '\\'. \Modules\Admin\Http\Controllers\Blog\CategoryController::class);
+    });
 });
