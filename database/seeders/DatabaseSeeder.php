@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             ThemeSettingSeeder::class,
             MediaableTableSeeder::class,
             BlogSeeder::class,
+            ContactusSeeder::class,
         ]);
     }
 }

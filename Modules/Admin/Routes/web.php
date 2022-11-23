@@ -93,4 +93,8 @@ Route::prefix('admin')->group(function() {
     Route::prefix('blog')->name('blog.')->group(function() {
         Route::resource('category', '\\'. \Modules\Admin\Http\Controllers\Blog\CategoryController::class);
     });
+    /*===============ContactUs routes=================*/
+    Route::resource('contact', '\\'. \Modules\Admin\Http\Controllers\Contact\ContactusController::class);
+    
+
 });

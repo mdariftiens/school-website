@@ -280,6 +280,19 @@
               </li>
           </ul>
       </li>
+      <li class="menu-item" style="">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons bx "></i>
+            <div>Contact</div>
+        </a>
+        <ul class="menu-sub">
+            <li class="menu-item ">
+                <a href="{{ route('contact.index') }}" class="menu-link">
+                    <div>Contact List</div>
+                </a>
+            </li>
+        </ul>
+    </li>
 
     {{-- main menu --}}
     <li class="menu-item active open">
