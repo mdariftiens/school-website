@@ -7,7 +7,7 @@ use Modules\Admin\Repository\Contact\ContactRepository;
 
 class ContactusController extends Controller
 {
-    private $employeeCategoryRepository;
+    private $ContactRepository;
 
     public function __construct(ContactRepository $ContactRepository)
     {
@@ -30,8 +30,10 @@ class ContactusController extends Controller
     }
 
 
-    public function edit($id)
+    public function show($id)
     {
+        $data['row'] = $this->ContactRepository->getContactusDetails($id);
+        return view('admin::contact.detail',$data);
         
     }
 

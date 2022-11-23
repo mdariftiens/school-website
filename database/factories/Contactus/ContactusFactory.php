@@ -18,7 +18,7 @@ class ContactusFactory extends Factory
            'phone' => $this->faker->e164PhoneNumber,
            'email' => $this->faker->safeEmail,
            'subject' => $this->faker->paragraph(1),
-           'message' => $this->faker->text,
+           'message' => $this->faker->paragraph(5),
         ];
     }
 }
