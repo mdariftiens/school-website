@@ -38,15 +38,14 @@
                         </tr>
                     </thead>
                     <tbody class="table-border-bottom-0">
-                        @if($list)
-                        @foreach ($list as $value)
+                        @forelse ($list as $value)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td>{{ $value->english_title }}</td>
                             <td>{{ ucfirst($value->status) }}</td>
                             <td>{{ ucfirst($value->type) }}</td>
                             <td>{{ ucfirst($value->visibility) }}</td>
-                            <td>
+                            <td width="100px">
                                 <div class="d-inline-block">
                                     <a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow"
                                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -66,8 +65,13 @@
                                     class="item-edit text-body"><i class="bx bxs-edit"></i></a>
                             </td>
                         </tr>
-                        @endforeach
-                        @endif
+                        @empty
+                        <tr>
+                            <td>
+                                No Post/Page Found
+                            </td>
+                        </tr>
+                        @endforelse
                     </tbody>
                 </table>
                 @if($list->hasPages())

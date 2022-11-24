@@ -43,17 +43,8 @@
                             @endif
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" for="basic-default-name">Slug</label>
-                            <input type="text" class="form-control" name="slug" placeholder="row Slug"
-                                value="{{ $row->slug }}">
-                            @if ($errors->has('slug'))
-                            <span class="text-danger">{{ $errors->first('slug') }}</span>
-                            @endif
-                        </div>
-                        <div class="mb-3">
                             <label class="form-label" for="status">Status</label>
                             <select class="form-select" name="status" id="status" value="{{ $row->status}}">
-                                <option value="" disabled>Select Status</option>
                                 <option value="draft" {{$row->status === 'draft' ? 'selected' : ''}}>Draft</option>
                                 <option value="published" {{$row->status === 'published' ? 'selected' : ''}}>Published
                                 </option>
@@ -66,7 +57,6 @@
                         <div class="mb-3">
                             <label class="form-label" for="type">Type</label>
                             <select class="form-select" name="type" id="type">
-                                <option value="" disabled>Select Type</option>
                                 <option value="post" {{$row->type === 'post' ? 'selected' : ''}}>Post</option>
                                 <option value="page" {{$row->type === 'page' ? 'selected' : ''}}>Page</option>
                             </select>
@@ -77,7 +67,6 @@
                         <div class="mb-3">
                             <label class="form-label" for="visibility">Visibility</label>
                             <select class="form-select" name="visibility" id="visibility">
-                                <option value="" disabled>Select Visibility</option>
                                 <option value="public" {{$row->visibility === 'public' ? 'selected' : ''}}>Public
                                 </option>
                                 <option value="private" {{$row->visibility === 'private' ? 'selected' : ''}}>Private

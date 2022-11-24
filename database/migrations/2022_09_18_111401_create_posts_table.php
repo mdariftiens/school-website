@@ -19,8 +19,8 @@ class CreatePostsTable extends Migration
             $table->string('bangla_title');
             $table->string('english_title');
             $table->string('slug')->unique();            
-            $table->text('bangla_description');
-            $table->text('english_description');
+            $table->text('bangla_description')->nullable();
+            $table->text('english_description')->nullable();
             $table->enum('status',['draft','published']);
             $table->enum('type',['post','page']);
             $table->enum('visibility',['public','private']);

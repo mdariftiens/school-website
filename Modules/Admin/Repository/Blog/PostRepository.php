@@ -2,6 +2,9 @@
 
 namespace Modules\Admin\Repository\Blog;
 use App\Models\Blog\Post;
+use Illuminate\Contracts\Session\Session;
+use Illuminate\Support\Str;
+
 
 class PostRepository
 {
@@ -12,7 +15,14 @@ class PostRepository
 
     public function PostStore($validatedData)
     {
-        return Post::create($validatedData);
+        // if($this->isSlugExists($validatedData['english_title'])){
+        //     session()->flash('message', 'Slug Already Exist.');
+        //     return redirect()->back()->with('message','Action completed Successfully');
+        //     // dd('not exits');            
+        // }
+            return Post::create($validatedData);     
+
+        
     }
 
     public function PostEdit($id)
@@ -26,6 +36,7 @@ class PostRepository
 
     public function PostUpdate($validatedData, $id)
     {
+      
         return Post::find($id)->update($validatedData);
 
     }
@@ -34,5 +45,10 @@ class PostRepository
     {
         $post= Post::findOrfail($id);
         return $post->delete();
+    }
+    
+    public function isSlugExists($englishTitle)
+    {
+        return Post::where('slug', 'LIKE', Str::slug($englishTitle))->exists();
     }
 }

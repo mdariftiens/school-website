@@ -2,8 +2,6 @@
 
 namespace Modules\Admin\Http\Requests\Blog;
 
-
-
 use App\Abstracts\FormRequest;
 
 class PostRequest extends FormRequest
@@ -15,12 +13,11 @@ class PostRequest extends FormRequest
         return [
             'bangla_title' => 'required',
             'english_title' => 'required',
-            'bangla_description' => 'required',
-            'english_description' => 'required',
+            'bangla_description' => 'nullable',
+            'english_description' => 'nullable',
             'status' => 'required',
             'type' => 'required',
             'visibility' => 'required', 
-            'slug' => 'required|unique:posts,slug,'.$this->post,           
         ];
     }
 

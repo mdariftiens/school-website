@@ -23,6 +23,11 @@
             <div class="card mb-4">
 
                 @include('admin::messages.message')
+                @if (session()->has('message'))
+                <div class="alert alert-danger">
+                    {{ session('message') }}
+                </div>
+                 @endif
 
                 <div class="card-body" style="box-shadow: none">
                     <form method="post" action="{{ route('blog.post.store') }}">
@@ -44,18 +49,9 @@
                             @endif
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" for="basic-default-name">Slug</label>
-                            <input type="text" class="form-control" name="slug" placeholder="Post Slug"
-                                value="{{ old('slug') }}">
-                            @if ($errors->has('slug'))
-                            <span class="text-danger">{{ $errors->first('slug') }}</span>
-                            @endif
-                        </div>
-                        <div class="mb-3">
                             <label class="form-label" for="status">Status</label>
                             <select class="form-select" name="status" id="status">
-                                <option value="" disabled selected>Select Status</option>
-                                <option value="draft">Draft</option>
+                                <option value="draft" selected>Draft</option>
                                 <option value="published">Published</option>
 
                             </select>
@@ -66,8 +62,7 @@
                         <div class="mb-3">
                             <label class="form-label" for="type">Type</label>
                             <select class="form-select" name="type" id="type">
-                                <option value="" disabled selected>Select Type</option>
-                                <option value="post">Post</option>
+                                <option value="post" selected>Post</option>
                                 <option value="page">Page</option>
                             </select>
                             @if ($errors->has('type'))
@@ -77,8 +72,7 @@
                         <div class="mb-3">
                             <label class="form-label" for="visibility">Visibility</label>
                             <select class="form-select" name="visibility" id="visibility">
-                                <option value="" disabled selected>Select Visibility</option>
-                                <option value="public">Public</option>
+                                <option value="public" selected>Public</option>
                                 <option value="private">Private</option>
                             </select>
                             @if ($errors->has('visibility'))

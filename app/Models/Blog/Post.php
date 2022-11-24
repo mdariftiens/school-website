@@ -22,8 +22,7 @@ class Post extends Model
 
     protected $table = 'posts';
 
-    protected $fillable = [
-        'featured_image_link',
+    protected $fillable = [        
         'bangla_title',
         'english_title',
         'slug',
@@ -59,17 +58,14 @@ class Post extends Model
         return $this->belongsToMany(Category::class, PostCategory::class);
     }
 
-    public function setSlugAttribute($slug)
+    // public function setEnglishTitleAttribute($slug)
+    // {
+    //     $this->attributes['slug'] = Str::slug($slug);
+    // }
+    public function setEnglishTitleAttribute($value)
     {
-        $this->attributes['slug'] = $this->uniqSlug($slug);
-    }
-    public function uniqSlug($slug)
-    {
-        $slug = Str::slug($slug);
-        $count = Post::where('slug', 'LIKE', "$slug%")->count();
-        $newCount = $count > 0 ? ++$count : '';
-        return $newCount > 0 ? "$slug-$newCount" : $slug;
-
+        $this->attributes['english_title'] = $value;
+        $this->attributes['slug'] = Str::slug($value);
     }
 
 }
