@@ -2,11 +2,10 @@
 
 namespace App\Models\Blog;
 
-use App\Traits\HasMedia;
 use App\Abstracts\Model;
+use App\Traits\HasMedia;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
@@ -35,13 +34,12 @@ class Post extends Model
         'visibility',
     ];
 
-
-    public function scopeVisibility($q, $type='private')
+    public function scopeVisibility($q, $type = 'private')
     {
         return $q->where('visibility', $type);
     }
 
-    public function scopeType($q, $type='post')
+    public function scopeType($q, $type = 'post')
     {
         return $q->where('type', $type);
     }
@@ -60,4 +58,18 @@ class Post extends Model
     {
         return $this->belongsToMany(Category::class, PostCategory::class);
     }
+
+    public function setSlugAttribute($slug)
+    {
+        $this->attributes['slug'] = $this->uniqSlug($slug);
+    }
+    public function uniqSlug($slug)
+    {
+        $slug = Str::slug($slug);
+        $count = Post::where('slug', 'LIKE', "$slug%")->count();
+        $newCount = $count > 0 ? ++$count : '';
+        return $newCount > 0 ? "$slug-$newCount" : $slug;
+
+    }
+
 }
