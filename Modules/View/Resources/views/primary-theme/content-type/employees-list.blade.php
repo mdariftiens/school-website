@@ -11,20 +11,20 @@
                             <img src="{{ $row->image }}" alt="">
                         </div>
                         <div class="w-3/4 ml-2">
-                            <h1 class="text-black text-lg font-semibold">{{$row->english_name}}</h1>
+                            <h1 class="text-black text-lg font-semibold">{{$row->{getLanguage().'_name'} }}</h1>
                             <div>
                                 <div class="w-full mt-5">
-                                    {{ $row->category->english_name }} <br>
-                                    {{ $row->department->english_name }}<br>
-                                    {{ $row->designation->english_name }}<br>
-                                    {{ $row->type->english_name }}<br>
-                                    {{ $row->english_name }}<br>
-                                    {{ $row->bangla_name }}
+                                    {{ $row->category->{getLanguage().'_name'} }} <br>
+                                    {{ $row->department->{getLanguage().'_name'} }}<br>
+                                    {{ $row->designation->{getLanguage().'_name'} }}<br>
+                                    {{ $row->type->{getLanguage().'_name'} }}<br>
+                                    {{ $row->{getLanguage().'_name'} }}<br>
+                                    {{ $row->{getLanguage().'_name'} }}
                                     {{ $row->employee_identification_number }}
                                     {{ $row->designation_id }}
                                     {{ $row->department_id }}
-                                    {{ $row->english_description }}
-                                    {{ $row->bangla_description }}
+                                    {{ $row->{getLanguage().'_description'} }}
+                                    {{ $row->{getLanguage().'_description'} }}
                                     {{ $row->employee_category_id }}
                                     {{ $row->employee_type }}
                                     {{ $row->contact_number }}

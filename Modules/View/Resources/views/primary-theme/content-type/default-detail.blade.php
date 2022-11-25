@@ -20,19 +20,19 @@
                         </h3>
 
                         <img src="{{ $row->featured_image_link }}"
-                             alt="{{$row->english_title}}"
-                             title="{{$row->english_title}}"
+                             alt="{{$row->{getLanguage().'_title'} }}"
+                             title="{{$row->{getLanguage().'_title'} }}"
                         >
 
                     </div>
 
                     <div class="w-3/4 ml-2">
                         <div class="w-full mb-5">
-                            <b>Category: </b>{{ $row->category->english_name }}
+                            <b>Category: </b>{{ $row->category->{getLanguage().'_name'} }}
                         </div>
-                        <h1 class="text-black text-lg font-semibold">{{$row->english_title}}</h1>
+                        <h1 class="text-black text-lg font-semibold">{{$row->{getLanguage().'_title'} }}</h1>
                         <div class="w-full mt-5">
-                            {!! $row->bangla_description !!}
+                            {!! $row->{getLanguage().'_description'} !!}
                         </div>
                     </div>
                 </div>

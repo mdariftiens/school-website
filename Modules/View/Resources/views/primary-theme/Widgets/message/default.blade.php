@@ -7,7 +7,7 @@
 <div class="widget message_widget_{{$widgetWithWidgetDetail->id}} border border-[#00ADEE]">
     <div
         class="title text-titleColor flex justify-between shadow-[0px_2px_2px_2px_rgba(0,0,0,0.1)] items-center pl-2 pr-2 pt-1 pb-1">
-        <h3 class="text-[20px] font-semibold">{{ $widgetWithWidgetDetail->english_title }}</h3>
+        <h3 class="text-[20px] font-semibold">{{ $widgetWithWidgetDetail->{getLanguage().'_title'} }}</h3>
     </div>
 
     <div class="body">
@@ -18,8 +18,8 @@
                      src="{{ $item->image }}"
                      alt="image">
                 <div class="title">
-                    <h5 class="text-[#337ab7] text-lg font-semibold mt-2">{{ $item->english_name }} </h5>
-                    <h6 class="text-lg font-medium">{{ $item->english_designation }}</h6>
+                    <h5 class="text-[#337ab7] text-lg font-semibold mt-2">{{ $item->{getLanguage().'_name'} }} </h5>
+                    <h6 class="text-lg font-medium">{{ $item->{getLanguage().'_designation'} }}</h6>
                 </div>
             </div>
         </div><!---message item-->

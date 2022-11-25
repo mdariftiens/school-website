@@ -10,10 +10,10 @@
                     <div class="notice_content flex border border-[#ddd] pt-2 pb-2">
 
                         <div class="w-4/4 ml-2">
-                            <h1 class="text-black text-lg font-semibold">{{ $row->bangla_title}}</h1>
+                            <h1 class="text-black text-lg font-semibold">{{ $row->{getLanguage().'_title'} }}</h1>
                             <div>
                                 <div class="w-full mt-5">
-                                    {{ $row->category->bangla_name }}
+                                    {{ $row->category->{getLanguage().'_name'} }}
                                     {{ $row->media_count }} {{ \Illuminate\Support\Str::plural('file', $row->media_count) }}
                                 </div>
 

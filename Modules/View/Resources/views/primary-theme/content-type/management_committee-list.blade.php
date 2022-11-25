@@ -11,12 +11,12 @@
                             <img src="{{ $row->image }}" alt="">
                         </div>
                         <div class="w-3/4 ml-2">
-                            <h1 class="text-black text-lg font-semibold">{{$row->english_name}}</h1>
+                            <h1 class="text-black text-lg font-semibold">{{$row->{getLanguage().'_name'} }}</h1>
                             <div>
-                                {{ $row->english_name}}
-                                {{ $row->english_designation}}
-                                {{ $row->bangla_name}}
-                                {{ $row->bangla_designation}}
+                                {{ $row->{getLanguage().'_name'} }}
+                                {{ $row->{getLanguage().'_designation'} }}
+                                {{ $row->{getLanguage().'_name'} }}
+                                {{ $row->{getLanguage().'_designation'} }}
                                 {{ $row->contact_number}}
                                 {{ $row->email}}
 

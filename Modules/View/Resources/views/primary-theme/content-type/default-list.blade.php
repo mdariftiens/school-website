@@ -16,8 +16,8 @@
                             </h3>
                         </div>
                         <div class="w-3/4 ml-2">
-                            cat: {{ $row->category->english_name }}
-                            <h1 class="text-black text-lg font-semibold">{{$row->english_title}}</h1>
+                            cat: {{ $row->category->{getLanguage().'_name'} }}
+                            <h1 class="text-black text-lg font-semibold">{{$row->{getLanguage().'_title'} }}</h1>
                             <a href="{{ route('notices.show',$row->id) }}" class="text-[#23527c] text-lg">Read More</a>
                         </div>
                     </div>

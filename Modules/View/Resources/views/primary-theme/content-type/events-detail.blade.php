@@ -11,19 +11,19 @@
                     <div class="w-4/4 ml-2">
 
                         <h2 class="bg-bgColor text-lg font-semibold text-white pt-1 pb-1">
-                            {{ $row->english_name }}
+                            {{ $row->{getLanguage().'_name'} }}
                         </h2>
                         <h1 class="text-black text-lg font-semibold">
-                            {{$row->english_title}}
+                            {{$row->{getLanguage().'_title'} }}
                         </h1>
                         <div class="w-full mt-5">
-                            {{ $row->category->bangla_name }} <br>
-                            {{ $row->bangla_title }}
-                            {{ $row->english_title }}
-                            {{ $row->bangla_description }}
-                            {{ $row->english_description }}
-                            {{ $row->bangla_venue }}
-                            {{ $row->english_venue }}
+                            {{ $row->category->{getLanguage().'_name'} }} <br>
+                            {{ $row->{getLanguage().'_title'} }}
+                            {{ $row->{getLanguage().'_title'} }}
+                            {{ $row->{getLanguage().'_description'} }}
+                            {{ $row->{getLanguage().'_description'} }}
+                            {{ $row->{getLanguage().'_venue'} }}
+                            {{ $row->{getLanguage().'_venue'} }}
                             {{ $row->from_datetime }}
                             {{ $row->to_datetime }}
                         </div>

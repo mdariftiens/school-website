@@ -10,15 +10,15 @@
 
                     <div class="w-4/4 ml-2">
                         <h1 class="text-black text-lg font-semibold">
-                            {{ $row->bangla_title}} - {{ $row->category->bangla_name }}
+                            {{ $row->{getLanguage().'_title'} }} - {{ $row->category->{getLanguage().'_name'} }}
                         </h1>
                         <div>
                             @foreach($row->media as $media)
                                 <div class="w-full mt-5">
-                                    {{ $row->bangla_title }}
-                                    {{ $row->english_title }}
-                                    {{ $row->bangla_alt_text }}
-                                    {{ $row->english_alt_text }}
+                                    {{ $row->{getLanguage().'_title'} }}
+                                    {{ $row->{getLanguage().'_title'} }}
+                                    {{ $row->{getLanguage().'_alt_text'} }}
+                                    {{ $row->{getLanguage().'_alt_text'} }}
                                     {{ $row->filename }}
                                     {{ $row->mimetypes }}
                                     {{ $row->extension }}
