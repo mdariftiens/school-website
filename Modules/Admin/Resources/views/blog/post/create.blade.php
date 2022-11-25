@@ -102,3 +102,9 @@
         </div>
     </div>
     @endsection
+    @section('page-script')   
+    <script>
+        CKEDITOR.replace( 'english_description',{height: 500} );
+        CKEDITOR.replace( 'bangla_description',{height: 500} );
+    </script>
+    @endsection

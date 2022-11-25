@@ -8,16 +8,16 @@ use Modules\Admin\Repository\Blog\PostRepository;
 
 class PostController extends Controller
 {
-    private $PostRepository;
+    private $postRepository;
 
-    public function __construct(PostRepository $PostRepository)
+    public function __construct(PostRepository $postRepository)
     {
-        $this->PostRepository = $PostRepository;
+        $this->postRepository = $postRepository;
     }
 
     public function index()
     {
-        $data['list'] = $this->PostRepository->getPosts();
+        $data['list'] = $this->postRepository->getPosts();
         return view('admin::blog.post.index',$data);
     }
 
@@ -27,31 +27,25 @@ class PostController extends Controller
 
     public function store(PostRequest $request)
     {        
-        $this->PostRepository->PostStore($request->validated());
+        $this->postRepository->postStore($request->validated());
         return redirect()->route('blog.post.index')->with(['message'=>'Post created successfully.']);
-    }
-
-    public function show($id)
-    {
-        $data['row'] = $this->PostRepository->PostDetail($id);
-        return view('admin::blog.post.detail',$data);
     }
 
     public function edit($id)
     {
-        $data['row'] = $this->PostRepository->PostEdit($id);
+        $data['row'] = $this->postRepository->postEdit($id);
         return view('admin::blog.post.edit',$data);
     }
 
     public function update(PostRequest $request, $id)
     {
-        $this->PostRepository->PostUpdate($request->validated(), $id);
+        $this->postRepository->postUpdate($request->validated(), $id);
         return redirect()->route('blog.post.index')->with(['message'=>'Post update successfully.']);
     }
 
     public function destroy($id)
     {
-        $this->PostRepository->PostDestroy($id);
+        $this->postRepository->postDestroy($id);
         return back()->with(['message'=>'Post deleted successfully.']);
     }
 }

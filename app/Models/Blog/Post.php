@@ -58,14 +58,18 @@ class Post extends Model
         return $this->belongsToMany(Category::class, PostCategory::class);
     }
 
-    // public function setEnglishTitleAttribute($slug)
-    // {
-    //     $this->attributes['slug'] = Str::slug($slug);
-    // }
-    public function setEnglishTitleAttribute($value)
+    public function setEnglishTitleAttribute($title)
+    {        
+        $this->attributes['english_title'] = $title;
+        $this->attributes['slug'] = $this->uniqueSlug($title);
+        
+    }
+    private function uniqueSlug($title)
     {
-        $this->attributes['english_title'] = $value;
-        $this->attributes['slug'] = Str::slug($value);
+        $slug = Str::slug($title);            
+        $count = Post::where('english_title',$title)->count();        
+        $newCount = $count > 0 ? ++$count : '';     
+        return $newCount > 0 ? "$slug-$newCount" : $slug;
     }
 
 }

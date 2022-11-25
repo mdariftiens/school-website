@@ -33,7 +33,7 @@
                             <th>English Title</th>
                             <th> Status</th>
                             <th>Type</th>
-                            <th> Visibility</th>
+                            <th>Visibility</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -51,8 +51,7 @@
                                         data-bs-toggle="dropdown" aria-expanded="false">
                                         <i class="bx bx-dots-vertical-rounded"></i></a>
                                     <div class="dropdown-menu dropdown-menu-end m-0" style="">
-                                        <a href="{{ route('blog.post.show', $value->id) }}"
-                                            class="dropdown-item">Details</a>
+                                        <a href="javascript:;" class="dropdown-item">Details</a>
                                         <div class="dropdown-divider"></div>
                                         <form action="{{ route('blog.post.destroy', $value->id) }}" method="POST">
                                             @csrf
