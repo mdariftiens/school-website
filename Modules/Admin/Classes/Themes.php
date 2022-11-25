@@ -152,6 +152,7 @@ class Themes
             ],
 
             'mail' => [
+                'send_mail_enable'=> 'no',
                 'mail_mailer'=> 'smtp', // fixed . Mail is only work for SMTP
                 'mail_host'=> 'mailhog',
                 'mail_port'=> '1025',
