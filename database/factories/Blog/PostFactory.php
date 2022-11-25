@@ -13,11 +13,14 @@ class PostFactory extends Factory
 
     public function definition()
     {
+
+        $title = $this->faker->paragraph(1);
+        $slug = Str::slug($title);
         return [
             'featured_image_link' => 'https://dummyimage.com/800x400/000/fff',
             'bangla_title' => $this->faker->text(),
-            'english_title' => $this->faker->text(),
-            'slug' => Str::slug($this->faker->text()),
+            'english_title' => $title,
+            'slug' => $slug,            
             'bangla_description' => $this->faker->text(),
             'english_description' => $this->faker->text(),
             'status' => $this->faker->randomElement(['draft','published']),

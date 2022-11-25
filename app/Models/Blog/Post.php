@@ -2,11 +2,10 @@
 
 namespace App\Models\Blog;
 
-use App\Traits\HasMedia;
 use App\Abstracts\Model;
+use App\Traits\HasMedia;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
@@ -23,8 +22,7 @@ class Post extends Model
 
     protected $table = 'posts';
 
-    protected $fillable = [
-        'featured_image_link',
+    protected $fillable = [        
         'bangla_title',
         'english_title',
         'slug',
@@ -35,13 +33,12 @@ class Post extends Model
         'visibility',
     ];
 
-
-    public function scopeVisibility($q, $type='private')
+    public function scopeVisibility($q, $type = 'private')
     {
         return $q->where('visibility', $type);
     }
 
-    public function scopeType($q, $type='post')
+    public function scopeType($q, $type = 'post')
     {
         return $q->where('type', $type);
     }
@@ -60,4 +57,19 @@ class Post extends Model
     {
         return $this->belongsToMany(Category::class, PostCategory::class);
     }
+
+    public function setEnglishTitleAttribute($title)
+    {        
+        $this->attributes['english_title'] = $title;
+        $this->attributes['slug'] = $this->uniqueSlug($title);
+        
+    }
+    private function uniqueSlug($title)
+    {
+        $slug = Str::slug($title);            
+        $count = Post::where('english_title',$title)->count();        
+        $newCount = $count > 0 ? ++$count : '';     
+        return $newCount > 0 ? "$slug-$newCount" : $slug;
+    }
+
 }
