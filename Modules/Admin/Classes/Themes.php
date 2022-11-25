@@ -149,7 +149,24 @@ class Themes
             'footer' => [
                 $prefix . 'footer_template' => 'default',
                 $prefix . 'footer_copyright_text' => 'default',
-            ]
+            ],
+
+            'mail' => [
+                'mail_mailer'=> 'smtp', // fixed . Mail is only work for SMTP
+                'mail_host'=> 'mailhog',
+                'mail_port'=> '1025',
+                'mail_username'=> 'anonymous',
+                'mail_password'=> '',
+                'mail_from_address'=> 'admin@institute.com',
+                'mail_from_name'=> 'From School/Collage',
+            ],
+
+//            Config::set('mail.driver', config('settings.maildriver'));
+//        Config::set('mail.host', config('settings.mailhost'));
+//        Config::set('mail.port', config('settings.mailport'));
+//        Config::set('mail.encryption', config('settings.mailencryption'));
+//        Config::set('mail.username', config('settings.mailusername'));
+//        Config::set('mail.password', config('settings.mailpassword'));
         ];
     }
 }
