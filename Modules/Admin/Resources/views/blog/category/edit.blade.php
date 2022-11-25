@@ -34,28 +34,28 @@
                             {{ csrf_field() }}
                             @method('PUT')
                             <div class="mb-3">
-                                <label class="form-label" for="basic-default-name">English Name</label>
-                                <input type="text" class="form-control" name="english_title" placeholder="Category english name" value="{{ $row->english_title }}">
+                                <label class="form-label" for="basic-default-name">English Title *</label>
+                                <input type="text" class="form-control" name="english_title" placeholder="Category english title" value="{{ $row->english_title }}">
                                 @if ($errors->has('english_title'))
                                     <span class="text-danger">{{ $errors->first('english_title') }}</span>
                                 @endif
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="basic-default-name">Bangla Name</label>
-                                <input type="text" class="form-control" name="bangla_title" placeholder="Category bangla name" value="{{ $row->bangla_title }}">
+                                <label class="form-label" for="basic-default-name">Bangla Title *</label>
+                                <input type="text" class="form-control" name="bangla_title" placeholder="Category bangla title" value="{{ $row->bangla_title }}">
                                 @if ($errors->has('bangla_title'))
                                     <span class="text-danger">{{ $errors->first('bangla_title') }}</span>
                                 @endif
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="basic-default-name">bangla detail</label>
+                                <label class="form-label" for="basic-default-name">Bangla Detail</label>
                                 <textarea name="bangla_detail" class="form-control">{{$row->bangla_detail}}</textarea>
                                 @if ($errors->has('bangla_detail'))
                                     <span class="text-danger">{{ $errors->first('bangla_detail') }}</span>
                                 @endif
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="basic-default-name">English detail</label>
+                                <label class="form-label" for="basic-default-name">English Detail</label>
                                 <textarea name="english_detail" class="form-control">{{$row->english_detail}}</textarea>
                                 @if ($errors->has('english_detail'))
                                     <span class="text-danger">{{ $errors->first('english_detail') }}</span>

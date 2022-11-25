@@ -13,8 +13,8 @@ class CategoryRequest extends FormRequest
         return [
             'bangla_title' => 'required',
             'english_title' => 'required',
-            'bangla_detail' => 'required',
-            'english_detail' => 'required',
+            'bangla_detail' => 'nullable',
+            'english_detail' => 'nullable',
         ];
     }
 

@@ -33,14 +33,14 @@
                         <form method="post" action="{{ route('blog.category.store') }}">
                             {{ csrf_field() }}
                             <div class="mb-3">
-                                <label class="form-label" for="basic-default-name">English Title</label>
+                                <label class="form-label" for="basic-default-name">English Title *</label>
                                 <input type="text" class="form-control" name="english_title" placeholder="Category english Title" value="{{ old('english_title') }}">
                                 @if ($errors->has('english_title'))
                                     <span class="text-danger">{{ $errors->first('english_title') }}</span>
                                 @endif
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="basic-default-name">Bangla Title</label>
+                                <label class="form-label" for="basic-default-name">Bangla Title *</label>
                                 <input type="text" class="form-control" name="bangla_title" placeholder="Category bangla Title" value="{{ old('bangla_title') }}">
                                 @if ($errors->has('bangla_title'))
                                     <span class="text-danger">{{ $errors->first('bangla_title') }}</span>

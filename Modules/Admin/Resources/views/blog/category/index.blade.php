@@ -47,8 +47,6 @@
                                             <a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <i class="bx bx-dots-vertical-rounded"></i></a>
                                             <div class="dropdown-menu dropdown-menu-end m-0" style="">
-                                                <a href="javascript:;" class="dropdown-item">Details</a>
-                                                <div class="dropdown-divider"></div>
                                                 <form action="{{ route('blog.category.destroy', $value->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')

@@ -17,8 +17,8 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('bangla_title')->unique();
             $table->string('english_title')->unique();
-            $table->string('bangla_detail')->unique();
-            $table->string('english_detail')->unique();
+            $table->string('bangla_detail')->nullable();
+            $table->string('english_detail')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
