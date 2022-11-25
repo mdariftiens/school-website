@@ -8,13 +8,13 @@
     <link rel="apple-touch-icon" sizes="76x76"href="{{ asset('images/frontend-themes/primary/apple-icon.png') }}"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 
-    @include("view::primary-theme.layouts._partial.google-fonts")
+    @include("view::' . getCurrentThemeId() . '.layouts._partial.google-fonts")
 
     <link rel="stylesheet" href="{{ asset('css/frontend-themes/primary/owl/owl.carousel.min.css') }}">
 
     <title>{{ getThemeSettingValue('_theme_setting_school_name') }} - Home</title>
 
-    @include("view::primary-theme.layouts._partial.tailwind-scripts")
+    @include("view::' . getCurrentThemeId() . '.layouts._partial.tailwind-scripts")
 
     <link rel="stylesheet" href="{{ asset('css/frontend-themes/primary/style.css') }}">
 </head>

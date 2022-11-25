@@ -3,7 +3,7 @@
 @section('content')
 
     @if( getCurrentRouteName() == 'home')
-        @include('view::primary-theme.content-type.home')
+        @include('view::' . getCurrentThemeId() . '.content-type.home')
     @else
 
         @if(isset($rows) && $rows->count())
@@ -11,8 +11,8 @@
         @endif
 
         @includeFirst([
-                "view::primary-theme.content-type.".$type."-list",
-                "view::primary-theme.content-type.default-list"
+                "view::' . getCurrentThemeId() . '.content-type.".$type."-list",
+                "view::' . getCurrentThemeId() . '.content-type.default-list"
             ],['rows'=>$rows])
 
     @endif
