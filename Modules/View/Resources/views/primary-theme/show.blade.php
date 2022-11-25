@@ -3,8 +3,8 @@
 @section('content')
 
         @includeFirst([
-                "view::' . getCurrentThemeId() . '.content-type.". $row->getTable() ."-detail",
-                "view::' . getCurrentThemeId() . '.content-type.default-detail"
+                "view::" . getCurrentThemeId() . ".content-type.". $row->getTable() ."-detail",
+                "view::" . getCurrentThemeId() . ".content-type.default-detail"
             ],['row'=>$row])
 
 @endsection

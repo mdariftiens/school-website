@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 
 
-    @include("view::' . getCurrentThemeId() . '.layouts._partial.google-fonts")
+    @include("view::" . getCurrentThemeId() . ".layouts._partial.google-fonts")
 
 
     <link rel="stylesheet" href="{{ asset('css/frontend-themes/primary/owl/owl.carousel.min.css') }}">
 
     <title>@yield('title')</title>
 
-    @include("view::' . getCurrentThemeId() . '.layouts._partial.tailwind-scripts")
+    @include("view::" . getCurrentThemeId() . ".layouts._partial.tailwind-scripts")
 
     <link rel="stylesheet" href="{{ asset('css/frontend-themes/primary/style.css') }}">
 </head>

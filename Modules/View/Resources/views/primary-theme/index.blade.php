@@ -11,8 +11,8 @@
         @endif
 
         @includeFirst([
-                "view::' . getCurrentThemeId() . '.content-type.".$type."-list",
-                "view::' . getCurrentThemeId() . '.content-type.default-list"
+                "view::" . getCurrentThemeId() . ".content-type.".$type."-list",
+                "view::" . getCurrentThemeId() . ".content-type.default-list"
             ],['rows'=>$rows])
 
     @endif
