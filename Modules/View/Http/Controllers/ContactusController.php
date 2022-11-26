@@ -7,6 +7,8 @@ use App\Models\Option\Option;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Mail;
+use Modules\View\Emails\SendContactUsEmail;
 use Modules\View\Http\Requests\ContactUsRequest;
 
 class ContactusController extends Controller
@@ -23,6 +25,12 @@ class ContactusController extends Controller
     public function store(ContactUsRequest $request)
     {
         Contactus::create($request->validated());
+
+        if (isSendMailActive()){
+            Mail::to('to@go.to')
+                ->queue(new SendContactUsEmail());
+        }
+
         return back()->with(['message' => 'Success!']);
     }
 

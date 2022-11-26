@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Config;
 use Modules\Admin\Classes\Themes;
 
 function getWidgetCustomFieldValue($widgetFieldsCollection, $fieldName){
@@ -264,4 +265,24 @@ function getPublishedPrivatePages(){
 function getHomePageContent(){
     $pageId = (int) getThemeSettingValue('_theme_setting_homepage_homepage_set_page_id');
     return \App\Models\Blog\Post::find($pageId);
+}
+
+function setEmailConfig(){
+        Config::set('mail.driver', 'smtp');
+        Config::set('mail.host', getEmailConfig('mail_host'));
+        Config::set('mail.port', getEmailConfig('mail_port'));
+        Config::set('mail.username', getEmailConfig('mail_username'));
+        Config::set('mail.password', getEmailConfig('mail_password'));
+}
+
+function getEmailFromAddress(){
+    return getThemeSettingValue('mail_from_address');
+}
+
+function getEmailConfig($key){
+    return getThemeSettingValue($key);
+}
+
+function isSendMailActive(){
+    return getThemeSettingValue('send_mail_enable') =='yes';
 }
