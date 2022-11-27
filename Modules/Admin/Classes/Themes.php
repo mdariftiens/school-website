@@ -160,6 +160,7 @@ class Themes
                 'mail_password'=> '',
                 'mail_from_address'=> 'admin@institute.com',
                 'mail_from_name'=> 'From School/Collage',
+                'mail_contact_to_address'=> 'to@school.edu',
             ],
 
         ];

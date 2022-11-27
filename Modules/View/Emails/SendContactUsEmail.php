@@ -29,7 +29,7 @@ class SendContactUsEmail extends Mailable
      */
     public function build()
     {
-        $this->from(getEmailFromAddress());
+        $this->from(getEmailToAddress());
         return $this->view('view::'.getCurrentThemeId().'.email.contact-us');
     }
 }

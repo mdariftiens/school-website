@@ -279,6 +279,10 @@ function getEmailFromAddress(){
     return getThemeSettingValue('mail_from_address');
 }
 
+function getEmailToAddress(){
+    return getThemeSettingValue('mail_contact_to_address');
+}
+
 function getEmailConfig($key){
     return getThemeSettingValue($key);
 }
