@@ -72,6 +72,10 @@ function getCurrentThemeId(){
     return getThemeSettingValue('current_theme_id');
 }
 
+function updateThemeOptions($key,$value){
+    App\Models\Option\Option::where('name',$key)->update(['value' => $value]);
+}
+
 function getThemeOptions():array{
     static $items = null;
     if ($items){

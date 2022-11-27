@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             MediaableTableSeeder::class,
             BlogSeeder::class,
             ContactusSeeder::class,
+            MenuSeeder::class,
         ]);
     }
 }
