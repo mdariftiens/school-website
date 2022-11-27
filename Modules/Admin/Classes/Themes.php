@@ -162,12 +162,6 @@ class Themes
                 'mail_from_name'=> 'From School/Collage',
             ],
 
-//            Config::set('mail.driver', config('settings.maildriver'));
-//        Config::set('mail.host', config('settings.mailhost'));
-//        Config::set('mail.port', config('settings.mailport'));
-//        Config::set('mail.encryption', config('settings.mailencryption'));
-//        Config::set('mail.username', config('settings.mailusername'));
-//        Config::set('mail.password', config('settings.mailpassword'));
         ];
     }
 }
