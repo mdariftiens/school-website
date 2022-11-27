@@ -58,11 +58,11 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="bs-validation-bio">English Description</label>
-                                <textarea class="form-control" placeholder="English description" name="english_description" rows="3" value="{{ $event->english_description }}"></textarea>
+                                <textarea class="form-control" placeholder="English description" name="english_description">{{ $event->english_description }}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="bs-validation-bio">Bangla Description</label>
-                                <textarea class="form-control" placeholder="Bangla description" name="bangla_description" rows="3" value="{{ $event->bangla_description }}"></textarea>
+                                <textarea class="form-control" placeholder="Bangla description" name="bangla_description">{{ $event->bangla_description }}</textarea>
                             </div>
 
                             <div class="mb-3">
@@ -116,4 +116,10 @@
                 </div>
             </div>
         </div>
+@endsection
+@section('page-script') 
+<script>
+    CKEDITOR.replace( 'english_description',{height: 500} );
+    CKEDITOR.replace( 'bangla_description',{height: 500} );
+</script>
 @endsection

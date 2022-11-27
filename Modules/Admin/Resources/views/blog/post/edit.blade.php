@@ -36,7 +36,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="basic-default-name">Bangla Title</label>
-                            <input type="text" class="form-control" name="bangla_title" placeholder="row Bangla Title"
+                            <input type="text" class="form-control" name="bangla_title" placeholder="row Bangla Title"phn
                                 value="{{ $row->bangla_title }}">
                             @if ($errors->has('bangla_title'))
                             <span class="text-danger">{{ $errors->first('bangla_title') }}</span>

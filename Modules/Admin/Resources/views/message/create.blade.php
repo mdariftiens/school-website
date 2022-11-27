@@ -87,3 +87,9 @@
             </div>
         </div>
 @endsection
+@section('page-script') 
+<script>
+    CKEDITOR.replace( 'english_message',{height: 500} );
+    CKEDITOR.replace( 'bangla_message',{height: 500} );
+</script>
+@endsection

@@ -28,7 +28,7 @@
 
                     @include("admin::messages.message")
 
-                    <table class="table text-nowrap">
+                    <table class="table">
                         <thead>
                         <tr>
                             <th>Sl</th>
@@ -37,7 +37,7 @@
                             <th>Email</th>
                             <th>Date of Birth</th>
                             <th>Date of Join</th>
-                            <th>Action</th>
+                            <th width=100px>Action</th>
                         </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
