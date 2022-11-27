@@ -32,7 +32,7 @@
                         <div class="card-body">
 
 
-                            <div class="mb-3">
+                            <div class="mb-3" style="display: none;">
                                 <label for="use_theme_default_style" class="form-label">Use Theme Default <S></S>tyle</label>
                                 <select class="form-select" id="use_theme_default_style" name="use_theme_default_style" aria-label="Default select example">
                                     <option @if(old('use_theme_default_style') == 'yes') selected @endif value="yes">Yes</option>
@@ -40,7 +40,7 @@
                                 </select>
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3" style="display: none;">
                                 <label for="header_template" class="form-label">Select Header Template</label>
                                 <select class="form-select" id="header_template" name="header_template" aria-label="Default select example">
                                     @foreach($templates as $templateValue=>$templateTitle)
@@ -73,32 +73,32 @@
                             </div>
 
 
-                            <div class="mb-3">
+                            <div class="mb-3" style="display: none;">
                                 <label for="header_background_color" class="form-label">Header Background Color</label>
                                 <input id="header_background_color" type="color" class="form-control" name="header_background_color" >
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3" style="display: none;">
                                 <label for="header_text_color" class="form-label">Header Text Color</label>
                                 <input type="color" class="form-control" id="header_text_color" name="header_text_color" >
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3" style="display: none;">
                                 <label for="header_hover_color" class="form-label">Header Hover Color</label>
                                 <input type="color" class="form-control" name="header_hover_color" id="header_hover_color">
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3" style="display: none;">
                                 <label for="content_background_color" class="form-label">Content Background Color</label>
                                 <input type="color" class="form-control" name="content_background_color" id="content_background_color">
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3" style="display: none;">
                                 <label for="content_text_color" class="form-label">Content Text Color</label>
                                 <input type="color" class="form-control" name="content_text_color" id="content_text_color">
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3" style="display: none;">
                                 <label for="content_hover_color" class="form-label">Content Hover Color</label>
                                 <input type="color" class="form-control" name="content_hover_color" id="content_hover_color">
                             </div>

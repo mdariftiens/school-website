@@ -33,7 +33,7 @@
                         <input type="hidden" name="id" value="{{ $widgetDetail->id }}">
                         <div class="card-body">
 
-                            <div class="mb-3">
+                            <div class="mb-3" style="display: none;">
                                 <label for="use_theme_default_style" class="form-label">use Theme Default Style</label>
                                 <select class="form-select" id="use_theme_default_style" name="use_theme_default_style" aria-label="Default select example">
                                     <option @if($widgetDetail->use_theme_default_style == 'yes') selected @endif value="yes">Yes</option>
@@ -78,32 +78,32 @@
                                 </select>
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3" style="display: none;">
                                 <label for="header_background_color" class="form-label">Header Background Color</label>
                                 <input id="header_background_color" type="color" class="form-control" name="header_background_color"  value="{{ old('header_background_color',$widgetDetail->header_background_color) }}">
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3" style="display: none;">
                                 <label for="header_text_color" class="form-label">Header Text Color</label>
                                 <input type="color" class="form-control" id="header_text_color" name="header_text_color"  value="{{ old('header_text_color',$widgetDetail->header_text_color) }}">
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3" style="display: none;">
                                 <label for="header_hover_color" class="form-label">Header Hover Color</label>
                                 <input type="color" class="form-control" name="header_hover_color" id="header_hover_color" value="{{ old('header_hover_color',$widgetDetail->header_hover_color) }}">
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3" style="display: none;">
                                 <label for="content_background_color" class="form-label">Content Background Color</label>
                                 <input type="color" class="form-control" name="content_background_color" id="content_background_color" value="{{ old('content_background_color',$widgetDetail->content_background_color) }}">
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3" style="display: none;">
                                 <label for="content_text_color" class="form-label">Content Text Color</label>
                                 <input type="color" class="form-control" name="content_text_color" id="content_text_color" value="{{ old('content_text_color',$widgetDetail->content_text_color) }}">
                             </div>
 
-                            <div class="mb-3">
+                            <div class="mb-3" style="display: none;">
                                 <label for="content_hover_color" class="form-label">Content Hover Color</label>
                                 <input type="color" class="form-control" name="content_hover_color" id="content_hover_color" value="{{ old('content_hover_color',$widgetDetail->content_hover_color) }}">
                             </div>
