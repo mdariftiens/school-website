@@ -46,3 +46,8 @@
     <label class="form-label" for="mail_host">Mail_From Name</label>
     <input type="text" class="form-control" name="mail_from_name" value="{{ getThemeSettingValue('mail_from_name') }}">
 </div>
+
+<div class="mb-3">
+    <label class="form-label" for="mail_host">Mail Contact Form To Address</label>
+    <input type="text" class="form-control" name="mail_contact_to_address" value="{{ getThemeSettingValue('mail_contact_to_address') }}">
+</div>

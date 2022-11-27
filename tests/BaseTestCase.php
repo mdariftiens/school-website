@@ -7,8 +7,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 abstract class BaseTestCase extends TestCase
 {
-    use RefreshDatabase;
-    use DatabaseMigrations;
+//    use RefreshDatabase;
+//    use DatabaseMigrations;
 
     protected function setUp(): void
     {
