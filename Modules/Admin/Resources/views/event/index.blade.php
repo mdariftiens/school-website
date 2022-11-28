@@ -28,7 +28,7 @@
 
                     @include("admin::messages.message")
 
-                    <table class="table text-nowrap">
+                    <table class="table">
                         <thead>
                         <tr>
                             <th>Sl</th>
@@ -52,7 +52,7 @@
                                     <td>
                                         <?= ($value->is_published == '1') ? '<span>Published</span>' : '<span>Draft</span>'; ?>
                                     </td>
-                                    <td>
+                                    <td width=100px>
                                         <div class="d-inline-block">
                                             <a href="javascript:;" class="btn btn-sm btn-icon dropdown-toggle hide-arrow" data-bs-toggle="dropdown" aria-expanded="false">
                                                 <i class="bx bx-dots-vertical-rounded"></i></a>
