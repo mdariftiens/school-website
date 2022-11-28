@@ -58,6 +58,11 @@ class MenuSeeder extends Seeder
                 'link' => '/management-committees',
             ],
             [
+                'english_label' => 'Employees',
+                'bangla_label' => 'কর্মকর্তা-কর্মচারী ',
+                'link' => '/employees',
+            ],
+            [
                 'english_label' => 'Events',
                 'bangla_label' => 'ইভেন্টস',
                 'link' => '/events',
