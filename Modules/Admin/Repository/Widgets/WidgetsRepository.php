@@ -15,7 +15,7 @@ class WidgetsRepository
             'notice' => 'Notice',
             'event' => 'Event',
             'news' => 'News',
-            'visitor_counter' => 'Visitor Counter',
+//            'visitor_counter' => 'Visitor Counter',
             'custom' => 'Custom',
             'social' => 'Social',
             'achievement' => 'Achievement',
