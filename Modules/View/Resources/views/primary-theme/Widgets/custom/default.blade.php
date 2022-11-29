@@ -4,5 +4,5 @@
     {!! $widgetWithWidgetDetail->{getLanguage().'_title'} !!}
 </h4>
 @endif
-{!! getWidgetCustomFieldValue($widgetWithWidgetDetail->widgetFields,'{getLanguage().'_text_or_html'}') !!}
+{!! getWidgetCustomFieldValue($widgetWithWidgetDetail->widgetFields,getLanguage().'_text_or_html') !!}
 

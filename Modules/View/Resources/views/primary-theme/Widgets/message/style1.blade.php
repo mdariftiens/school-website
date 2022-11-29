@@ -7,11 +7,12 @@
 <!--Second style of message-->
 <div class="widget border border-[#00ADEE] mt-3">
 
-    <div
-        class="title text-titleColor flex justify-between shadow-[0px_2px_2px_2px_rgba(0,0,0,0.1)] items-center pl-2 pr-2 pt-1 pb-1">
-        <h3 class="text-[20px] font-semibold">{{ $widgetWithWidgetDetail->{getLanguage().'_title'} }}</h3>
-    </div>
-
+    @if($widgetWithWidgetDetail->header_show_hide == 1)
+        <div
+            class="title text-titleColor flex justify-between shadow-[0px_2px_2px_2px_rgba(0,0,0,0.1)] items-center pl-2 pr-2 pt-1 pb-1">
+            <h3 class="text-[20px] font-semibold">{{ $widgetWithWidgetDetail->{getLanguage().'_title'} }}</h3>
+        </div>
+    @endif
     <div class="body">
         @foreach($data as $item)
         <div class="list border border-[#ddd] pt-3 pb-3 font-lato">

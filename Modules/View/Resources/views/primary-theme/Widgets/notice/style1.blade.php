@@ -1,5 +1,6 @@
 <div class="widget font-lato">
 
+    @if($widgetWithWidgetDetail->header_show_hide == 1)
     <div
         class="text-titleColor flex justify-between shadow-[0px_2px_2px_2px_rgba(0,0,0,0.1)] items-center pl-2 pr-2 pt-2 pb-2 mb-5">
         <div class="title flex items-center pl-2 pr-2">
@@ -8,6 +9,8 @@
         </div>
         <a href="">View All</a>
     </div>
+    @endif
+
 
     <div class="notice_content_area">
         <div class="list border border-[#ddd] shadow-[0px_2px_2px_2px_rgba(0,0,0,0.1)] pt-2 pb-2">
