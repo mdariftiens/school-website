@@ -31,6 +31,7 @@ class Post extends Model
         'status',
         'type',
         'visibility',
+        'comment',
     ];
 
     public function scopeVisibility($q, $type = 'private')

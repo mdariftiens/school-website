@@ -18,6 +18,8 @@ class PostRequest extends FormRequest
             'status' => 'required',
             'type' => 'required',
             'visibility' => 'required', 
+            'comment' => 'required', 
+            'category' => 'required', 
         ];
     }
 

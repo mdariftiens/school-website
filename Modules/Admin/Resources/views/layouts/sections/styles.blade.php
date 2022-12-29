@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="{{ asset('css/backend-themes/primary/demo.css') }}" />
 
 <link rel="stylesheet" href="{{ asset('vendor/backend-themes/primary/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 <!-- Vendor Styles -->
 @yield('vendor-style')

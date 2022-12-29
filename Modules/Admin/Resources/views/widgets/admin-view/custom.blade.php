@@ -20,3 +20,10 @@
     </div>
 @endif
 
+@section('page-script')   
+<script>
+    CKEDITOR.replace( 'custom[bangla_text_or_html]',{height: 500} );
+    CKEDITOR.replace( 'custom[english_text_or_html]',{height: 500} );
+</script>
+@endsection
+

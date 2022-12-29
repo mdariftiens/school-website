@@ -22,24 +22,27 @@ class PostController extends Controller
     }
 
     public function create(){
-        return view('admin::blog.post.create');
+        $data['list'] = $this->postRepository->getCategory();
+        return view('admin::blog.post.create',$data);
     }
 
     public function store(PostRequest $request)
-    {        
-        $this->postRepository->postStore($request->validated());
+    {    
+          
+        $this->postRepository->postStore($request);
         return redirect()->route('blog.post.index')->with(['message'=>'Post created successfully.']);
     }
 
     public function edit($id)
     {
+        $data['categories'] = $this->postRepository->getCategory();
         $data['row'] = $this->postRepository->postEdit($id);
         return view('admin::blog.post.edit',$data);
     }
 
     public function update(PostRequest $request, $id)
     {
-        $this->postRepository->postUpdate($request->validated(), $id);
+        $this->postRepository->postUpdate($request, $id);
         return redirect()->route('blog.post.index')->with(['message'=>'Post update successfully.']);
     }
 

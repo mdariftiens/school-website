@@ -80,6 +80,30 @@
                             @endif
                         </div>
                         <div class="mb-3">
+                            <label class="form-label" for="comments">Comments</label>
+                            <select class="form-select" name="comment" >
+                                <option value="yes" selected>Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                            @if ($errors->has('visibility'))
+                            <span class="text-danger">{{ $errors->first('visibility') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="select2Multiple">Categories</label>
+                            <select class="select2 form-control" name="category[]" multiple="multiple"
+                              id="select2Multiple">
+                              @foreach($list as $value)              
+                              <option value="{{$value->id}}">{{$value->english_title}}</option>
+                              @endforeach
+                            </select>
+                            @if ($errors->has('category'))
+                            <span class="text-danger">{{ $errors->first('category') }}</span>
+                            @endif
+                        </div>
+
+                        <div class="mb-3">
                             <label class="form-label" for="basic-default-name">Bangla Description</label>
                             <textarea name="bangla_description"
                                 class="form-control">{{ old('bangla_description') }}</textarea>
@@ -102,9 +126,19 @@
         </div>
     </div>
     @endsection
-    @section('page-script')   
+    @section('page-script')
+     
     <script>
         CKEDITOR.replace( 'english_description',{height: 500} );
         CKEDITOR.replace( 'bangla_description',{height: 500} );
+   
+        $(document).ready(function() {            
+            $('.select2').select2({
+                placeholder: "Select Category",
+                allowClear: true
+            });
+
+        });
+
     </script>
     @endsection

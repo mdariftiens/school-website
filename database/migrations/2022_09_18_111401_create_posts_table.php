@@ -24,6 +24,7 @@ class CreatePostsTable extends Migration
             $table->enum('status',['draft','published']);
             $table->enum('type',['post','page']);
             $table->enum('visibility',['public','private']);
+            $table->enum('comment',['yes','no']);
             $table->timestamps();
             $table->softDeletes();
         });

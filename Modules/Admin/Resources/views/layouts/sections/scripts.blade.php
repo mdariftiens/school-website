@@ -5,6 +5,7 @@
 <script src="{{ asset('vendor/backend-themes/primary/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
 <script src="{{ asset('vendor/backend-themes/primary/js/menu.js') }}"></script>
 <script src="{{ asset('vendor/backend-themes/primary/libs/ckeditor/ckeditor.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 @yield('vendor-script')
 <!-- END: Page Vendor JS-->
 <!-- BEGIN: Theme JS-->
